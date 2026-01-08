@@ -155,7 +155,7 @@
 <body>
 
 <div class="login-box">
-
+  <h1>OlibaLife</h1>
   <h2>Acceso a tu guía gratuita</h2>
 
   <input type="email" id="email" placeholder="Correo electrónico">
@@ -195,8 +195,79 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 <script>
-const _0x41f3d6=_0x21fe;(function(_0x17926e,_0x131a5e){const _0x51cf16=_0x21fe,_0x574f8d=_0x17926e();while(!![]){try{const _0x526f97=parseInt(_0x51cf16(0x7a))/0x1+-parseInt(_0x51cf16(0x71))/0x2+parseInt(_0x51cf16(0x80))/0x3*(parseInt(_0x51cf16(0x7e))/0x4)+-parseInt(_0x51cf16(0x6f))/0x5+-parseInt(_0x51cf16(0x8d))/0x6*(-parseInt(_0x51cf16(0x7f))/0x7)+-parseInt(_0x51cf16(0x74))/0x8*(parseInt(_0x51cf16(0x8a))/0x9)+parseInt(_0x51cf16(0x73))/0xa;if(_0x526f97===_0x131a5e)break;else _0x574f8d['push'](_0x574f8d['shift']());}catch(_0x460d28){_0x574f8d['push'](_0x574f8d['shift']());}}}(_0x580b,0x4906a));const PRODUCTS_URL=_0x41f3d6(0x65),firebaseConfig={'apiKey':_0x41f3d6(0x6b),'authDomain':_0x41f3d6(0x93),'projectId':_0x41f3d6(0x6c),'appId':_0x41f3d6(0x7b)};function _0x580b(){const _0x36ff3b=['createUserWithEmailAndPassword','AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo','olibalife-d8f41','❌\x20Correo\x20electrónico\x20válido','rulePassword','692725JtgdZl','toggle','1072660thVbPb','consent','3999950UsjWFN','110680yRAFtb','guideModal','input','addEventListener','downloadGuideBtn','className','265847vepzQp','1:901845518250:web:83b30373e275d827238dd3','flex','initializeApp','1794872ImYNbh','1299634COlIuE','3omGpQG','errorMsg','classList','❌\x20Consentimiento\x20aceptado','download','❌\x20Mín.\x208\x20caracteres,\x20mayúscula,\x20número\x20y\x20símbolo','Este\x20correo\x20ya\x20está\x20registrado.','getElementById','change','closeModal','333lyXKbj','✅\x20Contraseña\x20segura','checked','12YdvoEv','click','createElement','rule\x20ok','ruta/a/tu/guia.pdf','value','olibalife-d8f41.firebaseapp.com','textContent','https://test.olibalife.site','✅\x20Correo\x20electrónico\x20válido','https://universooliba-bot.github.io/sources/olibalifemenudrenante.pdf','rule','disabled'];_0x580b=function(){return _0x36ff3b;};return _0x580b();}firebase[_0x41f3d6(0x7d)](firebaseConfig);function _0x21fe(_0x33a101,_0x161d22){_0x33a101=_0x33a101-0x64;const _0x580bb4=_0x580b();let _0x21fed0=_0x580bb4[_0x33a101];return _0x21fed0;}const auth=firebase['auth'](),emailInput=document[_0x41f3d6(0x87)]('email'),passwordInput=document[_0x41f3d6(0x87)]('password'),consentCheckbox=document[_0x41f3d6(0x87)](_0x41f3d6(0x72)),loginBtn=document[_0x41f3d6(0x87)]('login'),ruleEmail=document[_0x41f3d6(0x87)]('ruleEmail'),rulePassword=document['getElementById'](_0x41f3d6(0x6e)),ruleConsent=document[_0x41f3d6(0x87)]('ruleConsent');function validate(){const _0x437600=_0x41f3d6,_0x475bb6=/^[^\s@]+@[^\s@]+\.[^\s@]+$/['test'](emailInput[_0x437600(0x92)]),_0x28b339=/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/['test'](passwordInput[_0x437600(0x92)]),_0x4d2136=consentCheckbox[_0x437600(0x8c)];ruleEmail[_0x437600(0x79)]=_0x475bb6?_0x437600(0x90):_0x437600(0x68),ruleEmail['textContent']=_0x475bb6?_0x437600(0x66):_0x437600(0x6d),rulePassword[_0x437600(0x79)]=_0x28b339?_0x437600(0x90):_0x437600(0x68),rulePassword['textContent']=_0x28b339?_0x437600(0x8b):_0x437600(0x85),ruleConsent[_0x437600(0x79)]=_0x4d2136?'rule\x20ok':_0x437600(0x68),ruleConsent['textContent']=_0x4d2136?'✅\x20Consentimiento\x20aceptado':_0x437600(0x83),loginBtn[_0x437600(0x69)]=!(_0x475bb6&&_0x28b339&&_0x4d2136),loginBtn[_0x437600(0x82)][_0x437600(0x70)]('enabled',!loginBtn[_0x437600(0x69)]);}emailInput[_0x41f3d6(0x77)](_0x41f3d6(0x76),validate),passwordInput[_0x41f3d6(0x77)](_0x41f3d6(0x76),validate),consentCheckbox[_0x41f3d6(0x77)](_0x41f3d6(0x88),validate),loginBtn[_0x41f3d6(0x77)](_0x41f3d6(0x8e),async()=>{const _0x425148=_0x41f3d6;try{await auth[_0x425148(0x6a)](emailInput['value'],passwordInput[_0x425148(0x92)]),document[_0x425148(0x87)](_0x425148(0x75))['style']['display']=_0x425148(0x7c);}catch{document[_0x425148(0x87)](_0x425148(0x81))[_0x425148(0x64)]=_0x425148(0x86);}});function redirectToProducts(){window['location']['href']=PRODUCTS_URL;}document['getElementById'](_0x41f3d6(0x78))[_0x41f3d6(0x77)](_0x41f3d6(0x8e),()=>{const _0xb5c792=_0x41f3d6,_0x199f2c=document[_0xb5c792(0x8f)]('a');_0x199f2c['href']=_0xb5c792(0x91),_0x199f2c[_0xb5c792(0x84)]=_0xb5c792(0x67),_0x199f2c[_0xb5c792(0x8e)](),setTimeout(redirectToProducts,0x5dc);}),document['getElementById'](_0x41f3d6(0x89))[_0x41f3d6(0x77)]('click',redirectToProducts);
+  const PRODUCTS_URL = "https://test.olibalife.site"; 
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo",
+    authDomain: "olibalife-d8f41.firebaseapp.com",
+    projectId: "olibalife-d8f41",
+    appId: "1:901845518250:web:83b30373e275d827238dd3"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const consentCheckbox = document.getElementById("consent");
+  const loginBtn = document.getElementById("login");
+
+  const ruleEmail = document.getElementById("ruleEmail");
+  const rulePassword = document.getElementById("rulePassword");
+  const ruleConsent = document.getElementById("ruleConsent");
+
+  function validate() {
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+    const passwordValid = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(passwordInput.value);
+    const consentValid = consentCheckbox.checked;
+
+    ruleEmail.className = emailValid ? "rule ok" : "rule";
+    ruleEmail.textContent = emailValid ? "✅ Correo electrónico válido" : "❌ Correo electrónico válido";
+
+    rulePassword.className = passwordValid ? "rule ok" : "rule";
+    rulePassword.textContent = passwordValid
+      ? "✅ Contraseña segura"
+      : "❌ Mín. 8 caracteres, mayúscula, número y símbolo";
+
+    ruleConsent.className = consentValid ? "rule ok" : "rule";
+    ruleConsent.textContent = consentValid ? "✅ Consentimiento aceptado" : "❌ Consentimiento aceptado";
+
+    loginBtn.disabled = !(emailValid && passwordValid && consentValid);
+    loginBtn.classList.toggle("enabled", !loginBtn.disabled);
+  }
+
+  emailInput.addEventListener("input", validate);
+  passwordInput.addEventListener("input", validate);
+  consentCheckbox.addEventListener("change", validate);
+
+  loginBtn.addEventListener("click", async () => {
+    try {
+      await auth.createUserWithEmailAndPassword(emailInput.value, passwordInput.value);
+      document.getElementById("guideModal").style.display = "flex";
+    } catch {
+      document.getElementById("errorMsg").textContent = "usuario ya registrado o error en registro";
+    }
+  });
+
+  function redirectToProducts() {
+    window.location.href = PRODUCTS_URL;
+  }
+
+  document.getElementById("downloadGuideBtn").addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.href = "https://universooliba-bot.github.io/sources/olibalifemenudrenante.pdf"; 
+    link.download = "https://universooliba-bot.github.io/sources/olibalifemenudrenante.pdf";
+    link.click();
+
+    setTimeout(redirectToProducts, 1500);
+  });
+
+  document.getElementById("closeModal").addEventListener("click", redirectToProducts);
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
