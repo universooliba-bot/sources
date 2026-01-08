@@ -3,273 +3,1079 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OlibaLife Registro</title>
+<title>Test de Hábitos Olibalife</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-  body {
-    font-family: "Inter", sans-serif;
-    background: #e9e9e8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+<style>@import url('https://fonts.googleapis.com/css2?family=Intel:wght@400;600&display=swap');
+
+body {
+  font-family: 'Intel', sans-serif;
+  display: flex;
+  height: 100VH;
+  background: linear-gradient(135deg, #d8d8d8, #ffffff); 
+  overflow-y: auto;     
+  overflow-x: hidden;    
+}
+
+.floating-header {
+  position: fixed;
+  top: 10;
+  left: 0;
+  width: 100%;
+  background:transparent;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 10;
+  animation: fadeDown 0.6s ease-out;
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-
-  .login-box {
-    background: #d0d0d0a9;
-    padding: 30px 25px;
-    border-radius: 12px;
-    width: 360px;
-    box-sizing: border-box;
-  }
-
-  h1, h2 {
-    text-align: center;
-    color: #005913;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 5px;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  input {
-    width: 100%;
-    padding: 12px 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-  }
-
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #004512;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  button.enabled {
-    cursor: pointer;
+  to {
+    transform: translateY(0);
     opacity: 1;
   }
+}
 
-  button.enabled:hover {
-    background-color: #00aa00;
+.dock-menu {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 22px;
+ backdrop-filter: blur(15px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dock-item {
+  font-size: 1.2rem;
+  color: #00511f;
+  text-decoration: none;
+  transition: transform 0.25s ease, filter 0.25s ease, color 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-item:hover {
+  transform: scale(1.35);
+  color: #0f9b4d;
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+}
+
+.dock-menu:hover .dock-item {
+  transition: transform 0.2s ease;
+}
+
+
+.sidebar { 
+  width: 100%; 
+  backdrop-filter: blur(12px); 
+  display: flex; 
+  flex-direction: column; 
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.main { 
+    background: rgba(255, 255, 255, 0); 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: center; 
+  overflow-y: auto; 
+ padding-top: 0px;
+  
+}
+.info { 
+  margin: 10px;
+  width: 480px; 
+  height: 100%;
+  backdrop-filter: blur(12px); 
+  background: rgba(246, 246, 246, 0.029); 
+   padding: 10px;
+  border-right: 1px solid rgba(255,255,255,0.2); 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  overflow-y: auto;
+    overflow-x: hidden;      /* ← Mantiene el diseño limpio */
+    z-index: 9000;
+}
+.results { 
+ margin:0px;
+  width: 40%; 
+  backdrop-filter: blur(12px); 
+ background: rgb(255, 0, 0); 
+  padding: 40px; 
+  border-left: 1px solid rgba(255,255,255,0.2); 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  overflow-y: auto;
+   border-radius: 20px; 
+     overflow-x: hidden;      /* ← Mantiene el diseño limpio */
+}
+
+.form-card { 
+  backdrop-filter: blur(20px); 
+ background: rgba(246, 246, 246, 0.029); 
+  padding: 55px; 
+  border-radius: 20px; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+  width: 300%; 
+  max-width: 300px; 
+  margin-bottom: 0px;
+  color: black;
+}
+h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
+.avatar-img {
+  width: 150px;
+  height: 100%;
+  border-radius: 20px;
+  margin-top: 0px;
+  display: block;
+    color: black;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+   width: 200px; 
+    color: rgb(0, 0, 0);
+     font-size: 12px; /* 👈 tamaño del texto */
+}
+
+#quizProgress {
+  height: 0px;
+  width: 100%;
+  background: rgba(237, 237, 237, 0);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#quizProgress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(135deg,#001f12,#00a368);
+  border-radius: 16px;
+  transition: width 0.5s ease;
+}
+
+.question-card {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.661);
+  border-radius: 16px;
+  padding: 10px 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.question-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.question-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #0c2400;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.option:hover {
+  background: rgba(0,211,123,0.2);
+  transform: translateX(3px);
+}
+
+.option input {
+  margin-right: 8px;
+  accent-color: #003f25;
+}
+
+.progress-circle { 
+  top: 80px; 
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%; 
+  background: conic-gradient(#020600 0deg, #ddd 0deg); 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 10px 0; 
+  transition: background 1s ease-out; 
+  box-shadow: 0 0 15px rgba(154, 154, 154, 0.4);
+}
+.progress-circle span { font-weight: 400; font-size: 1.1rem; color:#000000; text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
+.category-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+.category-card {
+  min-width: 180px;
+  max-width: 220px;
+  background: rgba(0, 145, 0, 0.495);
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.category-card.show { opacity:1; transform: translateY(0); animation: bounceIn 0.4s; }
+@keyframes bounceIn { 0% { transform: translateY(15px); } 50% { transform: translateY(-2px);} 100% { transform: translateY(0);} }
+
+.category-name { font-weight: 400; margin-bottom: 4px; font-size: 0.9rem; color:#000000; }
+.category-bar { width: 100%; height: 6px; border-radius: 10px; background: rgba(255,255,255,0.2); overflow: hidden; margin-bottom: 4px; }
+.category-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff0000, #00ff33); border-radius: 10px; transition: width 1s ease-out, box-shadow 0.5s; }
+
+/* Consejos */
+.category-advice { width: 100%; box-sizing: border-box; }
+.category-advice li { list-style-type: disc; margin-left: 12px; font-size: 0.75rem; margin-bottom: 3px; padding: 3px 5px; border-radius: 6px; background: rgba(255,255,255,0.3); transition: transform 0.2s, box-shadow 0.3s; }
+.category-advice li:hover { transform: translateX(2px); box-shadow: 0 0 5px rgba(13,110,253,0.6); }
+
+
+.cta { 
+  margin-top: 15px; 
+  padding: 8px 15px; 
+  background: linear-gradient(135deg,#ffffff,#A1E8AF); 
+  color: rgb(0, 0, 0); 
+  border: none; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-family: 'Intel', sans-serif; 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.cta:hover { transform: scale(1.05); box-shadow: 0 0 6px rgba(13,110,253,0.6); }
+
+
+.info h3, .results h3 { margin-bottom: 10px; font-size: 1.2rem; color:#0c2400; }
+.info p, .results p { line-height: 1.4; margin-bottom: 12px; font-size: 0.85rem; color: #444; }
+.subscribe-box { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.subscribe-box input { padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; outline: none; }
+
+
+#threeCanvas-container {
+  position: absolute;      
+  top: 75%;                
+  left: 50%;               
+  transform: translate(-50%, -50%); 
+  width: 100%;         
+    height: 700px;       
+  max-width: auto;         
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   background: transparent;
+}
+
+#threeCanvas {
+  width: 100%;
+  height: 700px;           
+  border-radius: 28px;
+ background: transparent; 
+  scale: 1;             
+}
+
+
+.progress-circle {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: conic-gradient(#00690e 0deg, #ddd 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  box-shadow: 0 0 15px rgba(154, 154, 154, 0.4);
+  transition: background 1s ease-out, transform 0.3s;
+}
+
+.progress-circle span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.category-cards {
+  margin-top:0px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+    background: rgba(255, 255, 255, 0);
+  align-items: stretch;
+  scale:1;
+}
+
+
+.results-container canvas {
+  width: 100%;
+  height: 100px;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0);
+  flex-shrink: 0;
+}
+
+
+.results-container h3 {
+  margin-top: 60px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #0c2400;
+  text-align: center;
+}
+
+.results2 { 
+ top: 70px;
+  width: 20%; 
+  min-width: 290px;       
+  height: 100%;         
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  border-radius: 0; 
+ background: rgba(246, 246, 246, 0.029); 
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+    overflow-x: hidden;      /* ← Mantiene el diseño limpio */
+}
+
+
+
+.results p,.results h3{ top: 40px; color: rgb(255, 255, 255);}
+.results .subscribe-box,
+.results img {top: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 1200px) {
+  .results {
+    width: 25%;
   }
-
-  #errorMsg {
-    margin-top: 8px;
-    font-size: 0.9rem;
-    text-align: center;
-    min-height: 20px;
-  }
-
-  .rules {
-    font-size: 0.8rem;
-    margin: 10px 0;
-  }
-
-  .rule {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #555;
-  }
-
-  .rule.ok {
-    color: #008000;
-  }
-
-  .privacy {
-    font-size: 0.8rem;
-    color: #333;
-    margin: 12px 0;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .privacy input {
-    margin-top: 3px;
-  }
-
-  .legal-text {
-    font-size: 0.7rem;
-    color: #555;
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  /* ===== MODAL ===== */
-
-  .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
+}
+@media (max-width: 900px) {
+  .results {
     display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
   }
+}
 
-  .modal-content {
-    background: #fff;
-    padding: 25px 22px;
-    border-radius: 14px;
-    width: 90%;
-    max-width: 360px;
-    text-align: center;
-    position: relative;
-  }
 
-  .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: #999;
-  }
+.results p strong {
+  color: #000000;
+  font-weight: 800;
+}
 
-  .close-modal:hover {
-    color: #000;
-  }
+
+/* Contenedor principal */
+.subscribe-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.subscribe-box label {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #005913;
+}
+
+/* Botón CTA */
+.cta {
+  padding: 10px 16px;
+  background-color: #004512;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cta:hover {
+  background-color: #00aa00;
+}
+
+/* Mini modal */
+.mini-modal {
+  position: fixed;
+  inset: 10;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 10px;
+}
+.mini-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  width: 95%;
+  max-width: 490px;
+ margin-top:10px;
+  min-height: 490px; /* suficiente para el registro completo */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  overflow-y: auto; /* scroll si el contenido supera altura */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.mini-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #555;
+}
+.mini-modal-close:hover {
+  color: #000;
+}
+
+/* Iframe dentro del modal */
+.mini-login-iframe {
+  width: 100%;
+  min-height: 450px; /* ajustable según tu registro */
+  border: none;
+  border-radius: 12px;
+}
+
 </style>
 </head>
-
 <body>
 
-<div class="login-box">
-  <h1>OlibaLife</h1>
-  <h2>Acceso a tu guía gratuita</h2>
+<header class="floating-header">
+  <nav class="dock-menu">
+    <a href="https://test.olibalife.site/" 
+       class="dock-item" 
+       title="Análisis genético" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <i class="fa-solid fa-dna"></i>
+    </a>
 
-  <input type="email" id="email" placeholder="Correo electrónico">
-  <input type="password" id="password" placeholder="Contraseña segura">
+    <a href="https://test.olibalife.site/login.html" 
+       class="dock-item" 
+       title="Tu bienestar" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <i class="fa-solid fa-user"></i>
+    </a>
 
-  <div class="rules">
-    <div id="ruleEmail" class="rule">❌ Correo electrónico válido</div>
-    <div id="rulePassword" class="rule">❌ Contraseña segura</div>
-    <div id="ruleConsent" class="rule">❌ Consentimiento aceptado</div>
-  </div>
+  </nav>
+</header>
 
-  <label class="privacy">
-    <input type="checkbox" id="consent">
-    Acepto recibir comunicaciones relacionadas con OlibaLife.
-  </label>
 
-  <div class="legal-text">
-    Tus datos se usarán únicamente para ofrecerte contenidos y comunicaciones de OlibaLife.
-    No compartimos ni vendemos tus datos a terceros.
-  </div>
 
-  <button id="login" disabled>Crear cuenta</button>
-  <p id="errorMsg"></p>
+<div class="info">
+ 
+  <h2>Test de Hábitos</h2>
+
+  <form id="quizForm" class="quiz-form">
+
+    <div class="question-card">
+      <div class="question-title">1. Nivel de energía diario</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q1" value="20"> Alta</label>
+        <label class="option"><input type="radio" name="q1" value="15"> Moderada</label>
+        <label class="option"><input type="radio" name="q1" value="10"> Baja</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">2. Horas de sueño promedio</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q2" value="20"> 7-8 h</label>
+        <label class="option"><input type="radio" name="q2" value="15"> 5-6 h</label>
+        <label class="option"><input type="radio" name="q2" value="10"> Menos de 5 h</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">3. Frecuencia de ejercicio</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q3" value="20"> Diario</label>
+        <label class="option"><input type="radio" name="q3" value="15"> 2-3 veces/semana</label>
+        <label class="option"><input type="radio" name="q3" value="10"> Rara vez</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">4. Consumo de frutas y verduras</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q4" value="20"> Diario</label>
+        <label class="option"><input type="radio" name="q4" value="15"> 3-4 veces/semana</label>
+        <label class="option"><input type="radio" name="q4" value="10"> Menos de 3 veces/semana</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">5. Hidratación diaria</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q5" value="20"> 2 litros o más</label>
+        <label class="option"><input type="radio" name="q5" value="15"> 1-2 litros</label>
+        <label class="option"><input type="radio" name="q5" value="10"> Menos de 1 litro</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">6. Nivel de estrés</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q6" value="10"> Bajo</label>
+        <label class="option"><input type="radio" name="q6" value="15"> Moderado</label>
+        <label class="option"><input type="radio" name="q6" value="20"> Alto</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">7. Tiempo frente a pantallas</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q7" value="20"> Menos de 2 h</label>
+        <label class="option"><input type="radio" name="q7" value="15"> 2-5 h</label>
+        <label class="option"><input type="radio" name="q7" value="10"> Más de 5 h</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">8. Consumo de azúcar</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q8" value="20"> Bajo</label>
+        <label class="option"><input type="radio" name="q8" value="15"> Moderado</label>
+        <label class="option"><input type="radio" name="q8" value="10"> Alto</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">9. Consumo de alcohol</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q9" value="20"> Ninguno</label>
+        <label class="option"><input type="radio" name="q9" value="15"> Ocasional</label>
+        <label class="option"><input type="radio" name="q9" value="10"> Frecuente</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">10. Calidad de relaciones sociales</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q10" value="20"> Muy buena</label>
+        <label class="option"><input type="radio" name="q10" value="15"> Regular</label>
+        <label class="option"><input type="radio" name="q10" value="10"> Mala</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">11. Nivel de atención y concentración</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q11" value="20"> Alta</label>
+        <label class="option"><input type="radio" name="q11" value="15"> Moderada</label>
+        <label class="option"><input type="radio" name="q11" value="10"> Baja</label>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">12. Estado de ánimo general</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q12" value="20"> Muy bueno</label>
+        <label class="option"><input type="radio" name="q12" value="15"> Regular</label>
+        <label class="option"><input class="option" type="radio" name="q12" value="10"> Bajo</label>
+      </div>
+    </div>
+
+    <button type="button" class="cta" onclick="updateScore()">Ver Resultado</button>
+    <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
+  </form>
+  
 </div>
 
-<!-- MODAL -->
-<div id="guideModal" class="modal">
-  <div class="modal-content">
-    <div class="close-modal" id="closeModal">✕</div>
-    <h2>Tu guía de alimentación está lista</h2>
-    <p>Ya puedes descargar tu menú drenante gratis.</p>
-    <button id="downloadGuideBtn" class="enabled">Descargar guía</button>
+<div class="main">
+  <div id="hudContainer" style="position: relative; width: 100%; height: 900px;">    
+    <div id="resultsHUD" style="
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      max-width: 1250px;
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0);
+      border-radius: 20px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      pointer-events: none; /* evita bloquear interacciones con canvas */
+      scale:1;
+    ">  
+    
+      <h1>Tus resultados</h1>
+            <div class="progress-circle" id="progressCircleHUD">
+        <span>0%</span>
+  
+      </div>  
+        <div id="healthMessageHUD" style="margin-top:20px;font-weight:800;
+        font-size: 1.7rem; color:#000000;text-align:center;"></div>
+ <div id="threeCanvas-container">
+
+  <canvas id="threeCanvas">    </div>  </canvas>     
+
+</div>
+          
+    </div>     
   </div>
+    
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<div class="results2">
+           <div class="category-cards" id="categoriesContainerHUD"></div>  
+   <h3>¿Sientes que necesitas un estudio avanzado?</h3>
+  <p>
+   Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
+
+  </p>
+  <p>
+    <strong>¿Qué analiza?</strong> Carencias de vitaminas, minerales y antioxidantes
+Estrés celular, inflamación y envejecimiento interno
+Sensibilidades alimentarias
+Estado de tu microbiota y digestión
+Tóxinas ambientales: metales pesados, químicos y radiaciones
+Interferencias EMF/ELF: wifi, móviles y aparatos electrónicos
+Cómo esto implica en tu energía, metabolismo, descanso y hormonas
+
+    <strong>Muestra:</strong> Cabello (estudio no invasivo)
+    <strong>Tiempo de resultados:</strong> Máximo 7 días
+    <strong>¿Para qué sirve?:</strong> Para recibir un informe personalizado y saber qué hábitos, nutrientes o cambios necesitas aplicar para mejorar tu salud desde el origen.
+  </p>
+
+<div class="subscribe-box">
+  <label><strong>Regístrate y obtén una guía de menú drenante gratis.</strong></label>
+
+  <!-- Botón para abrir mini-login -->
+  <button id="openMiniLogin" class="cta">Abrir registro</button>
+
+  <!-- Mini Modal -->
+  <div id="miniLoginModal" class="mini-modal">
+    <div class="mini-modal-content">
+      <button class="mini-modal-close" id="closeMiniLogin">✕</button>
+      <iframe 
+        src="https://test.olibalife.site/login.html" 
+        class="mini-login-iframe" 
+        frameborder="0" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <img 
+    src="https://universooliba-bot.github.io/sources/anafrontalsinfondo.png" 
+    alt="Estudio epigenético" 
+    style="width: 320px; border-radius:22px; margin:10px 0 0 0;">
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/exporters/GLTFExporter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9G2DWC51B"></script>
+
 
 <script>
-  const PRODUCTS_URL = "https://test.olibalife.site"; 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo",
-    authDomain: "olibalife-d8f41.firebaseapp.com",
-    projectId: "olibalife-d8f41",
-    appId: "1:901845518250:web:83b30373e275d827238dd3"
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+
+gtag('js', new Date());
+
+const GA_DEFAULT = 'G-W9G2DWC51B';
+if (GA_DEFAULT) {
+  gtag('config', GA_DEFAULT, {
+    anonymize_ip: true
+  });
+}
+
+const sessionId =
+  sessionStorage.getItem('vhSessionId') || crypto.randomUUID();
+sessionStorage.setItem('vhSessionId', sessionId);
+
+
+window.trackEvent = function(eventName, payload = {}) {
+  if (!eventName) return;
+
+  const eventData = {
+    session_id: sessionId,
+    timestamp: Date.now(),
+    ...payload
   };
 
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+  console.log('[TRACK]', eventName, eventData);
 
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
-  const consentCheckbox = document.getElementById("consent");
-  const loginBtn = document.getElementById("login");
-
-  const ruleEmail = document.getElementById("ruleEmail");
-  const rulePassword = document.getElementById("rulePassword");
-  const ruleConsent = document.getElementById("ruleConsent");
-
-  function validate() {
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
-    const passwordValid = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(passwordInput.value);
-    const consentValid = consentCheckbox.checked;
-
-    ruleEmail.className = emailValid ? "rule ok" : "rule";
-    ruleEmail.textContent = emailValid ? "✅ Correo electrónico válido" : "❌ Correo electrónico válido";
-
-    rulePassword.className = passwordValid ? "rule ok" : "rule";
-    rulePassword.textContent = passwordValid
-      ? "✅ Contraseña segura"
-      : "❌ Mín. 8 caracteres, mayúscula, número y símbolo";
-
-    ruleConsent.className = consentValid ? "rule ok" : "rule";
-    ruleConsent.textContent = consentValid ? "✅ Consentimiento aceptado" : "❌ Consentimiento aceptado";
-
-    loginBtn.disabled = !(emailValid && passwordValid && consentValid);
-    loginBtn.classList.toggle("enabled", !loginBtn.disabled);
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, eventData);
   }
+};
 
-  emailInput.addEventListener("input", validate);
-  passwordInput.addEventListener("input", validate);
-  consentCheckbox.addEventListener("change", validate);
 
-  loginBtn.addEventListener("click", async () => {
-    try {
-      await auth.createUserWithEmailAndPassword(emailInput.value, passwordInput.value);
-      document.getElementById("guideModal").style.display = "flex";
-    } catch {
-      document.getElementById("errorMsg").textContent = "Comletado";
-    }
+let baseModelURL = 'https://viewer.3dtwins.tech/adnOlivalife.glb';
+let gltfScene = null;
+let renderer, scene, camera;
+
+let latestScore = 0;
+let latestCategories = [];
+let latestTips = {}; 
+
+
+function initThree() {
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(65, 1, 0.1, 1000);
+  camera.position.set(0, 0, 6);
+
+  renderer = new THREE.WebGLRenderer({ alpha: true, canvas: document.getElementById('threeCanvas'), antialias:true });
+  renderer.setSize(document.getElementById('threeCanvas').clientWidth, document.getElementById('threeCanvas').clientHeight);
+
+  const light = new THREE.DirectionalLight(0xffffff, 1.2);
+  light.position.set(1, 6, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+}
+
+
+async function loadBaseModel() {
+  return new Promise((resolve, reject) => {
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      baseModelURL,
+      (gltf) => {
+        gltfScene = gltf.scene;
+        gltfScene.scale.set(8.5, 8.5, 8.5);
+        gltfScene.position.set(0, -4, -2);
+        scene.add(gltfScene);
+        animate();    
+        trackEvent('model_loaded', { model_url: baseModelURL });
+        resolve(gltfScene);
+      },
+      undefined,
+      (err) => {
+        trackEvent('model_load_error', { model_url: baseModelURL, error: err.message || err });
+        reject(err);
+      }
+    );
+  });
+}
+
+
+function animate() {
+  requestAnimationFrame(animate);
+  if(gltfScene) gltfScene.rotation.y += 0.001; 
+  renderer.render(scene, camera);
+}
+
+function getTips(category, score) {
+  const tipsDB = {
+    'Nutrición': [
+      ["Aumenta frutas y verduras diarias.", "Bebe al menos 2 litros de agua.", "Reduce azúcares refinados."],
+      ["Incluye proteínas magras en cada comida.", "Varía tu dieta semanalmente.", "Controla el tamaño de las porciones."],
+      ["Mantén un registro de tu alimentación.", "Experimenta con superalimentos.", "Optimiza tus horarios de comida."]
+    ],
+    'Ejercicio': [
+      ["Camina 30 min diarios.", "Evita periodos prolongados sentado.", "Prueba ejercicios de fuerza simples."],
+      ["Añade 2–3 sesiones de cardio por semana.", "Incorpora entrenamiento de fuerza.", "Incluye estiramientos al final de cada sesión."],
+      ["Varía tus rutinas semanalmente.", "Prueba entrenamientos de alta intensidad.", "Mide tus progresos con apps o dispositivos."]
+    ],
+    'Sueño': [
+      ["Intenta dormir 7–8 horas.", "Evita pantallas 1h antes de dormir.", "Mantén horarios regulares."],
+      ["Crea una rutina de relajación nocturna.", "Controla la temperatura de tu habitación.", "Evita cafeína por la tarde."],
+      ["Usa técnicas de respiración profunda.", "Evalúa tu colchón y almohadas.", "Mantén un diario de sueño para mejorar hábitos."]
+    ],
+    'Estrés': [
+      ["Respira profundamente varias veces al día.", "Toma pequeños descansos durante el trabajo.", "Haz algo que disfrutes cada día."],
+      ["Practica meditación o mindfulness.", "Realiza actividad física regular.", "Establece límites claros entre trabajo y vida personal."],
+      ["Realiza ejercicios de visualización positiva.", "Aprende técnicas de manejo del tiempo.", "Busca apoyo social o profesional cuando lo necesites."]
+    ]
+  };
+
+  if(score < 40) return tipsDB[category][0];
+  else if(score < 70) return tipsDB[category][1];
+  else return tipsDB[category][2];
+}
+
+function updateScore() {
+  const form = document.getElementById('quizForm');
+  const formData = new FormData(form);
+  let totalScore = 0;
+  let answered = 0;
+
+  const categories = [
+    { name: 'Nutrición', questions: ['q4', 'q5'], score: 0, max: 20*2 },
+    { name: 'Ejercicio', questions: ['q3'], score: 0, max: 20 },
+    { name: 'Sueño', questions: ['q2', 'q1'], score: 0, max: 20*2 },
+    { name: 'Estrés', questions: ['q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'], score: 0, max: 20*7 }
+  ];
+
+  formData.forEach((value, key) => {
+    const val = parseInt(value);
+    totalScore += val;
+    answered++;
+
+    categories.forEach(cat => {
+      if (cat.questions.includes(key)) cat.score += val;
+    });
   });
 
-  function redirectToProducts() {
-    window.location.href = PRODUCTS_URL;
+  if (answered === 0) return alert("Por favor, responde al menos una pregunta.");
+
+  latestScore = totalScore;
+  latestCategories = categories.map(cat => ({ name: cat.name, score: Math.round(cat.score / cat.max * 100) }));
+
+  const minScore = 120;
+  const maxScore = 240;
+  const percent = Math.max(10, Math.round(((totalScore - minScore) / (maxScore - minScore)) * 100));
+
+  const progressCircle = document.getElementById('progressCircleHUD');
+  const angle = percent * 3.6;
+  progressCircle.style.background = `conic-gradient(#00d37b 0deg, #00d37g ${angle}deg, #ddd ${angle}deg)`;
+  progressCircle.querySelector('span').innerText = percent + '%';
+
+  let message = "";
+  if (percent < 40) message = "⚠️ Tus hábitos de salud necesitan mejorar. Te recomendamos tomar acción ¡YA!.";
+  else if (percent < 70) message = "🟠 Estás en un punto intermedio, puedes mejorar algunos hábitos. ";
+  else message = "🟢 Excelente, tus hábitos son muy saludables.";
+  document.getElementById('healthMessageHUD').textContent = message;
+
+  latestTips = {};
+  const container = document.getElementById('categoriesContainerHUD');
+  container.innerHTML = '';
+
+  latestCategories.forEach(cat => {
+    const tips = getTips(cat.name, cat.score);
+    latestTips[cat.name] = tips;
+
+    const card = document.createElement('div');
+    card.className = 'category-card show';
+    card.innerHTML = `<div class="category-name">${cat.name}</div>
+                      <div class="category-bar"><div class="category-bar-fill" style="width:${cat.score}%"></div></div>
+                      <ul class="category-tips">
+                        ${tips.map(t => `<li>${t}</li>`).join('')}
+                      </ul>`;
+    container.appendChild(card);
+  });
+
+  if (gltfScene) {
+    gltfScene.traverse(child => {
+      if (child.isMesh) {
+        let color;
+        if (percent < 40) color = new THREE.Color(0x000000);
+        else if (percent < 70) color = new THREE.Color(0xFF6105);
+        else color = new THREE.Color(0x00F004);
+        child.material.color = color;
+        child.material.needsUpdate = true;
+      }
+    });
+
+    gltfScene.userData = { totalScore, categories: latestCategories, percent, tips: latestTips };
   }
 
-  document.getElementById("downloadGuideBtn").addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "https://universooliba-bot.github.io/sources/olibalifemenudrenante.pdf"; 
-    link.download = "https://universooliba-bot.github.io/sources/olibalifemenudrenante.pdf";
+  // ===============================
+  // TRACKING: Quiz enviado / puntuación calculada
+  // ===============================
+  trackEvent('quiz_submitted', {
+    totalScore: latestScore,
+    categories: latestCategories.map(cat => ({ name: cat.name, score: cat.score })),
+    percent: percent
+  });
+}
+
+
+async function downloadGLB() {
+  if (!gltfScene) await loadBaseModel();
+  const exporter = new THREE.GLTFExporter();
+  exporter.parse(gltfScene, (result) => {
+    const blob = result instanceof ArrayBuffer 
+      ? new Blob([result], {type:'application/octet-stream'}) 
+      : new Blob([JSON.stringify(result, null, 2)], {type:'application/json'});
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'resultado_habitos.glb';
     link.click();
+  }, { binary: true });
+}
 
-    setTimeout(redirectToProducts, 1500);
+function downloadPDF() {
+  trackEvent('download_pdf_clicked', { totalScore: latestScore });
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({
+    orientation: "portrait",
+    unit: "pt",
+    format: "a4"
   });
 
-  document.getElementById("closeModal").addEventListener("click", redirectToProducts);
+  const margin = 40;
+  let y = 100; // margen inicial para no chocar con banner
+
+  // ===== CABECERA SUPERIOR =====
+  doc.setFillColor(0, 100, 0);
+  doc.rect(0, 0, 595, 80, 'F');
+  doc.setFontSize(22);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont("helvetica", "bold");
+  doc.text("Resultados Test de Hábitos Olibalife", 297.5, 50, { align: "center" });
+
+  // ===== Puntuación total =====
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(0, 0, 0);
+  doc.text(`Puntuación total: ${latestScore}`, margin, y);
+  y += 30;
+
+  // ===== Categorías =====
+  latestCategories.forEach(cat => {
+    doc.setFillColor(200, 230, 201);
+    doc.roundedRect(margin - 4, y - 14, 515, 24, 6, 6, 'F');
+
+    doc.setFontSize(13);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(0, 70, 0);
+    doc.text(`${cat.name}: ${cat.score}%`, margin, y);
+
+    y += 28;
+
+    const tips = latestTips[cat.name] || [];
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(50, 50, 50);
+
+    tips.forEach(tip => {
+      doc.text(`• ${tip}`, margin + 10, y);
+      y += 16;
+
+      if (y > 700) { // salto de página si se pasa
+        doc.addPage();
+        y = 60;
+      }
+    });
+
+    y += 10;
+    doc.setDrawColor(200, 200, 200);
+    doc.setLineWidth(0.5);
+    doc.line(margin, y, 555, y);
+    y += 15;
+  });
+
+  // ===== CABECERA INFERIOR AJUSTADA =====
+  const footerText = 
+    "www.olibalife.com | Todos los derechos reservados | Registrate gratis y obtén tu guía";
+
+  doc.setFontSize(11);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(0, 100, 0);
+
+  // Ajustar texto al ancho
+  const footerLines = doc.splitTextToSize(footerText, 515);
+  let footerY = 780 - (footerLines.length - 1) * 14; // evitar que se pase del borde
+  footerLines.forEach(line => {
+    doc.text(line, 297.5, footerY, { align: "center" });
+    footerY += 14;
+  });
+
+  // Guardar PDF
+  doc.save('resultado_habitos.pdf');
+}
+
+
+
+function downloadPatientFile() {
+  trackEvent('download_patient_file_clicked', { totalScore: latestScore });
+  //downloadGLB();
+  downloadPDF();
+}
+
+  const menuPdfUrl = '';
+
+  const downloadBtn = document.getElementById('downloadMenuPDF');
+
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = menuPdfUrl;
+      link.download = 'viewer.3dtwins.tech/resultado_habitos (3).pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+
+function subscribeEmail() {
+  const email = document.getElementById('email').value;
+  alert(`Gracias! Te enviaremos información a ${email}`);
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+  initThree();
+  await loadBaseModel();
+  window.addEventListener('resize', () => {
+    renderer.setSize(document.getElementById('threeCanvas').clientWidth, document.getElementById('threeCanvas').clientHeight);
+    camera.aspect = document.getElementById('threeCanvas').clientWidth / document.getElementById('threeCanvas').clientHeight;
+    camera.updateProjectionMatrix();
+  });
+});
+
+// Abrir mini-modal
+document.getElementById("openMiniLogin").addEventListener("click", () => {
+  document.getElementById("miniLoginModal").style.display = "flex";
+});
+
+// Cerrar mini-modal
+document.getElementById("closeMiniLogin").addEventListener("click", () => {
+  document.getElementById("miniLoginModal").style.display = "none";
+});
+
 </script>
 
-</body>
-</html>
-
-
 
 </body>
 </html>
+
 
