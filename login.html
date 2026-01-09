@@ -195,8 +195,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
-<script>
 
+<script>
   const PRODUCTS_URL = "https://test.olibalife.site/login.html"; 
   const firebaseConfig = {
     apiKey: "AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo",
@@ -221,9 +221,21 @@
   const rulePassword = document.getElementById("rulePassword");
   const ruleConsent = document.getElementById("ruleConsent");
 
+  // Validación de contraseña según reglas de Firebase
+  function isPasswordValid(pwd) {
+    return (
+      pwd.length >= 12 &&
+      /[A-Z]/.test(pwd) && // al menos una mayúscula
+      /[a-z]/.test(pwd) && // al menos una minúscula
+      /[0-9]/.test(pwd) && // al menos un número
+      /[^A-Za-z0-9]/.test(pwd) // al menos un símbolo
+    );
+  }
+
   function validate() {
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-    const passwordValid = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(passwordInput.value);
+    const email = emailInput.value.trim();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const passwordValid = isPasswordValid(passwordInput.value);
     const consentValid = consentCheckbox.checked;
 
     ruleEmail.className = emailValid ? "rule ok" : "rule";
@@ -232,7 +244,7 @@
     rulePassword.className = passwordValid ? "rule ok" : "rule";
     rulePassword.textContent = passwordValid
       ? "✅ Contraseña segura"
-      : "❌ Mín. 8 caracteres, mayúscula, número y símbolo";
+      : "❌ Mín. 12 caracteres, mayúscula, minúscula, número y símbolo";
 
     ruleConsent.className = consentValid ? "rule ok" : "rule";
     ruleConsent.textContent = consentValid ? "✅ Consentimiento aceptado" : "❌ Consentimiento aceptado";
@@ -247,14 +259,12 @@
 
   loginBtn.addEventListener("click", async () => {
     errorMsg.textContent = "";
-
     const email = emailInput.value.trim();
     const password = passwordInput.value;
 
     try {
       await auth.createUserWithEmailAndPassword(email, password);
       document.getElementById("guideModal").style.display = "flex";
-
     } catch (error) {
       console.error("Firebase Auth error:", error.code, error.message);
 
@@ -268,7 +278,7 @@
           break;
 
         case "auth/weak-password":
-          errorMsg.textContent = "La contraseña es demasiado débil.";
+          errorMsg.textContent = "La contraseña no cumple las reglas mínimas.";
           break;
 
         case "auth/operation-not-allowed":
@@ -296,7 +306,7 @@
   document.getElementById("downloadGuideBtn").addEventListener("click", () => {
     const link = document.createElement("a");
     link.href = "https://test.olibalife.site/olibalifemenudrenante.pdf";
-    link.download = "https://test.olibalife.site/olibalifemenudrenante.pdf";
+    link.download = "olibalifemenudrenante.pdf";
     link.click();
 
     setTimeout(redirectToProducts, 1500);
@@ -304,6 +314,5 @@
 
   document.getElementById("closeModal").addEventListener("click", redirectToProducts);
 </script>
-
 </body>
 </html>
