@@ -14,7 +14,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
    font-family: 'Poppins', sans-serif;
-    background: #efebc5; 
+    background: #D2DEAF; 
     color: #333;
     line-height: 1.5;
   }
@@ -23,9 +23,11 @@
   /* --- HEADER --- */
   header {
     position: fixed; top: 0; left: 0; width: 100%; height: 60px;
-    background: #efebc5; display: flex; align-items: center; justify-content: space-between;
+    background: #c7d3a5; display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
   }
+
+
 .logo {
   display: flex;             /* activa flexbox */
   align-items: center;       /* centra verticalmente imagen y texto */
@@ -33,16 +35,18 @@
   font-family: 'Tsukimi Rounded', sans-serif; 
   font-size: 2.5rem;
   background: linear-gradient(135deg, #b1b1b3, #025500);
-  background-size: 200% auto;
+  background-size: 100% auto;
   color: transparent; 
   background-clip: text; 
   -webkit-background-clip: text;
   animation: shine 3s linear infinite;
 }
   .logo-hero {
-    width: 450px; /* ajusta según tu logo */
+    width: 250px; /* ajusta según tu logo */
     margin-top: 0px;
   }
+
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -62,11 +66,43 @@
   width: 480px;
   max-width: 90%;
   height: 590px;
-  background: #fff;
+  background: #000000;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
+
+
+
+.avatar-img {
+  width: 100%;
+  max-width:700px;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  display: block;
+  margin: 32px auto 0;
+  box-shadow:
+    0 40px 80px rgba(255, 255, 255, 0.65),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  filter: contrast(1.05) saturate(1.05);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    filter 0.4s ease;
+    margin-bottom: 20px ;
+}
+
+.avatar-img:hover {
+  transform: scale(1.01);
+  box-shadow:
+    0 60px 120px rgba(230, 253, 217, 0.75),
+    inset 0 0 0 1px rgba(0, 255, 204, 0.25);
+  filter: contrast(1.08) saturate(1.1);
+}
+
+
+
 
 .modal-iframe {
   width: 100%;
@@ -106,10 +142,10 @@
   line-height: 1;           /* evita que el texto se estire verticalmente */
 }
 .dock {
- 
+ z-index: 9999999;
   position: fixed;
-bottom: 5px;
-  right: 3vh;
+bottom: 10px;
+ left: 90px;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
@@ -118,24 +154,25 @@ bottom: 5px;
   border-radius: 20px;
   backdrop-filter: blur(60px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  scale: 0.9;
+  scale: 1;
 }
 
 /* Botones estilo dock */
 .dock-btn {
-  background: rgba(255, 255, 255, 0.2);
+   z-index: 99999;
+  background: #ffffff8b;
   border: none;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;   /* mucho más reducido */
+  padding: 20px 15px;   /* mucho más reducido */
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
   color: rgb(115, 0, 255);
   font-size: 0.9rem; /* texto pequeñito debajo */
-  right: 20px;
+  right: 40px;
 }
 
 .dock-btn:hover {
@@ -188,21 +225,22 @@ bottom: 5px;
 /* Títulos con degradado y animación */
 .hero h1 {
   font-family: 'Tsukimi Rounded', sans-serif;
-  font-size: 3.5rem;
+  font-size: 3.0rem;
   background: linear-gradient(135deg, #b1b1b3, #025500);
   background-size: 200% auto;
   color: transparent; 
   background-clip: text; 
   -webkit-background-clip: text;
   animation: shine 3s linear infinite;
-  margin-bottom: 0px;
+    margin-bottom: 20px ;
 }
 
 .hero h2 {
  color: rgb(7, 0, 133);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 0px;
   font-weight: 500;
+      margin-bottom: 20px ;
 }
 
 .hero h3 {
@@ -221,9 +259,8 @@ color: rgb(7, 0, 133);
   color: #000000;
 }
 
-/* Botón CTA */
 .hero .cta button {
-  background: #00b090;
+  background: #D2DEAF;
   color: #000000;
   border: none;
   padding: 15px 30px;
@@ -235,7 +272,7 @@ color: rgb(7, 0, 133);
 }
 
 .hero .cta button:hover {
-  background: #353535;
+  background: #D2DEAF;
   color: #000000;
   transform: scale(1.05);
 }
@@ -423,9 +460,8 @@ color: rgb(7, 0, 133);
 }
 
 .price-card button {
-   background: #008942;
-  color: #ffffff;
- 
+   background: #D2DEAF;
+  color: #000000;
   border: none;
   padding: 14px 24px;
   font-size: 1rem;
@@ -436,7 +472,7 @@ color: rgb(7, 0, 133);
 }
 
 .price-card button:hover {
-  background: #00d639;
+  background: #c5ef47;
 }
 
 .social {
@@ -563,8 +599,8 @@ color: rgb(7, 0, 133);
 .hospitales-btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #055e1b;
-  color: #fff;
+  background: #D2DEAF;
+  color: #000000;
   border-radius: 1.5rem;
   text-decoration: none;
   font-weight: bold;
@@ -572,7 +608,7 @@ color: rgb(7, 0, 133);
      margin: 30px;}
 
 .hospitales-btn:hover {
-  background: #03ffd1;
+  background: #d0fa51;
   color: #000000;
 }
 
@@ -608,7 +644,7 @@ color: rgb(7, 0, 133);
 }
 
 .products-carousel::-webkit-scrollbar-thumb {
-  background: #01ffbb;
+  background: #D2DEAF;
   border-radius: 4px;
 }
 
@@ -638,7 +674,7 @@ color: rgb(7, 0, 133);
 }
 
 .product-card button {
-  background: #343434;
+  background: #D2DEAF;
  color: rgb(7, 0, 133);
   border: none;
   padding: 10px 15px;
@@ -648,7 +684,7 @@ color: rgb(7, 0, 133);
 }
 
 .product-card button:hover {
-  background: #00d639;
+  background: #c4e75b;
 }
 
   /* --- Animación brillo --- */
@@ -706,7 +742,7 @@ color: rgb(7, 0, 133);
 
   .character-wrapper {
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 20px;
   width: 100px;
   cursor: pointer;
@@ -716,6 +752,7 @@ color: rgb(7, 0, 133);
 
 /* Character con halo */
 .character {
+    bottom: 60px;
   width: 100%;
   filter: drop-shadow(0 0 10px rgba(0, 180, 255, 0.6));
   transition: transform 0.2s ease;
@@ -1042,15 +1079,18 @@ color: rgb(7, 0, 133);
   <span>Olibalife</span>
 </a>
 
-  <nav ><button class="contact">   <a href="https://test.olibalife.site/test.html" class="hospitales-btn">Empezar test gratis</a></button></nav>
+  <nav ><button class="contact">  
+     <a href="https://test.olibalife.site/test.html" class="hospitales-btn">Empezar test gratis</a>
+    </button></nav>
+
 <div class="dock" >
   
 <button class="dock-btn buy" id="openLoginModal">
   <span class="material-icons">person</span> Regístrate aquí
 </button>
+</div> 
 
 
-</div>  
 </header>
 
 <div id="loginModal" class="modal-overlay">
@@ -1121,13 +1161,13 @@ color: rgb(7, 0, 133);
 
   <div class="products-carousel">
 
-        <div class="product-card">
-      <img src="https://viewer.3dtwins.tech/SIBO.jpg" alt="Estudio de SIBO">
-      
-     <h3>Estudio de SIBO</h3>
-      <p>Cuando tu digestión nunca termina de ir bien.</p>
 
-      <a href="https://buy.stripe.com/6oUfZgaCY2LD5FP0Lo3F60r"
+          <div class="product-card">
+      <img src="https://viewer.3dtwins.tech/olibalifewellness.jpg" alt="Menú Especial Perimenopausia y Menopausia">
+     <h3>Test epigenético avanzado WELLNESS</h3>
+      <p>¿Cansancio inexplicable?¿Hinchazón?¿Digestiones pesadas?¿Cambios de energía, defensas bajas, sensación de "no estar como antes"? Nuestro test epigenético analiza tus sistemas clave.</p>
+
+      <a href="https://buy.stripe.com/fZe7vE9dDcsI62s3co"
          target="_blank"
          rel="noopener noreferrer"
          class="product-btn">
@@ -1137,7 +1177,7 @@ color: rgb(7, 0, 133);
 
 
     <div class="product-card">
-      <img src="https://viewer.3dtwins.tech/olibalifeSlim.jpg" alt="Test Epigenético Slim and Fit">
+      <img src="https://universooliba-bot.github.io/sources/testolibalife.jpg" alt="Test Epigenético Slim and Fit">
       
       <h3>Test Epigenético Slim and Fit.</h3>
       <p>Entiende por qué tu peso no baja.</p>
@@ -1162,6 +1202,22 @@ color: rgb(7, 0, 133);
         Ver más
       </a>
     </div>
+
+
+        <div class="product-card">
+      <img src="https://viewer.3dtwins.tech/SIBO.jpg" alt="Estudio de SIBO">
+      
+     <h3>Estudio de SIBO</h3>
+      <p>Cuando tu digestión nunca termina de ir bien.</p>
+
+      <a href="https://buy.stripe.com/6oUfZgaCY2LD5FP0Lo3F60r"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="product-btn">
+        Ver más
+      </a>
+    </div>
+
 
     <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifeSobrecargaHepática.jpg" alt="Estudio de Sobrecarga Hepática">
@@ -1231,7 +1287,7 @@ color: rgb(7, 0, 133);
 
 
         <div class="product-card">
-      <img src="https://viewer.3dtwins.tech/olibalifegastritis.jpg" alt="Estudio Equilibrio Inmunitario (Th2)">
+      <img src="https://test.olibalife.site/EquilibrioInmunitario.jpg" alt="Estudio Equilibrio Inmunitario (Th2)">
      <h3>Estudio Equilibrio Inmunitario (Th2)</h3>
       <p>Cuando el cuerpo se defiende en exceso.</p>
 
@@ -1278,7 +1334,9 @@ color: rgb(7, 0, 133);
          class="product-btn">
         Ver más
       </a>
+
     </div>
+
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifewellness.jpg" alt="Menú Especial Perimenopausia y Menopausia">
      <h3>Guía practica Menú Especial Perimenopausia y Menopausia- Equilibrio y Vitalidad Femenina</h3>
@@ -1292,8 +1350,6 @@ color: rgb(7, 0, 133);
       </a>
     </div>
 
-
-
     
   </div>
 </section>
@@ -1305,8 +1361,9 @@ color: rgb(7, 0, 133);
   <div class="price-container">
 
     <div class="price-card">
+       <p>Wellness</p>
       <h2>¿Qué factores están afectando a tu energía, tu metabolismo y tu bienestar?</h2>
-      <p>Descúbrelo con nuestro test avanzado</p>
+      <p>Descúbrelo con nuestro test avanzado Wellness</p>
       <p class="price">170€/euros</p>
        <h3>Incluye:</h3>
       <ul>
@@ -1356,7 +1413,7 @@ color: rgb(7, 0, 133);
   <div class="hospitales-container">
     <h2>Atención profesional personalizada</h2>
     <div class="hospitales-header-img">
-      <img src="https://universooliba-bot.github.io/sources/olibalifehabitosencarni.jpg" alt="Hospitales" />
+      <img src="https://universooliba-bot.github.io/sources/encarniolibalife2.png" alt="Hospitales" />
     </div>
 
     <p class="intro">
@@ -1503,5 +1560,6 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+
 
 
