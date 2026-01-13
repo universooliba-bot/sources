@@ -76,15 +76,12 @@
 
 .avatar-img {
   width: 100%;
-  max-width:700px;
+  max-width:900px;
   height: auto;
   border-radius: 24px;
   object-fit: cover;
   display: block;
   margin: 32px auto 0;
-  box-shadow:
-    0 40px 80px rgba(255, 255, 255, 0.65),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   filter: contrast(1.05) saturate(1.05);
   transition:
     transform 0.4s ease,
@@ -127,7 +124,7 @@
   object-fit: contain;
 }
   .contact {
-  background: #fff;
+  background: #ffffff00;
   color: rgb(2, 62, 46);
   border: none;
   border-radius: 40px;      /* menos redondeado para este tamaño */
@@ -215,7 +212,7 @@ bottom: 10px;
   text-align: center;
   min-height: 100vh;
   padding: 0 20px;
-  background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
+background: #ffffff;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -315,10 +312,10 @@ color: rgb(7, 0, 133);
   .features {
     display: flex; flex-wrap: wrap; 
     justify-content: center; gap: 30px;
-    padding: 60px 20px;  background: #f6f6f6;
+    padding: 60px 20px;  background: #ffffff;
   }
   .feature {
-   background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
+   background: #ffffff;; /* degradado más vivo */
     padding: 25px;
     border-radius: 18px; 
     width: 270px; 
@@ -332,7 +329,7 @@ color: rgb(7, 0, 133);
   .faq { 
        border-radius: 18px; 
     padding: 80px 100px; 
-       background: #f6f6f6ee;
+   background: #ffffffd7;
     max-width: 100%; 
     margin: 130px ; }
 
@@ -356,8 +353,8 @@ color: rgb(7, 0, 133);
 
   footer {
     text-align: center; padding: 30px 20px;
-    background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
-     color: #fff; font-size: 0.9rem;
+ background: #ffffff;
+     color: #000000; font-size: 0.9rem;
   }
   footer a { color:  rgb(7, 0, 133); 
     margin: 0 8px; }
@@ -413,7 +410,7 @@ color: rgb(7, 0, 133);
 }
 
   .pricing {
-   background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
+  background: #ffffff; /* degradado más vivo */
   padding: 80px 20px;
   text-align: center;
  
@@ -496,7 +493,7 @@ color: rgb(7, 0, 133);
 }
 
 .social-card {
-    background: #f6f6f6;
+ background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   width: 350px;
@@ -533,7 +530,7 @@ color: rgb(7, 0, 133);
 }
 
 .hospitales-section {
-  background: #f6f6f6;
+background: #ffffff;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -1135,7 +1132,9 @@ color: rgb(7, 0, 133);
       <img src="https://viewer.3dtwins.tech/olibalifeSlim.jpg" alt="Plan Básico Hover" class="img-hover">
     </div>
   </div>
+
 </section>
+
 
 
 
@@ -1156,6 +1155,10 @@ color: rgb(7, 0, 133);
 
 
 <section class="products-section" >
+
+
+
+
   <h2>Encuentra el test que más se adapta a tí</h2>
   <p>¿Notas cambios en un tema cocncreto de tu salud y no sabes cómo solucionarlo?</p>
 
@@ -1354,6 +1357,23 @@ color: rgb(7, 0, 133);
   </div>
 </section>
 
+<section id= "pricing" class="pricing">
+  <div class="price-container">
+    <div class="price-card">
+      <p class="price">Consigue tu menú drenante gratis.</p>
+      <ul>
+           </ul>
+ <button><a href="https://test.olibalife.site/login.html" class="btn-empezar">Registrate aquí.</a></button>
+
+
+    </div>
+    <div class="plan-image">
+      <img src="https://viewer.3dtwins.tech/olibalifehabitos.jpg" alt="Plan Básico" class="img-default">
+      <img src="https://viewer.3dtwins.tech/olibalifeSlim.jpg" alt="Plan Básico Hover" class="img-hover">
+    </div>
+  </div>
+
+</section>
 
 
 
@@ -1560,6 +1580,5 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
-
 
 
