@@ -1021,28 +1021,27 @@ color: rgb(7, 0, 133);
     text-align: center;
   }
   .dock {
-     top: 10px;     
+    bottom: 10px;     
     position: fixed;
-    left: 50%;                  /* centro horizontal */
+    left: 15%;                  /* centro horizontal */
     transform: translateX(-50%); /* compensa el 50% */
     height: 60px;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.927);
     backdrop-filter: blur(8px);
     display: flex;
     flex-direction: row;  
     flex-wrap: nowrap;    
     justify-content: center; 
     align-items: center;
-     padding: 2px 60px;
+     padding: 2px 50px;
     gap: 1px;          
     z-index: 1000;
-        border-radius: 28px;
-    scale:0.8;
+    border-radius: 28px;
+    font-size: 0.8rem;
   }
 
   .dock .icon-btn,
-  .dock button {
-     top: 0px;     
+  .dock button {  
     position: fixed;
     left: 50%;                  /* centro horizontal */
     transform: translateX(-50%); /* compensa el 50% */
@@ -1054,12 +1053,11 @@ color: rgb(7, 0, 133);
     flex-wrap: nowrap;    
     justify-content: center; 
     align-items: center;
-    padding: 2px 60px;
+    padding: 2px 50px;
     gap: 1px;          
     z-index: 1000;
     border-radius: 28px;
      font-size: 0.8rem;
-      scale:0.8;
   }
 
 
@@ -1796,6 +1794,4 @@ window.addEventListener('scroll', () => {
 </body>
 </html>
 
-
-</html>
 
