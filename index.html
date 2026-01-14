@@ -3,35 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olibalife test</title>
+<title>Olibalife | test epigenéticos</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=medical_information" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-  /* --- RESET --- */
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
   body {
    font-family: 'Poppins', sans-serif;
     background: #D2DEAF; 
     color: #333;
     line-height: 1.5;
   }
+
+
   a { text-decoration: none; color: inherit; }
 
-  /* --- HEADER --- */
   header {
     position: fixed; top: 0; left: 0; width: 100%; height: 60px;
     background: #c7d3a5; display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
   }
 
+/* Botón propio para "Empezar test gratis" */
+.contact-test {
+  display: inline-block;
+  background: #D2DEAF;          /* color llamativo verde */
+  color: #0a0a0a;               /* texto blanco */
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 10px 24px;           /* tamaño cómodo para clic */
+  border: none;
+  border-radius: 25px;          /* redondeado tipo pill */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 5px rgba(100, 201, 71, 0.35);
+}
+
+.contact-test:hover {
+  background: #4FAF3B;          /* verde más oscuro al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 175, 59, 0.4);
+}
+
+
+.nutrition-section {
+  max-width: 1100px;
+  margin: 10 auto;
+   margin-bottom: 20px;
+  padding: 3.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nutrition-section.compact {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+
+.nutrition-header {
+  max-width: 520px;
+}
+
+.nutrition-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.4rem 0;
+}
+
+.nutrition-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+.nutrition-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.nutrition-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nutrition-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08);
+}
+
+
+.nutrition-card.subtle {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+
+.nutrition-card img {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+
+.nutrition-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nutrition-btn {
+  align-self: flex-start;
+  margin-top: 0.55rem;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #064445;
+  color: #ffffff;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.nutrition-btn:hover {
+  background: #dedede;
+  transform: translateY(-1px);
+   color: #000000;
+}
+
+.nutrition-btn.secondary {
+ background: #064445;
+}
+
+.nutrition-btn.secondary:hover {
+  background: #dedede;
+  transform: translateY(-1px);
+   color: #000000;
+}
+
+
 
 .logo {
-  display: flex;             /* activa flexbox */
-  align-items: center;       /* centra verticalmente imagen y texto */
-  gap: 10px;                 /* espacio entre logo y texto */
+  display: flex;      
+  align-items: center;   
+  gap: 10px;           
   font-family: 'Tsukimi Rounded', sans-serif; 
   font-size: 2.5rem;
   background: linear-gradient(135deg, #b1b1b3, #025500);
@@ -42,7 +176,7 @@
   animation: shine 3s linear infinite;
 }
   .logo-hero {
-    width: 250px; /* ajusta según tu logo */
+    width: 250px;
     margin-top: 0px;
   }
 
@@ -119,7 +253,7 @@
 }
 
 .logo-img {
-  width: 130px; /* tamaño del logo */
+  width: 130px; 
   height: 130px;
   object-fit: contain;
 }
@@ -127,16 +261,16 @@
   background: #ffffff00;
   color: rgb(2, 62, 46);
   border: none;
-  border-radius: 40px;      /* menos redondeado para este tamaño */
-  padding: 5px 12px;       /* más aire vertical y horizontal */
-  font-size: 0.9rem;        /* texto un poco más grande */
+  border-radius: 40px;    
+  padding: 5px 12px;  
+  font-size: 0.9rem; 
   cursor: pointer;
   transition: transform 0.25s ease, background 0.25s ease;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 6px;                 /* separación icono-texto */
-  line-height: 1;           /* evita que el texto se estire verticalmente */
+  gap: 6px;    
+  line-height: 1;  
 }
 .dock {
  z-index: 9999999;
@@ -154,7 +288,7 @@ bottom: 10px;
   scale: 1;
 }
 
-/* Botones estilo dock */
+
 .dock-btn {
    z-index: 99999;
   background: #ffffff8b;
@@ -164,26 +298,23 @@ bottom: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 15px;   /* mucho más reducido */
+  padding: 20px 15px; 
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
   color: rgb(115, 0, 255);
-  font-size: 0.9rem; /* texto pequeñito debajo */
+  font-size: 0.9rem;
   right: 40px;
 }
 
-.dock-btn:hover {
-  transform: scale(1.2); /* efecto dock al pasar el mouse */
-  background: rgba(255, 255, 255, 0.3);
-}
+
 
 .dock-btn .material-icons {
-  padding: 0;     /* evita relleno adicional */
-  line-height: 1; /* evita que se estire verticalmente */
+  padding: 0;  
+  line-height: 1;
 }
 
 .dock a {
-  all: unset; /* Resetea estilos heredados de <a> */
+  all: unset;
   background: rgba(255, 255, 255, 0.2);
   border: none;
   border-radius: 16px;
@@ -191,11 +322,11 @@ bottom: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;   /* mucho más reducido */
+  padding: 10px 10px; 
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
   color: rgb(7, 0, 133);
-  font-size: 0.8rem; /* texto pequeñito debajo */
+  font-size: 0.8rem; 
 }
 
 
@@ -213,13 +344,12 @@ bottom: 10px;
   min-height: 100vh;
   padding: 0 20px;
 background: #ffffff;
-  color: #fff;
+  color: #000000;
   position: relative;
   overflow: hidden;
  padding: 90px;
 }
 
-/* Títulos con degradado y animación */
 .hero h1 {
   font-family: 'Tsukimi Rounded', sans-serif;
   font-size: 3.0rem;
@@ -230,24 +360,25 @@ background: #ffffff;
   -webkit-background-clip: text;
   animation: shine 3s linear infinite;
     margin-bottom: 20px ;
+      font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
 }
 
 .hero h2 {
- color: rgb(7, 0, 133);
+ color: #1f2937;
   font-size: 1.6rem;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   font-weight: 500;
       margin-bottom: 20px ;
+        font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
 }
 
 .hero h3 {
-color: rgb(7, 0, 133);
+  color: #1f2937;
   font-size: 1.2rem;
   margin-bottom: 25px;
   font-weight: 400;
 }
 
-/* Párrafo descriptivo */
 .hero p {
   font-size: 1.1rem;
   max-width: 650px;
@@ -257,7 +388,7 @@ color: rgb(7, 0, 133);
 }
 
 .hero .cta button {
-  background: #D2DEAF;
+  background: #1f2937;
   color: #000000;
   border: none;
   padding: 15px 30px;
@@ -274,7 +405,6 @@ color: rgb(7, 0, 133);
   transform: scale(1.05);
 }
 
-/* Animación brillo para títulos */
 @keyframes shine {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
@@ -315,7 +445,7 @@ color: rgb(7, 0, 133);
     padding: 60px 20px;  background: #ffffff;
   }
   .feature {
-   background: #ffffff;; /* degradado más vivo */
+   background: #ffffff;
     padding: 25px;
     border-radius: 18px; 
     width: 270px; 
@@ -361,7 +491,7 @@ color: rgb(7, 0, 133);
 
   .price-container {
   display: grid;
-  grid-template-columns: 1fr 1.5fr; /* tarjeta + imagen */
+  grid-template-columns: 1fr 1.5fr; 
   align-items: stretch;
   gap: 2rem;
   max-width: 1000px;
@@ -399,18 +529,18 @@ color: rgb(7, 0, 133);
   opacity: 0;
 }
 
-/* Ajuste responsive */
+
 @media (max-width: 768px) {
   .price-container {
-    grid-template-columns: 1fr; /* imagen debajo en móvil */
+    grid-template-columns: 1fr; 
   }
   .plan-image {
-    height: 250px; /* altura fija para móvil */
+    height: 250px; 
   }
 }
 
   .pricing {
-  background: #ffffff; /* degradado más vivo */
+  background: #ffffff; 
   padding: 80px 20px;
   text-align: center;
  
@@ -418,15 +548,15 @@ color: rgb(7, 0, 133);
 
 .pricing h2 {
  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   margin-bottom: 40px;
- color: rgb(7, 0, 133);
+ color: rgb(49, 93, 94);
 }
 
 .price-card {
   max-width: 350px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
+  background: linear-gradient(135deg, #d8d8d8, #ffffff); 
   color: #000000;
   padding: 30px 25px;
   border-radius: 16px;
@@ -545,7 +675,7 @@ background: #ffffff;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top; /* centra la parte superior de la imagen */
+  object-position: top; 
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
@@ -553,8 +683,8 @@ background: #ffffff;
   width:  490px;
   padding: 2px;
   height: 490px;
-  border-radius: 50%;   /* lo hace circular */
-  object-fit: cover;    /* recorta bien la foto */
+  border-radius: 50%; 
+  object-fit: cover; 
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   margin: 60px;
 }
@@ -684,54 +814,44 @@ color: rgb(7, 0, 133);
   background: #c4e75b;
 }
 
-  /* --- Animación brillo --- */
-  @keyframes shine { to { background-position: -200% center; } }
-
-  /* --- Responsive --- */
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
-    .hero p { font-size: 1rem; }
-    .dock { flex-direction: column; gap: 10px; }
-  }
 
     .character {
     position: fixed;
     bottom: 0px;
     right: 20px;
-    width: 150px; /* ajusta tamaño */
+    width: 150px; 
     z-index: 1000;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(0, 255, 106, 0.6));
   transition: transform 0.2s ease;
   }
 
-  /* Ejemplo de efecto hover opcional */
   .character:hover {
     transform: scale(1.1);
   }
 
-  /* Contenido principal */
+
   .content {
     max-width: 800px;
     padding: 20px;
     text-align: center;
   }
 
-  /* Tooltip estilo móvil */
+
 .tooltip {
   display: none;
   position: absolute;
   bottom: 110%;
   right: 50%;
   transform: translateX(50%);
-  background: linear-gradient(135deg, #d8d8d8, #ffffff); /* degradado más vivo */
+  background: linear-gradient(135deg, #d8d8d8, #ffffff); 
   color: #fff;
   padding: 6px 12px;
   border-radius: 12px;
   font-size: 0.9rem;
   white-space: nowrap;
   box-shadow: 0 14px 56px rgba(0, 0, 0, 0.827);
-  pointer-events: none; /* no bloquea el hover */
+  pointer-events: none;
 }
 
 .character-wrapper:hover .tooltip {
@@ -747,7 +867,7 @@ color: rgb(7, 0, 133);
   text-align: center;
 }
 
-/* Character con halo */
+
 .character {
     bottom: 60px;
   width: 100%;
@@ -760,23 +880,15 @@ color: rgb(7, 0, 133);
 }
 }
 
-/* Tablets (pantallas medianas) */
-@media (max-width: 1024px) {
-  .character {
-    width: 80px;  /* más pequeño */
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .tooltip {
-    font-size: 14px; /* tipografía más compacta */
-    max-width: 200px;
-  }
-}
-
 /* Móviles (pantallas pequeñas) */
 @media (max-width: 600px) {
+
+      .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .dock { flex-direction: column; gap: 10px; }
+
   .character-wrapper {
+
     width: 30px; /* aún más pequeño */
     bottom: 10px;
     right: 10px;
@@ -791,6 +903,27 @@ color: rgb(7, 0, 133);
     font-size: 12px;
     max-width: 160px;
     padding: 6px 8px;
+  }
+ .nutrition-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem;
+  }
+
+  .nutrition-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nutrition-btn {
+    align-self: center;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .nutrition-row {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -833,54 +966,104 @@ color: rgb(7, 0, 133);
   .products-carousel {
     gap: 15px;
   }
+    .character {
+    width: 100px;  /* más pequeño */
+    bottom: 0px;
+    right: 15px;
+  }
+
+  .tooltip {
+    font-size: 14px; /* tipografía más compacta */
+    max-width: 200px;
+  }
+   .nutrition-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem;
+  }
+
+  .nutrition-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nutrition-btn {
+    align-self: center;
+  }
+
 }
 
 /* Móvil (≤ 768px) */
 @media (max-width: 768px) {
   header {
-        background: #f6f6f6;
+        flex-direction: row;        /* fila, no columna */
+    justify-content: space-between; /* logo a la izquierda, botón a la derecha */    
+    background: #f6f6f6;
     top: 0px;
-    height: auto;
-    flex-direction: column;
-    padding: 60px 60px;
-    gap: 10px;
+   height: 80px;
+      display: flex;
+    padding: 25px 10px;
+    gap: 0px;
+  }
+
+    .contact-test {
+    font-size: 0.8rem;   
+    padding: 10px 14px; 
+    display: block;    
+    width: 100%;   
+    text-align: center;  
+    top: 0px; 
+    left: 10px;
   }
 
   .logo {
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
   }
   .dock {
+     top: 10px;     
     position: fixed;
-    top: 0;
-    left: 10;
-    right: 0;
+    left: 50%;                  /* centro horizontal */
+    transform: translateX(-50%); /* compensa el 50% */
     height: 60px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
     display: flex;
-    flex-direction: row;   /* horizontal */
-    flex-wrap: nowrap;     /* evita que se rompa en varias filas */
-    justify-content: center; /* centra los botones */
+    flex-direction: row;  
+    flex-wrap: nowrap;    
+    justify-content: center; 
     align-items: center;
-    padding: 0 10px;
-    gap: 15px;             /* separación entre botones */
+     padding: 2px 60px;
+    gap: 1px;          
     z-index: 1000;
+        border-radius: 28px;
   }
 
-  /* Ajuste de los botones dentro del dock */
   .dock .icon-btn,
   .dock button {
-    flex: 0 1 auto;      /* toman solo el espacio necesario */
-    width: auto;
-    height: 40px;        /* compacto en móvil */
+     top: 0px;     
+    position: fixed;
+    left: 50%;                  /* centro horizontal */
+    transform: translateX(-50%); /* compensa el 50% */
+    height: 60px;
+    background: rgba(250, 250, 250, 0.379);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: nowrap;    
+    justify-content: center; 
+    align-items: center;
+    padding: 2px 60px;
+    gap: 1px;          
+    z-index: 1000;
+    border-radius: 28px;
+     font-size: 0.8rem;
   }
 
 
   .hero {
-  
-    padding: 40px 105px;
+  top: 60px;
+    padding: 30px 105px;
     min-height: auto;
   }
 
@@ -963,10 +1146,41 @@ color: rgb(7, 0, 133);
     flex: 0 0 200px;
     padding: 12px;
   }
+   .nutrition-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem;
+  }
+
+  .nutrition-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nutrition-btn {
+    align-self: center;
+  }
+
 }
 
 /* Móviles muy pequeños (≤ 480px) */
 @media (max-width: 480px) {
+   header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 50px;
+  }
+
+  header .logo {
+    font-size: 1.5rem;
+  }
+
+  header .contact {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
   .hero h1 {
     font-size: 1.6rem;
   }
@@ -1068,6 +1282,7 @@ color: rgb(7, 0, 133);
 }
 
 </style>
+
 </head>
 <body>
 
@@ -1076,16 +1291,19 @@ color: rgb(7, 0, 133);
   <span>Olibalife</span>
 </a>
 
-  <nav ><button class="contact">  
-     <a href="https://test.olibalife.site/test.html" class="hospitales-btn">Empezar test gratis</a>
-    </button>
-  </nav>
+<nav>
+  <a href="https://test.olibalife.site/test.html" class="contact-test">
+    Empezar test gratis
+  </a>
+</nav>
+
 
 <div class="dock" >
   
 <button class="dock-btn buy" id="openLoginModal">
-  <span class="material-icons">person</span> Regístrate aquí
+  <span class="material-icons">person</span> Registro
 </button>
+
 </div> 
 
 
@@ -1109,12 +1327,9 @@ color: rgb(7, 0, 133);
      <h1>Te ayudamos a mejorar tu salud desde el origen del problema</h1>
   <p>ANÁLISIS CELULAR AVANZADO</p>
   <div class="cta">
-
-
   </div>
    
-
-<section id= "pricing" class="pricing2">
+ <section id= "pricing" class="pricing2">
   <div class="price-container">
     <div class="price-card">
       <h3>Test de hábitos saludales</h3>
@@ -1129,14 +1344,12 @@ color: rgb(7, 0, 133);
 
     </div>
     <div class="plan-image">
-      <img src="https://viewer.3dtwins.tech/olibalifehabitos.jpg" alt="Plan Básico olibalife" class="img-default">
-      <img src="https://viewer.3dtwins.tech/olibalifeSlim.jpg" alt="Plan Básico Hover" class="img-hover">
+      <img src="https://test.olibalife.site/gemeloolibalife.png" alt="Plan Básico olibalife" class="img-default">
+      <img src="https://test.olibalife.site/gemelogiditalolibalife.png" alt="Plan Básico Hover" class="img-hover">
     </div>
   </div>
 
 </section>
-
-
 
 
 <div class="character-wrapper">
@@ -1152,37 +1365,55 @@ color: rgb(7, 0, 133);
   <div class="depth-img img1"></div>
 </section>
 
-
-
-
 <section class="products-section" >
+ 
+<section class="nutrition-section compact">
 
-  <h2>Encuentra el test que más se adapta a tí</h2>
-  <p>¿Notas cambios en un tema concreto de tu salud y no sabes cómo solucionarlo?</p>
+  <div class="nutrition-row">
+ <article class="nutrition-card subtle">
+      <img src="https://test.olibalife.site/menu.png"
+           alt="Menú drenante gratuito">
 
-<section id= "pricing2" class="pricing">
-  <div class="price-container">
-    <div class="price-card">
-      <p>Consigue tu menú drenante gratis.</p>
-      <ul>
-           </ul>
- <button><a href="https://test.olibalife.site/login.html" class="btn-empezar">Registrate aquí.</a></button>
+      <div class="nutrition-content">
+        <h2>Guía drenante gratuita</h2>
+        <p>Accede gratis a un menú drenante pensado para mejorar tu bienestar diario.</p>
+          <h3 class="price">Gratis con tu registro.</h3>
+        <a href="https://test.olibalife.site/login.html"
+           class="nutrition-btn secondary">
+        Descargar guía
+        </a>
+      </div>
+    </article>
 
 
-    </div>
-    <div class="plan-image">
-      <img src="https://test.olibalife.site/menu.png" alt="Plan Básico">
-        </div>
+    <article class="nutrition-card">
+      <img src="https://test.olibalife.site/menumenopausiaolibalife.jpg"
+           alt="Menú Perimenopausia y Menopausia">
+      <div class="nutrition-content">
+        <h2>Menú Perimenopausia y Menopausia</h2>
+        <p>Guía práctica con menú de 7 a 14 días para equilibrio y vitalidad femenina.</p>
+        <h3 class="price">19€/euros</h3>
+        <a href="https://buy.stripe.com/bJebJ0h1mbi96JTgKm3F60j"
+           target="_blank"
+           class="nutrition-btn">
+          Comprar menú
+        </a>
+      </div>
+    </article>
+
+   
+
   </div>
 
 </section>
 
-
+<h2>Encuentra el test epigenético que más se adapta a tí</h2>
+<p>¿Notas cambios en un tema concreto de tu salud y no sabes cómo solucionarlo?</p>
 
   <div class="products-carousel">
 
 
-          <div class="product-card">
+        <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifewellness.jpg" alt="Menú Especial Perimenopausia y Menopausia">
      <h3>Test epigenético avanzado WELLNESS</h3>
       <p>¿Cansancio inexplicable?¿Hinchazón?¿Digestiones pesadas?¿Cambios de energía, defensas bajas, sensación de "no estar como antes"? Nuestro test epigenético analiza tus sistemas clave.</p>
@@ -1194,7 +1425,6 @@ color: rgb(7, 0, 133);
         Ver más
       </a>
     </div>
-
 
     <div class="product-card">
       <img src="https://test.olibalife.site/testolibalife.jpg" alt="Test Epigenético Slim and Fit">
@@ -1222,6 +1452,39 @@ color: rgb(7, 0, 133);
         Ver más
       </a>
     </div>
+  </div>
+</section>
+
+
+<section id= "pricing2" class="pricing">
+  <div class="price-container">
+
+    <div class="price-card">
+       <p>Wellness</p>
+      <h2>¿Qué factores están afectando a tu energía, tu metabolismo y tu bienestar?</h2>
+      <p>Descúbrelo con nuestro test avanzado Wellness</p>
+      <p class="price">170€/euros</p>
+       <h3>Incluye:</h3>
+      <ul>
+        <li>- Informe digital personalizado</li>
+        <li>- Análisis epigenético con muestra capilar</li>
+        <li>- Consulta de resultados</li>
+           </ul>
+   <a href="https://buy.stripe.com/fZe7vE9dDcsI62s3co" class="hospitales-btn">Empezar mi estudio.</a>
+
+    </div>
+
+    <div class="plan-image">
+      <img src="https://viewer.3dtwins.tech/test.jpg" alt="Plan Básico" class="img-default">
+      <img src="https://viewer.3dtwins.tech/consultoriaolibalife.jpg" alt="Plan Básico Hover" class="img-hover">
+    </div>
+  </div>
+</section>
+
+
+<section id= "pricing3" class="pricing">
+ 
+  <div class="products-carousel">
 
 
         <div class="product-card">
@@ -1279,7 +1542,7 @@ color: rgb(7, 0, 133);
     </div>
 
         <div class="product-card">
-      <img src="https://viewer.3dtwins.tech/olibalifegastritis.jpg" alt="Estudio de Acidosis Tisular">
+      <img src="https://test.olibalife.site/olibalifeEquilibrioÁcidoBase.AcisosisTisular.jpg" alt="Estudio de Acidosis Tisular">
      <h3>Estudio de Acidosis Tisular. </h3>
       <p>Entiende por qué te sientes cansada, cargada o con dolores.</p>
 
@@ -1356,51 +1619,9 @@ color: rgb(7, 0, 133);
       </a>
 
     </div>
-
-        <div class="product-card">
-      <img src="https://viewer.3dtwins.tech/olibalifewellness.jpg" alt="Menú Especial Perimenopausia y Menopausia">
-     <h3>Guía practica Menú Especial Perimenopausia y Menopausia- Equilibrio y Vitalidad Femenina</h3>
-      <p>Guía digital con menú de 7 a 14 días para acompañarte en la perimenopausia y menopausia.</p>
-
-      <a href="https://buy.stripe.com/bJebJ0h1mbi96JTgKm3F60j"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="product-btn">
-        Ver más
-      </a>
-    </div>
-
-    
+  
   </div>
 </section>
-
-
-<section id= "pricing3" class="pricing">
-  <div class="price-container">
-
-    <div class="price-card">
-       <p>Wellness</p>
-      <h2>¿Qué factores están afectando a tu energía, tu metabolismo y tu bienestar?</h2>
-      <p>Descúbrelo con nuestro test avanzado Wellness</p>
-      <p class="price">170€/euros</p>
-       <h3>Incluye:</h3>
-      <ul>
-        <li>- Informe digital personalizado</li>
-        <li>- Análisis epigenético con muestra capilar</li>
-        <li>- Consulta de resultados</li>
-           </ul>
-   <a href="https://buy.stripe.com/fZe7vE9dDcsI62s3co" class="hospitales-btn">Empezar mi estudio.</a>
-
-    </div>
-
-    <div class="plan-image">
-      <img src="https://viewer.3dtwins.tech/test.jpg" alt="Plan Básico" class="img-default">
-      <img src="https://viewer.3dtwins.tech/consultoriaolibalife.jpg" alt="Plan Básico Hover" class="img-hover">
-    </div>
-  </div>
-</section>
-
-
 
 <section id="hospitales" class="hospitales-section">
   <div class="hospitales-container">
@@ -1448,11 +1669,6 @@ color: rgb(7, 0, 133);
   </div>
  
 </section>
-
-
-
-
-
 
 <section id="faq" class="faq">
   <h2>Preguntas Frecuentes</h2>
@@ -1575,10 +1791,9 @@ window.addEventListener('scroll', () => {
   });
 </script>
 
-
-
 </body>
 </html>
+
 
 </html>
 
