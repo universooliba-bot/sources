@@ -7,39 +7,33 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>@import url('https://fonts.googleapis.com/css2?family=Intel:wght@400;600&display=swap');
-
 body {
   font-family: 'Intel', sans-serif;
   display: flex;
-  height: 100VH;
-  background: linear-gradient(135deg, #d8d8d8, #ffffff); 
-  overflow-y: auto;     
-  overflow-x: hidden;    
+  height: 100vh; /* FIX */
+  background: linear-gradient(135deg, #d8d8d8, #ffffff);
+  overflow: hidden; /* FIX: el scroll no vive en body */
 }
+
+
 
 .floating-header {
   position: fixed;
-  top: 10;
+  top: 10px; /* FIX */
   left: 0;
   width: 100%;
-  background:transparent;
+  background: transparent;
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 10;
+  padding: 12px 10px; /* FIX */
   animation: fadeDown 0.6s ease-out;
 }
 
 @keyframes fadeDown {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .dock-menu {
@@ -48,7 +42,7 @@ body {
   background: rgba(255, 255, 255, 0.2);
   padding: 8px 20px;
   border-radius: 22px;
- backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -68,90 +62,105 @@ body {
   filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
 }
 
-.dock-menu:hover .dock-item {
-  transition: transform 0.2s ease;
-}
 
 
-.sidebar { 
-  width: 100%; 
-  backdrop-filter: blur(12px); 
-  display: flex; 
-  flex-direction: column; 
+.sidebar {
+  width: 100%;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid rgba(255,255,255,0.2);
-}
-
-.main { 
-    background: rgba(255, 255, 255, 0); 
-  width: 100%; 
-  height: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  align-items: center; 
-  overflow-y: auto; 
- padding-top: 0px;
-  
-}
-.info { 
-  margin: 10px;
-  width: 480px; 
   height: 100%;
-  backdrop-filter: blur(12px); 
-  background: rgba(246, 246, 246, 0.029); 
-   padding: 10px;
-  border-right: 1px solid rgba(255,255,255,0.2); 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  overflow-y: auto;
-    overflow-x: hidden;      /* ← Mantiene el diseño limpio */
-    z-index: 9000;
-}
-.results { 
- margin:0px;
-  width: 40%; 
-  backdrop-filter: blur(12px); 
- background: rgb(255, 0, 0); 
-  padding: 40px; 
-  border-left: 1px solid rgba(255,255,255,0.2); 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  overflow-y: auto;
-   border-radius: 20px; 
-     overflow-x: hidden;      /* ← Mantiene el diseño limpio */
 }
 
-.form-card { 
-  backdrop-filter: blur(20px); 
- background: rgba(246, 246, 246, 0.029); 
-  padding: 55px; 
-  border-radius: 20px; 
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
-  width: 300%; 
-  max-width: 300px; 
+.main {
+  background: rgba(255, 255, 255, 0);
+  width: 100%;
+  flex: 1;                /* FIX */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;       /* FIX */
+  padding-top: 0px;
+}
+
+.info {
+  margin: 10px;
+  width: 480px;
+  flex: 1;                /* FIX */
+  backdrop-filter: blur(12px);
+  background: rgba(246, 246, 246, 0.029);
+  padding: 10px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;       /* scroll vive aquí */
+  overflow-x: hidden;
+  z-index: 9000;
+}
+
+.results {
+  margin: 0px;
+  width: 40%;
+  flex: 1;                /* FIX */
+  backdrop-filter: blur(12px);
+  background: rgb(255, 0, 0);
+  padding: 40px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 20px;
+}
+
+
+
+.form-card {
+  backdrop-filter: blur(20px);
+  background: rgba(246, 246, 246, 0.029);
+  padding: 55px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  width: 100%;            /* FIX */
+  max-width: 300px;
   margin-bottom: 0px;
   color: black;
 }
-h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
+
+h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: rgb(0, 63, 16);
+}
+
 .avatar-img {
-  width: 150px;
-  height: 100%;
+  width: 200px;
+  height: auto;           /* mantiene proporción */
   border-radius: 20px;
-  margin-top: 0px;
   display: block;
-    color: black;
+  color: black;
+
+  position: fixed;        /* fijado en pantalla */
+  bottom: 0px;           /* separación desde el borde inferior */
+  right: 20px;            /* separación desde el borde derecho */
+  margin: 0;              /* elimina márgenes previos que interfieran */
+  z-index: 1000;          /* para que esté por encima de otros elementos */
 }
 
 .quiz-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-   width: 200px; 
-    color: rgb(0, 0, 0);
-     font-size: 12px; /* 👈 tamaño del texto */
+  width: 100%;            /* FIX */
+  max-width: 200px;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
 }
+
+
 
 #quizProgress {
   height: 0px;
@@ -159,7 +168,7 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   background: rgba(237, 237, 237, 0);
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 #quizProgress span {
@@ -171,18 +180,15 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   transition: width 0.5s ease;
 }
 
+
+
 .question-card {
+  width: 100%;
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.661);
   border-radius: 16px;
   padding: 10px 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.question-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .question-title {
@@ -198,114 +204,6 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   gap: 6px;
 }
 
-.option {
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.6);
-  cursor: pointer;
-  transition: background 0.25s, transform 0.25s;
-}
-
-.option:hover {
-  background: rgba(0,211,123,0.2);
-  transform: translateX(3px);
-}
-
-.option input {
-  margin-right: 8px;
-  accent-color: #003f25;
-}
-
-.progress-circle { 
-  top: 80px; 
-  width: 60px; 
-  height: 60px; 
-  border-radius: 50%; 
-  background: conic-gradient(#020600 0deg, #ddd 0deg); 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  margin: 10px 0; 
-  transition: background 1s ease-out; 
-  box-shadow: 0 0 15px rgba(154, 154, 154, 0.4);
-}
-.progress-circle span { font-weight: 400; font-size: 1.1rem; color:#000000; text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
-.category-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  width: 100%;
-}
-.category-card {
-  min-width: 180px;
-  max-width: 220px;
-  background: rgba(0, 145, 0, 0.495);
-  color: #fff;
-  border-radius: 15px;
-  padding: 10px 15px;
-  text-align: center;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.category-card.show { opacity:1; transform: translateY(0); animation: bounceIn 0.4s; }
-@keyframes bounceIn { 0% { transform: translateY(15px); } 50% { transform: translateY(-2px);} 100% { transform: translateY(0);} }
-
-.category-name { font-weight: 400; margin-bottom: 4px; font-size: 0.9rem; color:#000000; }
-.category-bar { width: 100%; height: 6px; border-radius: 10px; background: rgba(255,255,255,0.2); overflow: hidden; margin-bottom: 4px; }
-.category-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff0000, #00ff33); border-radius: 10px; transition: width 1s ease-out, box-shadow 0.5s; }
-
-/* Consejos */
-.category-advice { width: 100%; box-sizing: border-box; }
-.category-advice li { list-style-type: disc; margin-left: 12px; font-size: 0.75rem; margin-bottom: 3px; padding: 3px 5px; border-radius: 6px; background: rgba(255,255,255,0.3); transition: transform 0.2s, box-shadow 0.3s; }
-.category-advice li:hover { transform: translateX(2px); box-shadow: 0 0 5px rgba(13,110,253,0.6); }
-
-
-.cta { 
-  margin-top: 15px; 
-  padding: 8px 15px; 
-  background: linear-gradient(135deg,#ffffff,#A1E8AF); 
-  color: rgb(0, 0, 0); 
-  border: none; 
-  border-radius: 8px; 
-  cursor: pointer; 
-  font-family: 'Intel', sans-serif; 
-  font-weight: 600; 
-  font-size: 0.9rem; 
-  transition: transform 0.2s, box-shadow 0.3s;
-}
-.cta:hover { transform: scale(1.05); box-shadow: 0 0 6px rgba(13,110,253,0.6); }
-
-
-.info h3, .results h3 { margin-bottom: 10px; font-size: 1.2rem; color:#0c2400; }
-.info p, .results p { line-height: 1.4; margin-bottom: 12px; font-size: 0.85rem; color: #444; }
-.subscribe-box { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
-.subscribe-box input { padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; outline: none; }
-
-
-#threeCanvas-container {
-  position: absolute;      
-  top: 75%;                
-  left: 50%;               
-  transform: translate(-50%, -50%); 
-  width: 100%;         
-    height: 700px;       
-  max-width: auto;         
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   background: transparent;
-}
-
-#threeCanvas {
-  width: 100%;
-  height: 700px;           
-  border-radius: 28px;
- background: transparent; 
-  scale: 1;             
-}
 
 
 .progress-circle {
@@ -317,9 +215,9 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px auto;
+  margin: 0 auto;
   box-shadow: 0 0 15px rgba(154, 154, 154, 0.4);
-  transition: background 1s ease-out, transform 0.3s;
+  transition: background 1s ease-out;
 }
 
 .progress-circle span {
@@ -328,113 +226,87 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   color: #000;
 }
 
+
+
 .category-cards {
-  margin-top:0px;
-  width: 100%;
-  max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-    background: rgba(255, 255, 255, 0);
-  align-items: stretch;
-  scale:1;
-}
-
-
-.results-container canvas {
   width: 100%;
-  height: 100px;
-  border-radius: 25px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0);
-  flex-shrink: 0;
+  max-width: 300px;
+}
+
+.category-card {
+  min-width: 180px;
+  max-width: 220px;
+  background: rgba(0, 145, 0, 0.495);
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 15px;
+}
+
+.category-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  overflow: hidden;
+}
+
+.category-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff0000, #00ff33);
+  border-radius: 10px;
+  transition: width 1s ease-out;
 }
 
 
-.results-container h3 {
-  margin-top: 60px;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #0c2400;
-  text-align: center;
+
+#threeCanvas-container {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
 }
 
-.results2 { 
- top: 70px;
-  width: 20%; 
-  min-width: 290px;       
-  height: 100%;         
+#threeCanvas {
+  width: 100%;
+  height: 650px;
+  border-radius: 28px;
+  background: transparent;
+}
+
+
+
+.results2 {
+  top: 70px;
+  width: 20%;
+  min-width: 290px;
+  flex: 1;               /* FIX */
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
-  border-radius: 0; 
- background: rgba(246, 246, 246, 0.029); 
+  border-radius: 0;
+  background: rgba(246, 246, 246, 0.029);
   backdrop-filter: blur(10px);
   color: rgb(0, 0, 0);
-    overflow-x: hidden;      /* ← Mantiene el diseño limpio */
+  overflow-x: hidden;
 }
 
 
 
-.results p,.results h3{ top: 40px; color: rgb(255, 255, 255);}
-.results .subscribe-box,
-.results img {top: 40px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-@media (max-width: 1200px) {
-  .results {
-    width: 25%;
-  }
-}
-@media (max-width: 900px) {
-  .results {
-    display: none;
-  }
-}
-
-
-.results p strong {
-  color: #000000;
-  font-weight: 800;
-}
-
-
-/* Contenedor principal */
-.subscribe-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.subscribe-box label {
-  text-align: center;
-  font-size: 0.95rem;
-  color: #005913;
-}
-
-/* Botón CTA */
-.cta {
-  padding: 10px 16px;
-  background-color: #004512;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.cta:hover {
-  background-color: #00aa00;
-}
-
-/* Mini modal */
 .mini-modal {
   position: fixed;
-  inset: 10;
+  inset: 10px;           /* FIX */
   background: rgba(0,0,0,0.6);
   display: none;
   justify-content: center;
@@ -442,40 +314,65 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
   z-index: 999;
   padding: 10px;
 }
+
 .mini-modal-content {
   position: relative;
   background: #fff;
   border-radius: 14px;
   width: 95%;
   max-width: 490px;
- margin-top:10px;
-  min-height: 490px; /* suficiente para el registro completo */
+  min-height: 490px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  overflow-y: auto; /* scroll si el contenido supera altura */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
-.mini-modal-close {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: #555;
-}
-.mini-modal-close:hover {
-  color: #000;
-}
 
-/* Iframe dentro del modal */
 .mini-login-iframe {
   width: 100%;
-  min-height: 450px; /* ajustable según tu registro */
+  min-height: 450px;
   border: none;
   border-radius: 12px;
 }
 
+
+
+@media (max-width: 1200px) {
+  .results { width: 25%; }
+}
+
+@media (max-width: 900px) {
+  .results { display: none; }
+}
+/* ========== RESPONSIVE ========== */
+/* Tablets / pantallas medianas */
+@media (max-width: 900px) {
+  .main { padding: 10px; }
+  .info { width: 90%; margin: 5px auto; }
+  .results2 { width: 100%; padding: 20px; }
+  .category-cards { flex-direction: column; gap: 6px; max-width: 100%; }
+  .form-card { padding: 30px; max-width: 90%; }
+  #threeCanvas-container, #threeCanvas { height: 400px; }
+  .quiz-form { max-width: 100%; }
+  .dock-menu { gap: 10px; padding: 6px 10px; }
+  .dock-item { font-size: 1rem; }
+}
+
+/* Móviles pequeños */
+@media (max-width: 600px) {
+  body { flex-direction: column; }
+  .main, .info, .results2 { width: 100%; margin: 0 auto; }
+  .results { display: none; }
+  .form-card { padding: 20px; max-width: 95%; }
+  #threeCanvas-container, #threeCanvas { height: 250px; }
+  .category-cards { max-width: 100%; gap: 5px; }
+  .avatar-img { width: 120px; bottom: 15px; right: 15px; }
+  .dock-menu { flex-wrap: wrap; justify-content: center; }
+  .question-title { font-size: 0.9rem; }
+  .progress-circle span { font-size: 0.9rem; }
+  .cta { font-size: 0.85rem; padding: 8px 12px; }
+}
 </style>
 </head>
 <body>
@@ -661,11 +558,12 @@ h2 { text-align: center; margin-bottom: 18px; color: rgb(0, 63, 16);}
     </div>     
   </div>
     
-</div>
 
 
 <div class="results2">
-           <div class="category-cards" id="categoriesContainerHUD"></div>  
+
+<div class="category-cards" id="categoriesContainerHUD"></div>  
+
    <h3>¿Sientes que necesitas un estudio avanzado?</h3>
   <p>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
@@ -704,15 +602,11 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
     </div>
   </div>
 
-  <img 
+  <!-- <img 
+  class= "avatar-img"
     src="https://universooliba-bot.github.io/sources/anafrontalsinfondo.png" 
-    alt="Estudio epigenético" 
-    style="width: 320px; border-radius:22px; margin:10px 0 0 0;">
+    alt="Estudio epigenético" >-->
 </div>
-
-
-
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
@@ -1040,7 +934,7 @@ function downloadPatientFile() {
     downloadBtn.addEventListener('click', () => {
       const link = document.createElement('a');
       link.href = menuPdfUrl;
-      link.download = 'https://test.olibalife.site/olibalifemenudrenante.pdf';
+      link.download = 'viewer.3dtwins.tech/resultado_habitos (3).pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1077,6 +971,3 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
-
-
-
