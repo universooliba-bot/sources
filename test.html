@@ -15,7 +15,8 @@ body {
   min-height: 100svh;                 /* FIX MOBILE */
   background: linear-gradient(135deg, #d8d8d8, #ffffff);
   overflow-x: hidden;                 /* FIX MOBILE */
-  overflow-y: auto;                   /* FIX MOBILE */
+  overflow-y: auto;   
+  padding-bottom: 260px;                /* FIX MOBILE */
 }
 
 /* ================= HEADER ================= */
@@ -25,7 +26,7 @@ body {
   left: 0;
   width: 100%;
   background: transparent;
-  z-index: 999;
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,9 +41,9 @@ body {
 
 .dock-menu {
   display: flex;
-  gap: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 20px;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.753);
+  padding: 18px 20px;
   border-radius: 22px;
   backdrop-filter: blur(15px);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -50,7 +51,7 @@ body {
 
 .dock-item {
   font-size: 1.2rem;
-  color: #00511f;
+  color: #000000;
   text-decoration: none;
   transition: transform 0.25s ease, filter 0.25s ease, color 0.25s;
   display: flex;
@@ -87,12 +88,12 @@ body {
 
 /* ================= INFO ================= */
 .info {
-  margin: 10px;
+  margin: 40px;
   width: 100%;
   max-width: 480px;                  /* FIX MOBILE */
   flex: 1;
   backdrop-filter: blur(12px);
-  background: rgba(246, 246, 246, 0.029);
+  background: rgba(7, 65, 56, 0.705);
   padding: 10px;
   border-right: 1px solid rgba(255,255,255,0.2);
   display: flex;
@@ -101,6 +102,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 9000;
+  border-radius: 20px;
 }
 
 /* ================= RESULTS (LEGACY) ================= */
@@ -135,8 +137,8 @@ body {
 
 h2 {
   text-align: center;
-  margin-bottom: 18px;
-  color: rgb(0, 63, 16);
+  margin: 18px;
+  color: rgb(255, 255, 255);
 }
 
 /* ================= AVATAR ================= */
@@ -199,12 +201,12 @@ h2 {
   height: 100px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: conic-gradient(#00690e 0deg, #ddd 0deg);
+  background: conic-gradient(#49f360 0deg, #ddd 0deg);
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  box-shadow: 0 0 15px rgba(154, 154, 154, 0.4);
+  box-shadow: 0 0 15px rgba(32, 192, 82, 0.901);
   transition: background 1s ease-out;
 }
 
@@ -214,22 +216,17 @@ h2 {
   color: #000;
 }
 
-/* ================= CATEGORIES ================= */
-.category-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  max-width: 300px;
-}
 
 .category-card {
-  min-width: 180px;
-  max-width: 220px;
-  background: rgba(0, 145, 0, 0.495);
-  color: #fff;
-  border-radius: 15px;
-  padding: 10px 15px;
+  min-width: 280px;
+  max-width: 280px;
+  left: 2px;
+  background: rgba(184, 184, 184, 0.189);
+  color: #000000;
+  border-radius: 30px;
+  padding: 30px 45px;
+  z-index: 99999;
+  margin: 60px;
 }
 
 .category-bar {
@@ -250,8 +247,9 @@ h2 {
 
 /* ================= THREE ================= */
 #threeCanvas-container {
+  margin-top: 1px;
   position: absolute;
-  top: 65%;
+  top: 67%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -265,36 +263,38 @@ h2 {
   width: 100%;
   height: 650px;
   border-radius: 28px;
-  background: transparent;
+  background: rgba(187, 202, 248, 0.098);
 }
 
-/* ================= RESULTS 2 ================= */
 .results2 {
-  top: 70px;
-  width: 20%;
-  min-width: 290px;
-  flex: 1;
-  padding: 40px;
+  position: fixed;       /* Fijamos en la ventana */
+  bottom: 0;             /* Pegado al borde inferior */
+  left: 0;               /* Desde la izquierda */
+  width: 100%;           /* Lado a lado */
+  max-width: 100%;
+  height: 250px;         /* Altura del contenedor */
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;
-  background: rgba(246, 246, 246, 0.029);
-  backdrop-filter: blur(10px);
-  color: rgb(0, 0, 0);
+  overflow-y: auto;      /* Scroll interno si hay mucho contenido */
   overflow-x: hidden;
+  background: rgb(246, 246, 246);
+  backdrop-filter: blur(10px);
+  color: #000;
+  border-radius: 20px 20px 0 0; /* Solo esquinas superiores redondeadas */
+  z-index: 9000;         /* Encima de canvas y demás */
 }
-
 
 .mini-modal {
   position: fixed;
-  inset: 10px;
+  inset: 20px;
   background: rgba(0,0,0,0.6);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  padding: 10px;
+  z-index: 999999;
+  padding: 40px;
 }
 
 .mini-modal-content {
@@ -320,15 +320,26 @@ h2 {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
+  body, .main {
+    padding-bottom: 230px;
+  }
   .results { display: none; }
   .info { max-width: 90%; }
   #threeCanvas-container, #threeCanvas { height: 400px; }
+    .results2 {
+    height: 220px;
+    padding: 15px 20px;
+  }
 }
 
 @media (max-width: 600px) {
-  body { flex-direction: column; }
-  .main, .info, .results2 { width: 100%; margin: 0 auto; }
-  .results2 { min-width: 0; padding: 20px 16px; }
+  body {
+    padding-bottom: 210px; flex-direction: column; }
+  .main, .info {padding-bottom: 210px; width: 100%; margin: 0 auto; }
+   .results2 {
+    height: 200px;
+    padding: 10px 15px;
+  }
   #threeCanvas-container {
     position: relative;           
     top: auto;
@@ -346,29 +357,14 @@ h2 {
 <body>
 
 <header class="floating-header">
-  <nav class="dock-menu">
-    <a href="https://test.olibalife.site/" 
-       class="dock-item" 
-       title="Análisis genético" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      <i class="fa-solid fa-dna"></i>
-    </a>
-
-    <a href="https://test.olibalife.site/login.html" 
-       class="dock-item" 
-       title="Tu bienestar" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      <i class="fa-solid fa-user"></i>
-    </a>
-
-  </nav>
+  
 </header>
 
 
-
-<div class="info">
+<div class="info"><nav class="dock-menu">
+    <a href="https://test.olibalife.site/" class="dock-item"><i class="fa-solid fa-dna"></i></a>
+    <a href="https://test.olibalife.site/login.html" class="dock-item"><i class="fa-solid fa-user"></i></a>
+  </nav>
  
   <h2>Test de Hábitos</h2>
 
@@ -489,7 +485,7 @@ h2 {
 </div>
 
 <div class="main">
-  <div id="hudContainer" style="position: relative; width: 100%; height: 900px;">    
+  <div id="hudContainer" style="position: relative; width: 100%; height: 800px;">    
     <div id="resultsHUD" style="
       position: absolute;
       top: 40px;
@@ -498,28 +494,30 @@ h2 {
       width: 100%;
       height: 100%;
       max-width: 1250px;
-      backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0);
+      backdrop-filter: blur(90px);
+      background: rgba(255, 255, 255, 0.592);
       border-radius: 20px;
       padding: 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      pointer-events: none; /* evita bloquear interacciones con canvas */
+      pointer-events: none;
       scale:1;
     ">  
     
       <h1>Tus resultados</h1>
+         <div id="healthMessageHUD" style="margin-top:18px;font-weight:600;
+        font-size: 1.3rem; color:#000000;text-align:center;"></div>
             <div class="progress-circle" id="progressCircleHUD">
         <span>0%</span>
   
       </div>  
-        <div id="healthMessageHUD" style="margin-top:20px;font-weight:800;
-        font-size: 1.7rem; color:#000000;text-align:center;"></div>
- <div id="threeCanvas-container">
+     
 
-  <canvas id="threeCanvas">    </div>  </canvas>     
+ <div id="threeCanvas-container">
+  <canvas id="threeCanvas"></canvas>
+</div>      
 
 </div>
           
@@ -527,10 +525,11 @@ h2 {
   </div>
     
 
+<div class="category-cards" id="categoriesContainerHUD"></div>  
 
 <div class="results2">
 
-<div class="category-cards" id="categoriesContainerHUD"></div>  
+
 
    <h3>¿Sientes que necesitas un estudio avanzado?</h3>
   <p>
@@ -574,7 +573,7 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
   class= "avatar-img"
     src="https://universooliba-bot.github.io/sources/anafrontalsinfondo.png" 
     alt="Estudio epigenético" >-->
-</div>
+</div></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
