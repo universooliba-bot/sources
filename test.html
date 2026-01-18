@@ -6,7 +6,9 @@
 <title>Test de Hábitos Olibalife</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ================= BODY ================= */
 body {
@@ -42,7 +44,7 @@ body {
 .dock-menu {
   display: flex;
   gap: 18px;
-  background: rgba(255, 255, 255, 0.753);
+ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   padding: 18px 20px;
   border-radius: 22px;
   backdrop-filter: blur(15px);
@@ -76,14 +78,17 @@ body {
 }
 
 .main {
-  background: rgba(255, 255, 255, 0);
+  background: #1f2937;
   width: 100%;
-  flex: 1;
+  margin-top: 40px;
+  height: 800px;
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  padding-top: 0px;
+  border-radius: 18px ;
+  color: black
 }
 
 /* ================= INFO ================= */
@@ -94,7 +99,7 @@ body {
   max-height: 800px;
   flex: 1;
   backdrop-filter: blur(12px);
-  background: rgba(7, 65, 56, 0.705);
+ background: linear-gradient(135deg, #b1b1b3, #025500);
   padding: 10px;
   border-right: 1px solid rgba(255,255,255,0.2);
   display: flex;
@@ -126,7 +131,7 @@ body {
 /* ================= FORM ================= */
 .form-card {
   backdrop-filter: blur(20px);
-  background: rgba(246, 246, 246, 0.029);
+ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   padding: 55px;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -168,7 +173,7 @@ h2 {
 #quizProgress {
   height: 0px;
   width: 100%;
-  background: rgba(237, 237, 237, 0);
+background: linear-gradient(135deg, #d8d8d8, #ffffff);
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 0px;
@@ -177,10 +182,10 @@ h2 {
 .question-card {
   width: 100%;
   backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.661);
+  background: rgba(255, 255, 255, 0.859);
   border-radius: 16px;
   padding: 14px 16px;               /* FIX MOBILE */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.786);
 }
 
 .question-title {
@@ -218,22 +223,19 @@ h2 {
 }
 
 .category-cards-container {
-          /* Fijo en la pantalla */
   bottom: 0;                 /* Pegado al borde inferior */
   left: 50%;                 /* Centrado horizontal */
   margin: 40px;
   width: 99%;                /* Margen lateral pequeño */
   max-width: 280px;         /* No se haga demasiado ancho en pantallas grandes */
   height: 800px;             /* Altura del contenedor */
-  background: rgba(255,255,255,0.85); /* Fondo semitransparente */
+ background: #1f2937;
   backdrop-filter: blur(15px);        /* Efecto de desenfoque */
   border-radius: 20px;      /* Solo esquinas superiores redondeadas */
   padding: 10px;
-  
   gap: 15px;                 /* Espacio entre cards */
   overflow-x: hidden;          /* Scroll horizontal si hay muchas cards */
-
-  z-index: 9500;             /* Encima del canvas pero debajo del modal */
+  z-index: 8500;             /* Encima del canvas pero debajo del modal */
   box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
 }
 
@@ -241,16 +243,17 @@ h2 {
 .category-card {
   flex: 0 0 auto;            /* No se comprima */
   width: 240px;
-  background: rgba(184, 184, 184, 0.189);
-  color: #000;
+  background: rgba(245, 245, 245, 0.986);
+  color: #000000;
   border-radius: 20px;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  gap: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.52);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px;
+  top: 20px;
 }
 
 
@@ -258,7 +261,7 @@ h2 {
   width: 100%;
   height: 6px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(67, 67, 67, 0.2);
   overflow: hidden;
 }
 
@@ -272,23 +275,23 @@ h2 {
 
 /* ================= THREE ================= */
 #threeCanvas-container {
-  margin-top: 1px;
   position: absolute;
-  top: 67%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   display: flex;
+  margin: 0px;
   justify-content: center;
   align-items: center;
 }
 
 #threeCanvas {
-  width: 150%;
+  max-width: 95%;
   height: 530px;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0);
+background: transparent;
 }
 
 .results2 {
@@ -304,7 +307,7 @@ h2 {
   justify-content: flex-start;
   overflow-y: auto;      /* Scroll interno si hay mucho contenido */
   overflow-x: hidden;
-  background: rgb(234, 234, 234);
+  background: linear-gradient(135deg, #d8d8d8, #ffffff);
   backdrop-filter: blur(10px);
   color: #000000;
   z-index: 9000;         /* Encima de canvas y demás */
@@ -315,15 +318,15 @@ h2 {
   max-width: 100%;
   max-height: 200px;
   padding: 10px 20px;
-  background: rgba(255,255,255,0.85); /* Fondo semitransparente */
+ background: #1f2937;
   backdrop-filter: blur(12px);
   border-radius: 20px;
   text-align: center;
   z-index: 9500;            /* Encima de canvas pero debajo del modal */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  font-weight: 600;
-  font-size: 1.3rem;
-  color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.944);
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ffffff;
 }
 
 /* Responsive para móviles */
@@ -428,10 +431,10 @@ h2 {
   }
 }
 
-/* ================= BOTÓN CTA ================= */
+
 .cta {
-  background: linear-gradient(135deg, #53816e, #0f9b4d);
-  color: #fff;
+ background: #1f2937;
+  color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   padding: 14px 28px;
@@ -443,6 +446,7 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  margin: 2px;
 }
 
 /* Hover / focus */
@@ -516,7 +520,7 @@ h2 {
     <a href="https://test.olibalife.site/login.html" class="dock-item"><i class="fa-solid fa-user"></i></a>
   </nav>
  
-  <h2>Test de Hábitos</h2>
+  <h2>Encuentra areas de mejora en tu rutina diaria y mejora tu salud con pequeños cambios.</h2>
 
   <form id="quizForm" class="quiz-form">
 
@@ -635,44 +639,49 @@ h2 {
 </div>
 
 <div class="main">
-  <div id="hudContainer" style="position: relative; width: 100%; height: 800px;">    
+
+    <h2>Tus resultados</h2>
+
+  <div id="hudContainer" style="position: relative; width: 90%; height: 800px;">  
+
     <div id="resultsHUD" style="
       position: absolute;
-      top: 40px;
+      top: 25px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
       height: 100%;
       max-width: 1250px;
+      max-height: 700px;
       backdrop-filter: blur(90px);
       background: rgba(255, 255, 255, 0.592);
       border-radius: 20px;
-      padding: 25px;
+      padding: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 0px;
       pointer-events: none;
       scale:1;
+      background-image: url('https://test.olibalife.site/bannercambiar.jpg'); /* tu imagen */
+      background-size: cover;      /* cubre todo el contenedor */
+      background-position: center; /* centrada */
+      background-repeat: no-repeat;
+      background-blend-mode: overlay;   /* mezcla con el color */
+      background-color: rgba(255, 255, 255, 0.793);
+      backdrop-filter: blur(60px);
     ">  
-    
-      <h1>Tus resultados</h1>
-
-            <div class="progress-circle" id="progressCircleHUD">
-        <span>0%</span>
+   <div class="progress-circle" id="progressCircleHUD">
+   <span>0%</span>
   
-      </div>  
-     
-
+   </div>  
+      
  <div id="threeCanvas-container">
   <canvas id="threeCanvas"></canvas>
 </div>      
-
-
-</div>
-          
-    </div>     
-  </div>
+   </div>      
+      </div>     
+          </div>
     
 
 <div class="category-cards-container">   
@@ -783,21 +792,37 @@ let latestScore = 0;
 let latestCategories = [];
 let latestTips = {}; 
 
-
 function initThree() {
+  const canvas = document.getElementById('threeCanvas');
+  const container = document.getElementById('threeCanvas-container');
+
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(65, 1, 0.1, 1000);
-  camera.position.set(0, 0, 6);
 
-  renderer = new THREE.WebGLRenderer({ alpha: true, canvas: document.getElementById('threeCanvas'), antialias:true });
-  renderer.setSize(document.getElementById('threeCanvas').clientWidth, document.getElementById('threeCanvas').clientHeight);
+  // Cámara
+  camera = new THREE.PerspectiveCamera(65, container.clientWidth / container.clientHeight, 0.01, 1000);
+  camera.position.set(0, 0, 5.4);
 
+  // Renderer
+  renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio); // para pantallas retina
+  renderer.setSize(container.clientWidth, container.clientHeight);
+
+  // Luces
   const light = new THREE.DirectionalLight(0xffffff, 1.2);
   light.position.set(1, 6, 5);
   scene.add(light);
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-}
 
+  // Resize dinámico
+  window.addEventListener('resize', () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  });
+}
 
 async function loadBaseModel() {
   return new Promise((resolve, reject) => {
@@ -806,8 +831,8 @@ async function loadBaseModel() {
       baseModelURL,
       (gltf) => {
         gltfScene = gltf.scene;
-        gltfScene.scale.set(8.5, 8.5, 8.5);
-        gltfScene.position.set(0, -4, -2);
+        gltfScene.scale.set(7.5, 6, 7.3);
+        gltfScene.position.set(0, -3, -2);
         scene.add(gltfScene);
         animate();    
         trackEvent('model_loaded', { model_url: baseModelURL });
