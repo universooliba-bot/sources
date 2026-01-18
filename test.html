@@ -6,20 +6,22 @@
 <title>Test de Hábitos Olibalife</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>@import url('https://fonts.googleapis.com/css2?family=Intel:wght@400;600&display=swap');
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ================= BODY ================= */
 body {
   font-family: 'Intel', sans-serif;
   display: flex;
-  height: 100vh; /* FIX */
+  min-height: 100svh;                 /* FIX MOBILE */
   background: linear-gradient(135deg, #d8d8d8, #ffffff);
-  overflow: hidden; /* FIX: el scroll no vive en body */
+  overflow-x: hidden;                 /* FIX MOBILE */
+  overflow-y: auto;                   /* FIX MOBILE */
 }
 
-
-
+/* ================= HEADER ================= */
 .floating-header {
   position: fixed;
-  top: 10px; /* FIX */
+  top: 10px;
   left: 0;
   width: 100%;
   background: transparent;
@@ -27,7 +29,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 10px; /* FIX */
+  padding: 12px 10px;
   animation: fadeDown 0.6s ease-out;
 }
 
@@ -62,8 +64,7 @@ body {
   filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
 }
 
-
-
+/* ================= SIDEBAR / MAIN ================= */
 .sidebar {
   width: 100%;
   backdrop-filter: blur(12px);
@@ -76,18 +77,20 @@ body {
 .main {
   background: rgba(255, 255, 255, 0);
   width: 100%;
-  flex: 1;                /* FIX */
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;       /* FIX */
+  overflow: hidden;
   padding-top: 0px;
 }
 
+/* ================= INFO ================= */
 .info {
   margin: 10px;
-  width: 480px;
-  flex: 1;                /* FIX */
+  width: 100%;
+  max-width: 480px;                  /* FIX MOBILE */
+  flex: 1;
   backdrop-filter: blur(12px);
   background: rgba(246, 246, 246, 0.029);
   padding: 10px;
@@ -95,15 +98,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;       /* scroll vive aquí */
+  overflow-y: auto;
   overflow-x: hidden;
   z-index: 9000;
 }
 
+/* ================= RESULTS (LEGACY) ================= */
 .results {
   margin: 0px;
   width: 40%;
-  flex: 1;                /* FIX */
+  flex: 1;
   backdrop-filter: blur(12px);
   background: rgb(255, 0, 0);
   padding: 40px;
@@ -116,15 +120,14 @@ body {
   border-radius: 20px;
 }
 
-
-
+/* ================= FORM ================= */
 .form-card {
   backdrop-filter: blur(20px);
   background: rgba(246, 246, 246, 0.029);
   padding: 55px;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-  width: 100%;            /* FIX */
+  width: 100%;
   max-width: 300px;
   margin-bottom: 0px;
   color: black;
@@ -136,31 +139,28 @@ h2 {
   color: rgb(0, 63, 16);
 }
 
+/* ================= AVATAR ================= */
 .avatar-img {
   width: 200px;
-  height: auto;           /* mantiene proporción */
+  height: auto;
   border-radius: 20px;
   display: block;
-  color: black;
-
-  position: fixed;        /* fijado en pantalla */
-  bottom: 0px;           /* separación desde el borde inferior */
-  right: 20px;            /* separación desde el borde derecho */
-  margin: 0;              /* elimina márgenes previos que interfieran */
-  z-index: 1000;          /* para que esté por encima de otros elementos */
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  z-index: 1000;
 }
 
+/* ================= QUIZ ================= */
 .quiz-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;            /* FIX */
-  max-width: 200px;
+  gap: 12px;                         /* FIX MOBILE */
+  width: 100%;
+  max-width: 100%;                   /* FIX MOBILE */
   color: rgb(0, 0, 0);
-  font-size: 12px;
+  font-size: clamp(14px, 3.5vw, 16px); /* FIX MOBILE */
 }
-
-
 
 #quizProgress {
   height: 0px;
@@ -171,23 +171,12 @@ h2 {
   margin-bottom: 0px;
 }
 
-#quizProgress span {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(135deg,#001f12,#00a368);
-  border-radius: 16px;
-  transition: width 0.5s ease;
-}
-
-
-
 .question-card {
   width: 100%;
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.661);
   border-radius: 16px;
-  padding: 10px 16px;
+  padding: 14px 16px;               /* FIX MOBILE */
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
@@ -204,8 +193,7 @@ h2 {
   gap: 6px;
 }
 
-
-
+/* ================= PROGRESS ================= */
 .progress-circle {
   width: 100px;
   height: 100px;
@@ -226,8 +214,7 @@ h2 {
   color: #000;
 }
 
-
-
+/* ================= CATEGORIES ================= */
 .category-cards {
   display: flex;
   flex-direction: column;
@@ -261,8 +248,7 @@ h2 {
   transition: width 1s ease-out;
 }
 
-
-
+/* ================= THREE ================= */
 #threeCanvas-container {
   position: absolute;
   top: 65%;
@@ -273,7 +259,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent;
 }
 
 #threeCanvas {
@@ -283,19 +268,17 @@ h2 {
   background: transparent;
 }
 
-
-
+/* ================= RESULTS 2 ================= */
 .results2 {
   top: 70px;
   width: 20%;
   min-width: 290px;
-  flex: 1;               /* FIX */
+  flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
-  border-radius: 0;
   background: rgba(246, 246, 246, 0.029);
   backdrop-filter: blur(10px);
   color: rgb(0, 0, 0);
@@ -303,10 +286,9 @@ h2 {
 }
 
 
-
 .mini-modal {
   position: fixed;
-  inset: 10px;           /* FIX */
+  inset: 10px;
   background: rgba(0,0,0,0.6);
   display: none;
   justify-content: center;
@@ -336,206 +318,28 @@ h2 {
   border-radius: 12px;
 }
 
-
-
-@media (max-width: 1200px) {
-  .results { width: 25%; }
-}
-
-
-/* Tablets / pantallas medianas */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
-  .info {
-    width: 90%;
-    max-width: 400px;
-    max-height: 70vh;
-    margin: 10px auto;
-  }
-
-  .results2 {
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-  }
-
-  #threeCanvas-container,
-  #threeCanvas {
-    height: 300px;
-    max-width: 90%;
-    margin: 15px auto;
-  }
-
-  .form-card {
-    padding: 30px;
-  }
-
-  .quiz-form {
-    max-width: 100%;
-  }
-
-  .category-cards {
-    max-width: 100%;
-    gap: 6px;
-  }
-
-  .avatar-img {
-    width: 150px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .cta {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-
-  .dock-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
+  .results { display: none; }
+  .info { max-width: 90%; }
+  #threeCanvas-container, #threeCanvas { height: 400px; }
 }
 
-/* Móviles pequeños */
 @media (max-width: 600px) {
-  body {
-    flex-direction: column;
+  body { flex-direction: column; }
+  .main, .info, .results2 { width: 100%; margin: 0 auto; }
+  .results2 { min-width: 0; padding: 20px 16px; }
+  #threeCanvas-container {
+    position: relative;           
+    top: auto;
+    left: auto;
+    transform: none;
+    height: 260px;
+    margin-top: 20px;
   }
-
-  .info {
-    width: 95%;
-    max-width: 95%;
-    max-height: 60vh;
-    padding: 10px;
-  }
-
-  .results2 {
-    width: 95%;
-    max-width: 95%;
-    padding: 15px;
-  }
-
-  #threeCanvas-container,
-  #threeCanvas {
-    height: 250px;
-    max-width: 95%;
-  }
-
-  .form-card {
-    padding: 20px;
-  }
-
-  .quiz-form {
-    max-width: 100%;
-  }
-
-  .question-title {
-    font-size: 0.9rem;
-  }
-
-  .cta {
-    font-size: 0.85rem;
-    padding: 7px 10px;
-  }
-
-  .avatar-img {
-    width: 120px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .category-cards {
-    gap: 4px;
-  }
+  #threeCanvas { height: 260px; }
+  .avatar-img { width: 120px; bottom: 15px; right: 15px; }
 }
-  /* ================== RESPONSIVE INTERMEDIO ================== */
-
-/* Pantallas medianas / tablets pequeñas */
-@media (max-width: 748px) {
-  .info {
-    max-width: 360px;
-    max-height: 60vh;
-    padding: 10px;
-  }
-
-  .results2 {
-    max-width: 360px;
-    padding: 15px;
-  }
-
-  #threeCanvas-container,
-  #threeCanvas {
-    height: 280px;
-    max-width: 90%;
-  }
-
-  .form-card {
-    padding: 25px;
-  }
-
-  .quiz-form {
-    font-size: 11px;
-  }
-
-  .cta {
-    font-size: 0.85rem;
-    padding: 7px 10px;
-  }
-
-  .avatar-img {
-    width: 140px;
-    bottom: 12px;
-    right: 12px;
-  }
-}
-
-/* Pantallas muy pequeñas / compactas */
-@media (max-width: 400px) {
-  .info {
-    max-width: 95%;
-    max-height: 55vh;
-    padding: 8px;
-  }
-
-  .results2 {
-    max-width: 95%;
-    padding: 10px;
-  }
-
-  #threeCanvas-container,
-  #threeCanvas {
-    height: 200px;
-    max-width: 95%;
-  }
-
-  .form-card {
-    padding: 15px;
-  }
-
-  .question-title {
-    font-size: 0.85rem;
-  }
-
-  .quiz-form {
-    font-size: 10px;
-  }
-
-  .cta {
-    font-size: 0.8rem;
-    padding: 6px 8px;
-  }
-
-  .avatar-img {
-    width: 100px;
-    bottom: 8px;
-    right: 8px;
-  }
-
-  .category-cards {
-    gap: 3px;
-  }
-}
-
 
 </style>
 </head>
