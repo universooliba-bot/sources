@@ -335,7 +335,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   max-width: 99%;
   height: 580px;
   border-radius: 8px;
-background: rgba(255, 255, 255, 0.947);
+background: transparent;
 
 }
 
@@ -1299,7 +1299,7 @@ async function loadBaseModel() {
       baseModelURL,
       (gltf) => {
         gltfScene = gltf.scene;
-        gltfScene.scale.set(7.5, 6, 7.3);
+        gltfScene.scale.set(7.8, 6.2, 7.6);
         gltfScene.position.set(0, -3, -2);
         scene.add(gltfScene);
         animate();    
