@@ -386,84 +386,11 @@ background: transparent;
   border-radius: 6px;
   z-index: 10;
 }
+/* ================================================= */
+/* ================= RESPONSIVE =================== */
+/* ================================================= */
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
-  .mini-modal-content {
-    width: 100%;
-    height: 95%;
-    border-radius: 12px;
-    padding: 10px;
-  }
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
-  .mini-modal-content {
-    padding: 10px;
-  }
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
-  .mini-modal-content {
-    padding: 15px;
-    width: 95%;
-    max-height: calc(100vh - 20px); /* Se adapta aún más a pantallas pequeñas */
-  }
-
-  .mini-login-iframe {
-    min-height: 0; /* Se ajusta al modal */
-  }
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .mini-modal-content {
-    padding: 15px;
-    width: 95%;
-    max-height: 85vh;
-  }
-
-  .mini-login-iframe {
-    min-height: 250px;
-  }
-}
-
-
-.cta {
- background: #1f2937;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 2px;
-}
-
-/* Hover / focus */
-.cta:hover, .cta:focus {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(135deg, #5b9877, #ffffff);
-  outline: none;
-}
-
-/* Active / clic */
-.cta:active {
-  transform: translateY(0px) scale(0.98);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsivo pequeño */
+/* ---------- CTA ---------- */
 @media (max-width: 600px) {
   .cta {
     width: 100%;
@@ -472,27 +399,57 @@ background: transparent;
   }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ---------- MINI MODAL ---------- */
+@media (max-width: 600px) {
+  .mini-modal-content {
+    width: 95%;
+    height: auto;
+    max-height: 85vh;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .mini-login-iframe {
+    min-height: 250px;
+  }
+}
+
+/* ---------- TABLET / SMALL DESKTOP ---------- */
 @media (max-width: 900px) {
-  body, .main {
+  body,
+  .main {
     padding-bottom: 230px;
   }
-  .results { display: none; }
-  .info { max-width: 90%; }
-  #threeCanvas-container, #threeCanvas { height: 400px; }
-    .results2 {
+
+  .results {
+    display: none;
+  }
+
+  .info {
+    max-width: 90%;
+  }
+
+  #threeCanvas-container,
+  #threeCanvas {
+    height: 400px;
+  }
+
+  .results2 {
     height: 220px;
     padding: 15px 20px;
   }
 }
 
+/* ---------- MOBILE ---------- */
 @media (max-width: 600px) {
+
+  /* BODY */
   body {
     padding-bottom: 0;
     overflow-y: auto;
   }
 
-  /* === MAIN / INFO === */
+  /* MAIN */
   .main {
     height: auto;
     min-height: auto;
@@ -501,49 +458,45 @@ background: transparent;
     border-radius: 0;
   }
 
+  /* INFO */
   .info {
     max-height: none;
     overflow: visible;
     margin: 20px auto;
   }
+
+  /* RESULTS2 → deja de ser fixed */
   .results2 {
-    position: relative;   /* CLAVE */
+    position: relative;
     height: auto;
     max-height: none;
     padding: 20px;
     overflow: visible;
   }
+
+  /* CANVAS */
   #threeCanvas-container {
     position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;   /* ADN protagonista */
-    margin: 20px 0;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    height: 260px;
+    margin-top: 20px;
   }
 
   #threeCanvas {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    border-radius: 18px;
+    height: 260px;
   }
 
-    .progress-circle {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+  /* AVATAR */
+  .avatar-img {
+    width: 120px;
+    bottom: 15px;
+    right: 15px;
   }
 
-  .health-hud-container {
-    max-height: none;
-    font-size: 0.95rem;
-    padding: 12px;
-  }
-
-
-  .avatar-img { width: 120px; bottom: 15px; right: 15px; }
-    
-  
+  /* CATEGORY CARDS */
   .category-cards-container {
     position: relative;
     left: auto;
@@ -558,14 +511,14 @@ background: transparent;
     padding: 15px;
 
     overflow: visible;
-    
- 
   }
-    .category-card {
+
+  .category-card {
     width: 100%;
     margin: 0;
   }
 }
+
 
 </style>
 </head>
