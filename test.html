@@ -12,14 +12,14 @@
 
 /* ================= BODY ================= */
 body {
-     background: #1f2937;
+ background: #1f2937;
   font-family: 'Intel', sans-serif;
   display: flex;
   min-height: 100svh;                 /* FIX MOBILE */
   
   overflow-x: hidden;                 /* FIX MOBILE */
   overflow-y: auto;   
-  padding-bottom: 280px;                /* FIX MOBILE */
+  padding-bottom: 100px;                /* FIX MOBILE */
 }
 
 /* ================= HEADER ================= */
@@ -46,17 +46,17 @@ body {
   color: #ffffff;
   font-weight: 400;
   font-size: 1rem;
-  padding: 14px 18px;
+  padding: 20px 8px;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 4px;
-  scale: 0.8;
+  margin: 10px 14px;
+  scale: 1;
 }
 
 /* Hover / Focus */
@@ -121,7 +121,7 @@ body {
   align-items: center;
   overflow: hidden;
   border-radius: 18px ;
- background: #b0e4fc94;
+  background: #dbe0e7;
   
 
 }
@@ -135,7 +135,7 @@ body {
   min-width: 380;
   flex: 1;
   backdrop-filter: blur(12px);
- background: linear-gradient(195deg, #ffffff, #80b49ae9);
+  background: #dbe0e7;
   padding: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.841);
   display: flex;
@@ -179,7 +179,7 @@ body {
 
 h2 {
   text-align: center;
-  margin: 18px;
+  margin: 12px;
   color: rgb(0, 0, 0);
 }
 
@@ -187,6 +187,11 @@ h3 {
   text-align: center;
   margin: 20px;
   color:  #ffffff;
+}
+p {
+  text-align: center;
+  margin: 10px;
+  color:  #000000;
 }
 
 /* ================= AVATAR ================= */
@@ -255,7 +260,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   justify-content: center;
   align-items: center;
   margin: 20px;
-  box-shadow: 0 0 15px rgba(32, 192, 82, 0.901);
+  box-shadow: 0 0 15px rgba(159, 159, 159, 0.901);
   transition: background 1s ease-out;
 }
 
@@ -348,7 +353,7 @@ background: transparent;
   left: 0;               /* Desde la izquierda */
   width: 100%;           /* Lado a lado */
   max-width: 100%;
-  height: 250px;         /* Altura del contenedor */
+  height: 270px;         /* Altura del contenedor */
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
@@ -357,17 +362,17 @@ background: transparent;
   overflow-x: hidden;
   background: #dbe0e7;
   color: #000000;
-  z-index: 9000;         /* Encima de canvas y demás */
+  z-index: 9999;         /* Encima de canvas y demás */
 }
 /* ================= HEALTH HUD ================= */
 .health-hud-container {
   width: 100%;               /* Margen lateral pequeño */
-  max-width: 100%;
+  max-width: 90%;
   max-height: 200px;
   padding: 10px 20px;
  background: #1f2937;
   backdrop-filter: blur(12px);
-  border-radius: 20px;
+  border-radius: 8px;
   text-align: center;
   z-index: 9000;            /* Encima de canvas pero debajo del modal */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.944);
@@ -877,7 +882,7 @@ background: transparent;
     left: 0;
     width: 100%;
     max-width: 100%;
-    height: 145px;
+    height: 140px;
     padding: 12px 16px;
     font-size: 0.85rem;
     backdrop-filter: blur(8px);
@@ -891,11 +896,11 @@ background: transparent;
 
   /* ===== HEALTH HUD ===== */
   .health-hud-container {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     padding: 12px 12px;
-    border-radius: 8px;
+    border-radius: 16px;
     width: 95%;
-    margin: 2px;
+    margin: 12px;
   }
 
   /* ===== AVATAR ===== */
@@ -1587,5 +1592,4 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
-
 
