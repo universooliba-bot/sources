@@ -12,7 +12,7 @@
 
 /* ================= BODY ================= */
 body {
-   background: #1f2937;
+   background: #d0d0d0;
   font-family: 'Intel', sans-serif;
   display: flex;
   min-height: 100svh;                 /* FIX MOBILE */
@@ -583,7 +583,7 @@ background: rgba(255, 255, 255, 0.947);
   /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* deja espacio para results2 */
+    padding-bottom: 190px; /* deja espacio para results2 */
     overflow-y: auto;
   }
 
@@ -741,11 +741,11 @@ background: rgba(255, 255, 255, 0.947);
 
     #resultsHUD {
     position: relative;       /* ya no absoluto, para adaptarse al flujo */
-    top: 10px;                /* eliminar desplazamiento desde arriba */
+    top: 0px;                /* eliminar desplazamiento desde arriba */
     left: auto;
     transform: none;          /* no necesitamos translateX */
-    width: 95%;               /* ocupa casi todo el ancho */
-    max-width: 95%;           /* límite máximo */
+    width: 90%;               /* ocupa casi todo el ancho */
+    max-width: 5%;           /* límite máximo */
     height: auto;             /* se ajusta al contenido */
     max-height: none;         /* sin límite de altura */
     padding: 2px;            /* reduce padding para móvil */
@@ -771,7 +771,7 @@ background: rgba(255, 255, 255, 0.947);
   /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* espacio para results2 */
+    padding-bottom: 190px; /* espacio para results2 */
     overflow-y: auto;
   }
 
@@ -805,7 +805,7 @@ background: rgba(255, 255, 255, 0.947);
 
   /* ===== INFO (QUIZ) — PRIORIDAD ===== */
   .info {
-    order: 1;
+   
     margin: 20px auto;
     width: 92%;
     max-width: 100%;
@@ -832,7 +832,7 @@ background: rgba(255, 255, 255, 0.947);
 
   /* ===== THREE CANVAS ===== */
   #threeCanvas-container {
-    order: 2;
+ 
     position: relative;
     top: 20px;
     left: auto;
@@ -1552,4 +1552,5 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
+
 
