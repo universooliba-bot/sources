@@ -127,7 +127,8 @@ body {
   width: 100%;
   max-width: 480px;                  /* FIX MOBILE */
   max-height: 800px;
-  flex: 1;
+  min-width: 380;
+  flex: 3;
   backdrop-filter: blur(12px);
  background: linear-gradient(135deg, #b1b1b3, #025500);
   padding: 10px;
@@ -257,7 +258,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   left: 50%;                 /* Centrado horizontal */
   margin: 40px;
   width: 99%;                /* Margen lateral pequeño */
-  max-width: 280px;         /* No se haga demasiado ancho en pantallas grandes */
+  max-width: 380px;                  /* FIX MOBILE */
   height: 800px;             /* Altura del contenedor */
  background: #1f2937;
   backdrop-filter: blur(15px);        /* Efecto de desenfoque */
@@ -272,11 +273,11 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
 /* Individual cards dentro del contenedor */
 .category-card {
   flex: 0 0 auto;            /* No se comprima */
-  width: 240px;
+  width: auto;
   background: rgba(245, 245, 245, 0.986);
   color: #000000;
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -1514,3 +1515,4 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
+
