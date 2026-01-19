@@ -40,7 +40,37 @@ body {
   from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+.cta {
+  background: #39b70c;           /* color base oscuro */
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+}
 
+/* Hover / Focus */
+.cta:hover,
+.cta:focus {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #5b9877, #ffffff);
+  outline: none;
+}
+
+/* Active / Click */
+.cta:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
 .dock-menu {
   display: flex;
   gap: 18px;
@@ -437,7 +467,7 @@ background: transparent;
 
   /* ===== MAIN ===== */
   .main {
-    margin-top: 90px;
+    margin-top: 70px;
     height: auto;
     overflow: visible;
     border-radius: 16px;
@@ -494,7 +524,7 @@ background: transparent;
 
   /* ===== RESULTS2 (FIXED) ===== */
   .results2 {
-    height: 180px;
+    height: 190px;
     padding: 16px 22px;
     font-size: 0.9rem;
   }
@@ -529,12 +559,14 @@ background: transparent;
 
 
 
+
+/* ================= MOBILE 600 ================= */
 @media (max-width: 600px) {
 
   /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* deja espacio para results2 fijo */
+    padding-bottom: 180px; /* deja espacio para results2 */
     overflow-y: auto;
   }
 
@@ -554,9 +586,184 @@ background: transparent;
     font-size: 1rem;
   }
 
-  /* ===== MAIN ===== */
+    .cta {
+    width: 100%;         /* ocupa todo el ancho en móviles */
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    margin: 6px 0;
+  }
+  /* ===== MAIN STRUCTURE ===== */
   .main {
-    margin-top: 90px;
+    margin-top: 90px; /* deja respirar al header */
+    height: auto;
+    border-radius: 0;
+    overflow: visible;
+    padding-bottom: 20px;
+  }
+
+  /* ===== INFO (QUIZ) — PRIORIDAD ===== */
+  .info {
+    margin: 20px auto;
+    width: 92%;
+    max-width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .quiz-form {
+    font-size: 0.95rem;
+    gap: 10px;
+  }
+
+  .question-card {
+    padding: 14px;
+  }
+
+  /* ===== PROGRESS ===== */
+  .progress-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* ===== THREE CANVAS ===== */
+  #threeCanvas-container {
+    position: relative;
+    top: 10px;
+    left: auto;
+    transform: none;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  #threeCanvas {
+    height: 500px;
+    max-width: 100%;
+    border-radius: 20px;
+    margin: 10px 10px;
+  }
+
+
+  /* ===== CATEGORY RESULTS ===== */
+  .category-cards-container {
+     top: auto;
+    left: auto;
+    margin: 10px;
+    width: 100%;
+    max-width: 95%;
+    height: 800px;
+    padding: 8px;
+    overflow: visible;
+  }
+
+  .category-card {
+    width: 100%;
+    margin: 0 0 4px 0;
+    padding: 20px;
+  }
+
+  /* ===== RESULTS2 — FIXED PERO LIGERO ===== */
+  .results2 {
+    height: 175px;
+    padding: 28px 60px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(18px);
+  }
+
+  /* ===== HEALTH HUD ===== */
+  .health-hud-container {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 16px;
+  }
+
+  /* ===== AVATAR ===== */
+  .avatar-img {
+    width: 110px;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  /* ===== LEGACY RESULTS (OFF) ===== */
+  .results {
+    display: none;
+  }
+
+  /* ===== MINI MODAL ===== */
+  .mini-modal-content {
+    width: 95%;
+    height: 95%;
+    padding: 12px;
+    border-radius: 14px;
+    z-index: 99999;
+  }
+
+  .mini-login-iframe {
+    min-height: 0;
+     z-index: 99999;
+  }
+    .cta {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }
+
+    #resultsHUD {
+    position: relative;       /* ya no absoluto, para adaptarse al flujo */
+    top:10px;                /* eliminar desplazamiento desde arriba */
+    left: auto;
+    transform: none;          /* no necesitamos translateX */
+    width: 95%;               /* ocupa casi todo el ancho */
+    max-width: 95%;           /* límite máximo */
+    height: auto;             /* se ajusta al contenido */
+    max-height: none;         /* sin límite de altura */
+    padding: 2px;            /* reduce padding para móvil */
+    border-radius: 16px;      /* un poquito más compacto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+    scale: 1;
+    background-image: url('https://test.olibalife.site/bannercambiar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(40px); /* menos blur para mejor performance en móvil */
+  }
+}
+/* ================= MOBILE SMALL 458 CORREGIDO ================= */
+@media (max-width: 480px) {
+
+  /* ===== BODY ===== */
+  body {
+    flex-direction: column;
+    padding-bottom: 180px; /* espacio para results2 */
+    overflow-y: auto;
+  }
+
+  /* ===== HEADER ===== */
+  .floating-header {
+    top: 6px;
+    padding: 8px;
+  }
+
+  .dock-menu {
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 18px;
+  }
+
+  .dock-item {
+    font-size: 1rem;
+  }
+
+  /* ===== MAIN STRUCTURE ===== */
+  .main {
+    margin-top: 20px; /* deja respirar al header */
     height: auto;
     border-radius: 0;
     overflow: visible;
@@ -597,42 +804,41 @@ background: transparent;
   #threeCanvas-container {
     order: 2;
     position: relative;
-    top: auto;
+    top: 20px;
     left: auto;
     transform: none;
-    width: 95%;
+    height: auto;
     margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 95%;
   }
 
   #threeCanvas {
-    width: 100%;
-    height: auto;
-    max-height: 280px;
+    height: 260px;
+    max-width: 100%;
     border-radius: 20px;
   }
 
-
-  /* ===== CATEGORY RESULTS ===== */
+  /* ===== CATEGORY RESULTS (CENTRADO Y ESCALADO) ===== */
   .category-cards-container {
     position: relative;
-    margin: 30px auto;
-    width: 90%;
-    max-width: 520px;
+    margin: 16px auto; /* centrado horizontal */
+    width: 95%;
+    max-width: 100%;
     height: auto;
-    padding: 18px;
+    padding: 14px;
     overflow: visible;
   }
 
   .category-card {
     width: 100%;
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0; /* sin margen lateral */
     padding: 22px;
   }
 
-  /* ===== RESULTS2 — FIXED Y ESCALADO ===== */
+  /* ===== RESULTS2 — FIXED ESCALADO ===== */
   .results2 {
     position: fixed;
     bottom: 0;
@@ -657,7 +863,7 @@ background: transparent;
     padding: 8px 12px;
     border-radius: 16px;
     width: 95%;
-    margin: 10px auto;
+    margin: 8px auto;
   }
 
   /* ===== AVATAR ===== */
@@ -665,6 +871,11 @@ background: transparent;
     width: 110px;
     bottom: 12px;
     right: 12px;
+  }
+
+  /* ===== LEGACY RESULTS (OFF) ===== */
+  .results {
+    display: none;
   }
 
   /* ===== MINI MODAL ===== */
@@ -679,7 +890,7 @@ background: transparent;
     min-height: 0;
   }
 
-  /* ===== CTA ===== */
+  /* ===== CTA BUTTON ===== */
   .cta {
     width: 100%;
     font-size: 0.95rem;
@@ -687,152 +898,7 @@ background: transparent;
   }
 }
 
-/* ================= MOBILE SMALL 458 CORREGIDO ================= */
-@media (max-width: 458px) {
 
-  body {
-    flex-direction: column;
-    padding-bottom: 180px; /* espacio para results2 */
-    overflow-y: auto;
-  }
-
-  /* HEADER */
-  .floating-header {
-    top: 6px;
-    padding: 8px;
-  }
-
-  .dock-menu {
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 16px;
-  }
-
-  .dock-item {
-    font-size: 0.95rem;
-  }
-
-  /* MAIN STRUCTURE */
-  .main {
-    margin-top: 70px;
-    height: auto;
-    overflow: visible;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* INFO — PRIORIDAD */
-  .info {
-    order: 1;
-    margin: 16px auto;
-    width: 95%;
-    max-width: 380px;
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  .quiz-form {
-    font-size: 0.9rem;
-    gap: 8px;
-  }
-
-  .question-card {
-    padding: 12px;
-  }
-
-  /* THREE CANVAS */
-  #threeCanvas-container {
-    order: 2;
-    position: relative;
-    width: 95%;
-    max-width: 380px;
-    margin: 16px auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #threeCanvas {
-    width: 100%;
-    height: auto;
-    max-height: 240px;
-    border-radius: 18px;
-  }
-
-  /* CATEGORY CARDS — CENTRADO */
-  .category-cards-container {
-    order: 3;
-    position: relative;
-    margin: 16px auto;
-    width: 95%;
-    max-width: 380px;
-    height: auto;
-    padding: 12px;
-    overflow: visible;
-  }
-
-  .category-card {
-    width: 100%;
-    margin: 0 0 12px 0;
-    padding: 16px;
-  }
-
-  /* RESULTS2 — FIXED ABAJO */
-  .results2 {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 130px;
-    padding: 10px 14px;
-    font-size: 0.8rem;
-    backdrop-filter: blur(8px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 9000;
-  }
-
-  /* HEALTH HUD */
-  .health-hud-container {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-    border-radius: 14px;
-    width: 95%;
-    margin: 8px auto;
-  }
-
-  /* AVATAR */
-  .avatar-img {
-    width: 100px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  /* MINI MODAL */
-  .mini-modal-content {
-    width: 95%;
-    height: 90%;
-    padding: 10px;
-    border-radius: 12px;
-  }
-
-  .mini-login-iframe {
-    min-height: 0;
-  }
-
-  .cta {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 12px 20px;
-  }
-}
 
 </style>
 </head>
@@ -848,7 +914,7 @@ background: transparent;
     <a href="https://test.olibalife.site/login.html" class="dock-item"><i class="fa-solid fa-user"></i></a>
   </nav>
  
-  <h2>Encuentra areas de mejora en tu rutina diaria y mejora tu salud con pequeños cambios.</h2>
+  <h2>Test de hábitos saludables</h2>
 
   <form id="quizForm" class="quiz-form">
 
@@ -1001,6 +1067,7 @@ background: transparent;
       background-blend-mode: overlay;   /* mezcla con el color */
       background-color: rgba(255, 255, 255, 0.793);
       backdrop-filter: blur(60px);
+      
     ">  
 
       
