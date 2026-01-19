@@ -687,19 +687,18 @@ background: transparent;
   }
 }
 
-/* ================= MOBILE SMALL 458 ================= */
+/* ================= MOBILE SMALL 458 CORREGIDO ================= */
 @media (max-width: 458px) {
 
-  /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* espacio para results2 fijo */
-    align-items: center;
+    padding-bottom: 180px; /* espacio para results2 */
+    overflow-y: auto;
   }
 
-  /* ===== HEADER ===== */
+  /* HEADER */
   .floating-header {
-    top: 5px;
+    top: 6px;
     padding: 8px;
   }
 
@@ -713,11 +712,9 @@ background: transparent;
     font-size: 0.95rem;
   }
 
-  /* ===== MAIN ===== */
+  /* MAIN STRUCTURE */
   .main {
     margin-top: 70px;
-    width: 100%;
-    max-width: 100%;
     height: auto;
     overflow: visible;
     border-radius: 12px;
@@ -726,12 +723,12 @@ background: transparent;
     align-items: center;
   }
 
-  /* ===== INFO (QUIZ) — PRIORIDAD ===== */
+  /* INFO — PRIORIDAD */
   .info {
     order: 1;
     margin: 16px auto;
     width: 95%;
-    max-width: 360px; /* más compacto para móviles */
+    max-width: 380px;
     padding: 12px;
     border-radius: 16px;
   }
@@ -745,12 +742,12 @@ background: transparent;
     padding: 12px;
   }
 
-  /* ===== THREE CANVAS ===== */
+  /* THREE CANVAS */
   #threeCanvas-container {
     order: 2;
     position: relative;
     width: 95%;
-    max-width: 360px;
+    max-width: 380px;
     margin: 16px auto;
     height: auto;
     display: flex;
@@ -765,29 +762,25 @@ background: transparent;
     border-radius: 18px;
   }
 
-  /* ===== CATEGORY CARDS ===== */
+  /* CATEGORY CARDS — CENTRADO */
   .category-cards-container {
     order: 3;
     position: relative;
+    margin: 16px auto;
     width: 95%;
-    max-width: 360px; /* ajustamos para que no quede ladeado */
-    margin: 16px auto; /* centrado */
+    max-width: 380px;
     height: auto;
     padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
     overflow: visible;
   }
 
   .category-card {
     width: 100%;
-    margin: 0; /* sin margen lateral */
+    margin: 0 0 12px 0;
     padding: 16px;
-    border-radius: 14px;
   }
 
-  /* ===== RESULTS2 — FIXED ESCALADO ===== */
+  /* RESULTS2 — FIXED ABAJO */
   .results2 {
     position: fixed;
     bottom: 0;
@@ -806,7 +799,7 @@ background: transparent;
     z-index: 9000;
   }
 
-  /* ===== HEALTH HUD ===== */
+  /* HEALTH HUD */
   .health-hud-container {
     font-size: 0.9rem;
     padding: 6px 10px;
@@ -815,21 +808,32 @@ background: transparent;
     margin: 8px auto;
   }
 
-  /* ===== AVATAR ===== */
+  /* AVATAR */
   .avatar-img {
     width: 100px;
     bottom: 10px;
     right: 10px;
   }
 
-  /* ===== MINI MODAL ===== */
+  /* MINI MODAL */
   .mini-modal-content {
     width: 95%;
     height: 90%;
     padding: 10px;
     border-radius: 12px;
   }
+
+  .mini-login-iframe {
+    min-height: 0;
+  }
+
+  .cta {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }
 }
+
 </style>
 </head>
 <body>
