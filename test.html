@@ -529,14 +529,12 @@ background: transparent;
 
 
 
-
-/* ================= MOBILE 600 ================= */
 @media (max-width: 600px) {
 
   /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* deja espacio para results2 */
+    padding-bottom: 180px; /* deja espacio para results2 fijo */
     overflow-y: auto;
   }
 
@@ -556,13 +554,16 @@ background: transparent;
     font-size: 1rem;
   }
 
-  /* ===== MAIN STRUCTURE ===== */
+  /* ===== MAIN ===== */
   .main {
-    margin-top: 90px; /* deja respirar al header */
+    margin-top: 90px;
     height: auto;
     border-radius: 0;
     overflow: visible;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* ===== INFO (QUIZ) — PRIORIDAD ===== */
@@ -594,25 +595,29 @@ background: transparent;
 
   /* ===== THREE CANVAS ===== */
   #threeCanvas-container {
-    position: relative;
     order: 2;
+    position: relative;
     top: auto;
     left: auto;
     transform: none;
-    height: auto;
+    width: 95%;
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #threeCanvas {
-    height: 260px;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 280px;
     border-radius: 20px;
   }
 
-  /* ===== CATEGORY RESULTS (LATERAL EN DESKTOP) ===== */
+  /* ===== CATEGORY CARDS ===== */
   .category-cards-container {
-    position: relative;
     order: 3;
+    position: relative;
     margin: 20px auto;
     width: 92%;
     max-width: 100%;
@@ -627,12 +632,23 @@ background: transparent;
     padding: 22px;
   }
 
-  /* ===== RESULTS2 — FIXED PERO LIGERO ===== */
+  /* ===== RESULTS2 — FIXED Y ESCALADO ===== */
   .results2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
     height: 140px;
     padding: 12px 16px;
     font-size: 0.85rem;
     backdrop-filter: blur(8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 9000;
   }
 
   /* ===== HEALTH HUD ===== */
@@ -640,6 +656,8 @@ background: transparent;
     font-size: 0.95rem;
     padding: 8px 12px;
     border-radius: 16px;
+    width: 95%;
+    margin: 10px auto;
   }
 
   /* ===== AVATAR ===== */
@@ -647,11 +665,6 @@ background: transparent;
     width: 110px;
     bottom: 12px;
     right: 12px;
-  }
-
-  /* ===== LEGACY RESULTS (OFF) ===== */
-  .results {
-    display: none;
   }
 
   /* ===== MINI MODAL ===== */
@@ -665,7 +678,9 @@ background: transparent;
   .mini-login-iframe {
     min-height: 0;
   }
-    .cta {
+
+  /* ===== CTA ===== */
+  .cta {
     width: 100%;
     font-size: 0.95rem;
     padding: 12px 20px;
@@ -677,7 +692,8 @@ background: transparent;
 
   /* ===== BODY ===== */
   body {
-    padding-bottom: 180px;
+    flex-direction: column;
+    padding-bottom: 180px; /* espacio para results2 */
   }
 
   /* ===== HEADER ===== */
@@ -693,7 +709,7 @@ background: transparent;
   }
 
   .dock-item {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   /* ===== MAIN ===== */
@@ -702,72 +718,98 @@ background: transparent;
     height: auto;
     overflow: visible;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* ===== INFO (QUIZ) ===== */
+  /* ===== INFO (QUIZ) — PRIORIDAD ===== */
   .info {
-    margin: 20px auto;
+    order: 1;
+    margin: 16px auto;
     width: 95%;
-    max-width: 400px;
-    padding: 14px;
+    max-width: 380px;
+    padding: 12px;
     border-radius: 16px;
   }
 
   .quiz-form {
-    font-size: 0.95rem;
-    gap: 10px;
+    font-size: 0.9rem;
+    gap: 8px;
   }
 
-  /* ===== THREE + RESULTS LAYOUT ===== */
+  .question-card {
+    padding: 12px;
+  }
+
+  /* ===== THREE CANVAS ===== */
   #threeCanvas-container {
+    order: 2;
     position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 20px auto;
+    width: 95%;
+    margin: 16px auto;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #threeCanvas {
-    height: 240px;
-    max-width: 95%;
-    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+    border-radius: 18px;
   }
 
   /* ===== CATEGORY CARDS ===== */
   .category-cards-container {
+    order: 3;
     position: relative;
-    margin: 20px auto;
+    margin: 16px auto;
     width: 95%;
-    max-width: 400px;
+    max-width: 380px;
     height: auto;
-    padding: 14px;
+    padding: 12px;
     overflow: visible;
   }
 
   .category-card {
     width: 100%;
-    margin-bottom: 14px;
-    padding: 20px;
+    margin-bottom: 12px;
+    padding: 18px;
   }
 
-  /* ===== RESULTS2 (FIXED) ===== */
+  /* ===== RESULTS2 — FIXED ESCALADO ===== */
   .results2 {
-    height: 150px;
-    padding: 12px 16px;
-    font-size: 0.85rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 130px;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 9000;
   }
 
   /* ===== HEALTH HUD ===== */
   .health-hud-container {
-    font-size: 0.95rem;
-    padding: 8px 12px;
-    border-radius: 16px;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 14px;
+    width: 95%;
+    margin: 8px auto;
   }
 
   /* ===== AVATAR ===== */
   .avatar-img {
-    width: 110px;
+    width: 100px;
     bottom: 10px;
     right: 10px;
   }
@@ -776,11 +818,10 @@ background: transparent;
   .mini-modal-content {
     width: 95%;
     height: 90%;
-    padding: 12px;
+    padding: 10px;
     border-radius: 12px;
   }
 }
-
 
 </style>
 </head>
