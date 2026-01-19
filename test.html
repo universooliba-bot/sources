@@ -693,7 +693,8 @@ background: transparent;
   /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 180px; /* espacio para results2 */
+    padding-bottom: 180px; /* espacio para results2 fijo */
+    align-items: center;
   }
 
   /* ===== HEADER ===== */
@@ -715,6 +716,8 @@ background: transparent;
   /* ===== MAIN ===== */
   .main {
     margin-top: 70px;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     overflow: visible;
     border-radius: 12px;
@@ -728,7 +731,7 @@ background: transparent;
     order: 1;
     margin: 16px auto;
     width: 95%;
-    max-width: 380px;
+    max-width: 360px; /* más compacto para móviles */
     padding: 12px;
     border-radius: 16px;
   }
@@ -747,6 +750,7 @@ background: transparent;
     order: 2;
     position: relative;
     width: 95%;
+    max-width: 360px;
     margin: 16px auto;
     height: auto;
     display: flex;
@@ -761,23 +765,26 @@ background: transparent;
     border-radius: 18px;
   }
 
-
-  /* ===== CATEGORY RESULTS ===== */
+  /* ===== CATEGORY CARDS ===== */
   .category-cards-container {
+    order: 3;
     position: relative;
-    margin: 30px auto;
-    width: 90%;
-    max-width: 520px;
+    width: 95%;
+    max-width: 360px; /* ajustamos para que no quede ladeado */
+    margin: 16px auto; /* centrado */
     height: auto;
-    padding: 18px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     overflow: visible;
   }
 
-
   .category-card {
     width: 100%;
-    margin-bottom: 12px;
-    padding: 18px;
+    margin: 0; /* sin margen lateral */
+    padding: 16px;
+    border-radius: 14px;
   }
 
   /* ===== RESULTS2 — FIXED ESCALADO ===== */
@@ -823,7 +830,6 @@ background: transparent;
     border-radius: 12px;
   }
 }
-
 </style>
 </head>
 <body>
