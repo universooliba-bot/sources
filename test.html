@@ -76,7 +76,7 @@ body {
 .dock-menu {
   display: flex;
   gap: 18px;
- background: linear-gradient(135deg, #d8d8d8, #ffffff);
+ background: #dbe0e7;
   padding: 18px 20px;
   border-radius: 22px;
   backdrop-filter: blur(15px);
@@ -110,11 +110,11 @@ body {
 }
 
 .main {
-  background: #1f2937;
+   color: #1f2937;
   width: 100%;
-  margin-top: 40px;
+  margin-top:120px;
   height: 800px;
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,9 +132,9 @@ body {
   min-width: 380;
   flex: 3;
   backdrop-filter: blur(12px);
- background: linear-gradient(135deg, #b1b1b3, #8ce08a);
+ background: linear-gradient(195deg, #ffffff, #80b49ae9);
   padding: 20px;
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.841);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -164,7 +164,7 @@ body {
 /* ================= FORM ================= */
 .form-card {
   backdrop-filter: blur(20px);
- background: linear-gradient(135deg, #d8d8d8, #ffffff);
+ background:  #dbe0e7;
   padding: 55px;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -177,18 +177,24 @@ body {
 h2 {
   text-align: center;
   margin: 18px;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+h3 {
+  text-align: center;
+  margin: 20px;
+  color:  #ffffff;
 }
 
 /* ================= AVATAR ================= */
 .avatar-img {
-  width: 200px;
+  width: 55px;
   height: auto;
-  border-radius: 20px;
+  border-radius: 0px;
   display: block;
   position: fixed;
   bottom: 0px;
-  right: 20px;
+  right: 15px;
   z-index: 1000;
 }
 
@@ -215,7 +221,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
 .question-card {
   width: 100%;
   backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.859);
+  background: #dbe0e762;
   border-radius: 16px;
   padding: 14px 16px;               /* FIX MOBILE */
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.786);
@@ -244,7 +250,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 20px;
   box-shadow: 0 0 15px rgba(32, 192, 82, 0.901);
   transition: background 1s ease-out;
 }
@@ -276,14 +282,14 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
 .category-card {
   flex: 0 0 auto;            /* No se comprima */
   width: auto;
-  background: rgba(245, 245, 245, 0.986);
-  color: #000000;
+  background: rgba(245, 245, 245, 0.043);
+  color: #ffffff;
   border-radius: 20px;
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.904);
+  box-shadow: 0 4px 12px rgba(54, 192, 223, 0.968);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px;
 
@@ -309,13 +315,13 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
 /* ================= THREE ================= */
 #threeCanvas-container {
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   display: flex;
-  margin: 0px;
+  padding: 10px;
   justify-content: center;
   align-items: center;
 }
@@ -324,7 +330,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   max-width: 95%;
   height: 500px;
   border-radius: 28px;
-background: transparent;
+background: rgba(255, 255, 255, 0.061);
 }
 
 .results2 {
@@ -340,8 +346,7 @@ background: transparent;
   justify-content: flex-start;
   overflow-y: auto;      /* Scroll interno si hay mucho contenido */
   overflow-x: hidden;
-  background: linear-gradient(135deg, #d8d8d8, #ffffff);
-  backdrop-filter: blur(10px);
+  background: #dbe0e7;
   color: #000000;
   z-index: 9000;         /* Encima de canvas y demás */
 }
@@ -541,7 +546,7 @@ background: transparent;
 
   /* ===== AVATAR ===== */
   .avatar-img {
-    width: 140px;
+    width: 10px;
     bottom: 14px;
     right: 14px;
   }
@@ -926,7 +931,7 @@ background: transparent;
 
 
 <div class="info"><nav class="dock-menu">
-    <a href="https://test.olibalife.site/" class="dock-item"><i class="fa-solid fa-dna"></i> </a>
+    <a href="https://test.olibalife.site/" class="dock-item"> <i class="fa-solid fa-dna"></i> </a>
     <a href="https://test.olibalife.site/login.html" class="dock-item"><i class="fa-solid fa-user"></i></a>
   </nav>
  
@@ -1050,39 +1055,33 @@ background: transparent;
 
 <div class="main">
 
-    <h2>Tus resultados</h2>
-       <div class="progress-circle" id="progressCircleHUD">
-   <span>0%</span>
-   </div>  
-
-  <div id="hudContainer" style="position: relative; width: 90%; height: 800px;">  
+  <div id="hudContainer" style="position: relative; width: 99%; height: 800px;">  
 
     <div id="resultsHUD" style="
       position: absolute;
-      top: 20px;
+      top: 25px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
+      background: black;
       height: 100%;
-      max-width: 1250px;
-      max-height: 585px;
-      backdrop-filter: blur(90px);
-      background: rgba(255, 255, 255, 0.592);
+      max-width: 950px;
+      max-height: 595px;
       border-radius: 20px;
-      padding: 15px;
+      padding: 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0px;
       pointer-events: none;
       scale:1;
-      background-image: url('https://test.olibalife.site/bannercambiar.jpg'); /* tu imagen */
+      background-image: url('https://test.olibalife.site/fondo1.png'); /* tu imagen */
       background-size: cover;      /* cubre todo el contenedor */
       background-position: center; /* centrada */
       background-repeat: no-repeat;
       background-blend-mode: overlay;   /* mezcla con el color */
-      background-color: rgba(255, 255, 255, 0.793);
-      backdrop-filter: blur(60px);
+      background-color: rgba(255, 255, 255, 0);
+      backdrop-filter: blur(0px);
       
     ">  
 
@@ -1095,9 +1094,18 @@ background: transparent;
           </div>
     
 
-<div class="category-cards-container">   
+<div class="category-cards-container"> 
+    <h3>Tus resultados</h3>  
+      
+
      <div class="health-hud-container">
+
   <div id="healthMessageHUD"></div>
+
+       <div class="progress-circle" id="progressCircleHUD">
+   <span>0%</span>
+   </div>   
+
 </div>
   <div class="category-cards" id="categoriesContainerHUD"></div>
 </div>
@@ -1146,10 +1154,10 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
 <div class="subscribe-box">
   <label><strong>Regístrate y obtén una guía de menú drenante gratis.</strong></label>
 
-  <!-- <img 
+ <img 
   class= "avatar-img"
-    src="https://universooliba-bot.github.io/sources/anafrontalsinfondo.png" 
-    alt="Estudio epigenético" >-->
+    src="https://test.olibalife.site/logoolibalife.png" 
+    alt="Estudio epigenético" >
 </div></div>
 
 
@@ -1531,3 +1539,4 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
+
