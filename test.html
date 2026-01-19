@@ -12,10 +12,11 @@
 
 /* ================= BODY ================= */
 body {
+   background: #1f2937;
   font-family: 'Intel', sans-serif;
   display: flex;
   min-height: 100svh;                 /* FIX MOBILE */
-  background: linear-gradient(135deg, #d8d8d8, #ffffff);
+  
   overflow-x: hidden;                 /* FIX MOBILE */
   overflow-y: auto;   
   padding-bottom: 260px;                /* FIX MOBILE */
@@ -41,7 +42,7 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 .cta {
-  background: #39b70c;           /* color base oscuro */
+    background: #1f2937;
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
@@ -62,8 +63,9 @@ body {
 .cta:focus {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(135deg, #5b9877, #ffffff);
+  background: linear-gradient(135deg, #00ff77, #ffffff);
   outline: none;
+  color: black;
 }
 
 /* Active / Click */
@@ -82,8 +84,8 @@ body {
 }
 
 .dock-item {
-  font-size: 1.2rem;
-  color: #000000;
+  font-size: 1.9rem;
+  color: #1f2937;
   text-decoration: none;
   transition: transform 0.25s ease, filter 0.25s ease, color 0.25s;
   display: flex;
@@ -123,15 +125,15 @@ body {
 
 /* ================= INFO ================= */
 .info {
-  margin: 40px;
+  margin: 34px;
   width: 100%;
   max-width: 480px;                  /* FIX MOBILE */
-  max-height: 800px;
+  height: 800px;
   min-width: 380;
   flex: 3;
   backdrop-filter: blur(12px);
- background: linear-gradient(135deg, #b1b1b3, #025500);
-  padding: 10px;
+ background: linear-gradient(135deg, #b1b1b3, #8ce08a);
+  padding: 20px;
   border-right: 1px solid rgba(255,255,255,0.2);
   display: flex;
   flex-direction: column;
@@ -197,7 +199,7 @@ h2 {
   gap: 12px;                         /* FIX MOBILE */
   width: 100%;
   max-width: 100%;                   /* FIX MOBILE */
-  color: rgb(0, 0, 0);
+  color:#1f2937;
   font-size: clamp(14px, 3.5vw, 16px); /* FIX MOBILE */
 }
 
@@ -277,14 +279,14 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   background: rgba(245, 245, 245, 0.986);
   color: #000000;
   border-radius: 20px;
-  padding: 20px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.904);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px;
-  top: 20px;
+
 }
 
 
@@ -704,7 +706,12 @@ background: transparent;
     min-height: 0;
      z-index: 99999;
   }
-
+    .cta {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }  
+  
   .mini-modal-close {
   position: absolute;
   top: 15px;
@@ -717,11 +724,6 @@ background: transparent;
   border-radius: 6px;
   z-index: 9999999;
 }
-    .cta {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 12px 20px;
-  }
 
     #resultsHUD {
     position: relative;       /* ya no absoluto, para adaptarse al flujo */
@@ -1100,6 +1102,7 @@ background: transparent;
   <div class="category-cards" id="categoriesContainerHUD"></div>
 </div>
 
+
   <!-- Mini Modal -->
   <div id="miniLoginModal" class="mini-modal">
     <div class="mini-modal-content">
@@ -1112,10 +1115,16 @@ background: transparent;
       </iframe>
     </div>
   </div>
-  
 <div class="results2">
+
+
+
    <h3>¿Sientes que necesitas un estudio avanzado?</h3>
-    <button id="openMiniLogin" class="cta">Regístrate gratis</button>
+
+  <!-- Botón para abrir mini-login -->
+  <button id="openMiniLogin" class="cta">Regístrate gratis.</button>
+
+
   <p>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
 
@@ -1136,6 +1145,7 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
 
 <div class="subscribe-box">
   <label><strong>Regístrate y obtén una guía de menú drenante gratis.</strong></label>
+
   <!-- <img 
   class= "avatar-img"
     src="https://universooliba-bot.github.io/sources/anafrontalsinfondo.png" 
@@ -1521,4 +1531,3 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 </body>
 </html>
-
