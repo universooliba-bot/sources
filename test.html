@@ -1300,7 +1300,7 @@ async function loadBaseModel() {
       (gltf) => {
         gltfScene = gltf.scene;
         gltfScene.scale.set(7.8, 6.2, 7.6);
-        gltfScene.position.set(0, -3, -2);
+        gltfScene.position.set(0, -3.5, -2);
         scene.add(gltfScene);
         animate();    
         trackEvent('model_loaded', { model_url: baseModelURL });
