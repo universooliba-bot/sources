@@ -12,7 +12,7 @@
 
 /* ================= BODY ================= */
 body {
- background: #dbe0e7;
+  background: #D2DEAF; 
   font-family: 'Intel', sans-serif;
   display: flex;
   min-height: 100svh;                 /* FIX MOBILE */
@@ -28,7 +28,7 @@ body {
   top: 0px;
   left: 0;
   width: 100%;
-  background:  #dbe0e7;
+
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -53,9 +53,9 @@ margin: 10px;
   to { transform: translateY(0); opacity: 1; }
 }
 .cta {
-    background: #1f2937;
-  color: #ffffff;
-  font-weight: 400;
+   background: #709361;
+  color: #f5f5f5;
+  font-weight: 800;
   font-size: 1rem;
   padding: 20px 8px;
   border: none;
@@ -146,7 +146,7 @@ margin: 10px;
   min-width: 380;
   flex: 1;
   backdrop-filter: blur(12px);
-  background: #dbe0e7;
+    background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.841);
   display: flex;
@@ -364,14 +364,14 @@ background: transparent;
   left: 0;               /* Desde la izquierda */
   width: 100%;           /* Lado a lado */
   max-width: 100%;
-  height: 270px;         /* Altura del contenedor */
+  height: 266px;         /* Altura del contenedor */
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;      /* Scroll interno si hay mucho contenido */
   overflow-x: hidden;
-  background: #dbe0e7;
+    background: rgba(255, 255, 255, 0.95);
   color: #000000;
   z-index: 9999;         /* Encima de canvas y demás */
 }
@@ -1198,7 +1198,7 @@ background: transparent;
    <h2>¿Sientes que necesitas un estudio avanzado?</h2>
 
   <!-- Botón para abrir mini-login -->
-  <button id="openMiniLogin" class="cta">Regístrate gratis.</button>
+  <button id="openMiniLogin" class="cta">Regístrate y obtén una guía de menú drenante gratis.</button>
 
 
   <p>
@@ -1219,10 +1219,6 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
     <strong>¿Para qué sirve?:</strong> Para recibir un informe personalizado y saber qué hábitos, nutrientes o cambios necesitas aplicar para mejorar tu salud desde el origen.
   </p>
 
-<div class="subscribe-box">
-  <label><strong>Regístrate y obtén una guía de menú drenante gratis.</strong></label>
-
-</div>
 </div>
 
 
@@ -1316,8 +1312,8 @@ async function loadBaseModel() {
       baseModelURL,
       (gltf) => {
         gltfScene = gltf.scene;
-        gltfScene.scale.set(7.8, 6.2, 7.6);
-        gltfScene.position.set(0, -3.5, -2);
+        gltfScene.scale.set(9.8, 6.66, 6.6);
+        gltfScene.position.set(0, -3.5, -1.9);
         scene.add(gltfScene);
         animate();    
         trackEvent('model_loaded', { model_url: baseModelURL });
