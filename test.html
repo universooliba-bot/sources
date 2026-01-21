@@ -8,31 +8,26 @@
          href="https://test.olibalife.site/logoolibalife.png"
       type="image/x-icon"
     />
-<title>Test de Hábitos Olibalife</title>
+<title>Test de hábitos Olibalife</title>
    <meta name="description" content="Test de hábitos gratis para mejorar tu salud y bienestar con Olibalife. Centro de estudios epigenéticos en Albacete.">
   <meta name="keywords" content="Olibalife, test de hábitos, mejorar mi salud, recetas saludables, estudio de hábitos online, estilo de vida saludable, análisis epigenético Albacete">
   <meta name="author" content="Olibalife">
   <meta name="robots" content="index, follow">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ================= BODY ================= */
 body {
   background: #c7d3a550; 
   font-family: 'Intel', sans-serif;
   display: flex;
-  min-height: 100svh;                 /* FIX MOBILE */
+  min-height: 100svh;                
   
-  overflow-x: hidden;                 /* FIX MOBILE */
+  overflow-x: hidden;               
   overflow-y: auto;   
-  padding-bottom: 100px;                /* FIX MOBILE */
+  padding-bottom: 100px;               
 }
 
-/* ================= HEADER ================= */
 .floating-header {
   position: fixed;
   top: 0px;
@@ -47,8 +42,6 @@ body {
   animation: fadeDown 0.6s ease-out;
 }
 
-
-/* ===== LOGO ===== */
 .header-logo {
   height: 50px;
   width: auto;
@@ -80,7 +73,6 @@ margin: 10px;
   scale: 1;
 }
 
-/* Hover / Focus */
 .cta:hover,
 .cta:focus {
   transform: translateY(-2px) scale(1.05);
@@ -90,7 +82,6 @@ margin: 10px;
   color: black;
 }
 
-/* Active / Click */
 .cta:active {
   transform: translateY(0px) scale(0.98);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
@@ -121,7 +112,6 @@ background: #064445;
   filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
 }
 
-/* ================= SIDEBAR / MAIN ================= */
 .sidebar {
   width: 100%;
   backdrop-filter: blur(12px);
@@ -147,11 +137,10 @@ background: #064445;
 
 }
 
-/* ================= INFO ================= */
 .info {
   margin: 34px;
   width: 100%;
-  max-width: 480px;                  /* FIX MOBILE */
+  max-width: 480px;                 
   height: 800px;
   min-width: 380;
   flex: 1;
@@ -168,7 +157,6 @@ background: #064445;
   border-radius: 20px;
 }
 
-/* ================= RESULTS (LEGACY) ================= */
 .results {
   margin: 0px;
   width: 40%;
@@ -185,7 +173,6 @@ background: #064445;
   border-radius: 20px;
 }
 
-/* ================= FORM ================= */
 .form-card {
   backdrop-filter: blur(20px);
  background:  #dbe0e7;
@@ -215,7 +202,6 @@ p {
   color:  #000000;
 }
 
-/* ================= AVATAR ================= */
 .avatar-img {
   width: 40px;
   height: auto;
@@ -227,18 +213,17 @@ p {
   z-index: 99999;
 }
 
-/* ================= QUIZ ================= */
 .quiz-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;                         /* FIX MOBILE */
+  gap: 12px;                       
   width: 100%;
-  max-width: 100%;                   /* FIX MOBILE */
+  max-width: 100%;                  
   color:#1f2937;
-  font-size: clamp(14px, 3.5vw, 16px); /* FIX MOBILE */
+  font-size: clamp(14px, 3.5vw, 16px); 
 }
 
-#quizProgress {
+ #quizProgress {
   height: 0px;
   width: 100%;
 background: linear-gradient(135deg, #d8d8d8, #ffffff);
@@ -252,7 +237,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   backdrop-filter: blur(20px);
   background: #dbe0e762;
   border-radius: 16px;
-  padding: 14px 16px;               /* FIX MOBILE */
+  padding: 14px 16px;           
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.786);
 }
 
@@ -269,7 +254,6 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   gap: 6px;
 }
 
-/* ================= PROGRESS ================= */
 .progress-circle {
   width: 60px;
  left: 10px;
@@ -292,26 +276,25 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
 }
 
 .category-cards-container {
-  bottom: 0;                 /* Pegado al borde inferior */
-  left: 50%;                 /* Centrado horizontal */
+  bottom: 0;                
+  left: 50%;                 
   margin: 40px;
-  width: 99%;                /* Margen lateral pequeño */
-  max-width: 480px;                  /* FIX MOBILE */
-  height: 800px;             /* Altura del contenedor */
+  width: 99%;               
+  max-width: 480px;                 
+  height: 800px;           
 background: #064445;
-  backdrop-filter: blur(15px);        /* Efecto de desenfoque */
-  border-radius: 20px;      /* Solo esquinas superiores redondeadas */
+  backdrop-filter: blur(15px);      
+  border-radius: 20px;    
   padding: 10px;
-  gap: 15px;                 /* Espacio entre cards */
-  overflow-x: hidden;          /* Scroll horizontal si hay muchas cards */
-  z-index: 8500;             /* Encima del canvas pero debajo del modal */
+  gap: 15px;             
+  overflow-x: hidden;    
+  z-index: 8500;         
   box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
   flex: 3;
 }
 
-/* Individual cards dentro del contenedor */
 .category-card {
-  flex: 0 0 auto;            /* No se comprima */
+  flex: 0 0 auto;           
   width: auto;
   background: rgba(245, 245, 245, 0.043);
   color: #ffffff;
@@ -323,9 +306,7 @@ background: #064445;
   box-shadow: 0 4px 12px rgba(54, 192, 223, 0.968);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px;
-
 }
-
 
 .category-bar {
   width: 100%;
@@ -343,7 +324,7 @@ background: #064445;
   transition: width 1s ease-out;
 }
 
-/* ================= THREE ================= */
+
 #threeCanvas-container {
   position: absolute;
   top: 44%;
@@ -366,28 +347,27 @@ background: transparent;
 }
 
 
-
-
 .results2 {
-  position: fixed;       /* Fijamos en la ventana */
-  bottom: 0;             /* Pegado al borde inferior */
-  left: 0;               /* Desde la izquierda */
-  width: 100%;           /* Lado a lado */
+  position: fixed;     
+  bottom: 0;          
+  left: 0;            
+  width: 100%;         
   max-width: 100%;
-  height: 266px;         /* Altura del contenedor */
+  height: 266px;       
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;      /* Scroll interno si hay mucho contenido */
+  overflow-y: auto;    
   overflow-x: hidden;
     background: rgba(255, 255, 255, 0.95);
   color: #000000;
-  z-index: 9999;         /* Encima de canvas y demás */
+  z-index: 9999;  
 }
-/* ================= HEALTH HUD ================= */
+
+ 
 .health-hud-container {
-  width: 100%;               /* Margen lateral pequeño */
+  width: 100%;             
   max-width: 90%;
   max-height: 200px;
   padding: 10px 20px;
@@ -395,7 +375,7 @@ background: #064445;
   backdrop-filter: blur(12px);
   border-radius: 8px;
   text-align: center;
-  z-index: 9000;            /* Encima de canvas pero debajo del modal */
+  z-index: 9000;           
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.944);
   font-weight: 400;
   font-size: 1rem;
@@ -403,44 +383,39 @@ background: #064445;
  margin: 30px;
 }
 
-
-
-/* ================= MINI MODAL FULLSCREEN CENTRADO ================= */
 .mini-modal {
   position: fixed;
-  inset: 0; /* Ocupa toda la pantalla */
-  background: rgb(255, 255, 255); /* Fondo semi-transparente */
+  inset: 0; 
+  background: rgb(255, 255, 255);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 999999;
-  padding: 20px; /* Espacio alrededor del modal */
+  padding: 20px; 
 }
 
-/* Contenido del modal */
+
 .mini-modal-content {
   position: relative;
   background: #fff;
-  border-radius: 18px; /* Esquinas suaves */
-  width: 90%;          /* Margen lateral del 5% a cada lado */
-  max-width: 900px;    /* Ancho máximo para desktop */
-  height: 90%;         /* Altura máxima del 90% de la ventana */
+  border-radius: 18px; 
+  width: 90%;         
+  max-width: 900px;   
+  height: 90%;         
   display: flex;
   flex-direction: column;
   padding: 20px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  overflow: hidden; /* Evita scroll interno */
+  overflow: hidden; 
 }
 
-/* Iframe dentro del modal */
 .mini-login-iframe {
   width: 100%;
-  height: 100%; /* Ocupa todo el alto del modal */
+  height: 100%; 
   border: none;
   border-radius: 12px;
 }
 
-/* Botón cerrar */
 .mini-modal-close {
   position: absolute;
   top: 15px;
@@ -463,7 +438,7 @@ background: #064445;
   footer a { color:  rgb(7, 0, 133); 
     margin: 0 8px; }
 
-/* ---------- TABLET / SMALL DESKTOP ---------- */
+
 @media (max-width: 900px) {
   body,
   .main {
@@ -490,18 +465,14 @@ background: #064445;
 }
 
 
-
-
-/* ================= TABLET 748 ================= */
 @media (max-width: 748px) {
 
-  /* ===== BODY ===== */
+
   body {
     flex-direction: column;
-    padding-bottom: 220px; /* espacio para results2 fijo */
+    padding-bottom: 220px; 
   }
 
-  /* ===== HEADER ===== */
   .floating-header {
     top: 8px;
     padding: 10px;
@@ -517,7 +488,7 @@ background: #064445;
     font-size: 1.1rem;
   }
 
-  /* ===== MAIN ===== */
+
   .main {
     margin-top: 70px;
     height: auto;
@@ -525,7 +496,7 @@ background: #064445;
     border-radius: 16px;
   }
 
-  /* ===== INFO (QUIZ) ===== */
+
   .info {
     margin: 30px auto;
     width: 90%;
@@ -541,7 +512,7 @@ background: #064445;
     gap: 12px;
   }
 
-  /* ===== THREE + RESULTS LAYOUT ===== */
+  
   #threeCanvas-container {
     position: relative;
     top: auto;
@@ -557,7 +528,7 @@ background: #064445;
     border-radius: 24px;
   }
 
-  /* ===== CATEGORY RESULTS ===== */
+  
   .category-cards-container {
     position: relative;
     margin: 30px auto;
@@ -574,33 +545,33 @@ background: #064445;
     padding: 26px;
   }
 
-  /* ===== RESULTS2 (FIXED) ===== */
+ 
   .results2 {
     height: 190px;
     padding: 16px 22px;
     font-size: 0.9rem;
   }
 
-  /* ===== HEALTH HUD ===== */
+
   .health-hud-container {
     font-size: 1rem;
     padding: 10px 16px;
     border-radius: 18px;
   }
 
-  /* ===== AVATAR ===== */
+ 
   .avatar-img {
     width: 10px;
     bottom: 14px;
     right: 14px;
   }
 
-  /* ===== LEGACY RESULTS ===== */
+
   .results {
     display: none;
   }
 
-  /* ===== MINI MODAL ===== */
+ 
   .mini-modal-content {
     width: 92%;
     height: 92%;
@@ -610,19 +581,16 @@ background: #064445;
 }
 
 
-
-
-/* ================= MOBILE 600 ================= */
 @media (max-width: 600px) {
 
-  /* ===== BODY ===== */
+
   body {
     flex-direction: column;
-    padding-bottom: 190px; /* deja espacio para results2 */
+    padding-bottom: 190px;
     overflow-y: auto;
   }
 
-  /* ===== HEADER ===== */
+  
   .floating-header {
     top: 6px;
     padding: 8px;
@@ -639,21 +607,21 @@ background: #064445;
   }
 
     .cta {
-    width: 100%;         /* ocupa todo el ancho en móviles */
+    width: 100%;        
     font-size: 0.95rem;
     padding: 12px 20px;
     margin: 6px 0;
   }
-  /* ===== MAIN STRUCTURE ===== */
+
   .main {
-    margin-top: 90px; /* deja respirar al header */
+    margin-top: 90px; 
     height: auto;
     border-radius: 0;
     overflow: visible;
     padding-bottom: 10px;
   }
 
-  /* ===== INFO (QUIZ) — PRIORIDAD ===== */
+
   .info {
     margin: 20px auto;
     width: 92%;
@@ -673,13 +641,13 @@ background: #064445;
     padding: 14px;
   }
 
-  /* ===== PROGRESS ===== */
+  
   .progress-circle {
     width: 80px;
     height: 80px;
   }
 
-  /* ===== THREE CANVAS ===== */
+
   #threeCanvas-container {
     position: relative;
     top: 40px;
@@ -697,7 +665,7 @@ background: #064445;
   }
 
 
-  /* ===== CATEGORY RESULTS ===== */
+
   .category-cards-container {
      top: auto;
     left: auto;
@@ -715,7 +683,7 @@ background: #064445;
     padding: 20px;
   }
 
-  /* ===== RESULTS2 — FIXED PERO LIGERO ===== */
+
   .results2 {
     height: 175px;
     padding: 28px 60px;
@@ -723,26 +691,26 @@ background: #064445;
     backdrop-filter: blur(18px);
   }
 
-  /* ===== HEALTH HUD ===== */
+
   .health-hud-container {
     font-size: 0.95rem;
     padding: 8px 12px;
     border-radius: 16px;
   }
 
-  /* ===== AVATAR ===== */
+
   .avatar-img {
     width: 60px;
     bottom: 99px;
     right: 50px;
   }
 
-  /* ===== LEGACY RESULTS (OFF) ===== */
+
   .results {
     display: none;
   }
 
-  /* ===== MINI MODAL ===== */
+
   .mini-modal-content {
     width: 95%;
     height: 95%;
@@ -775,16 +743,16 @@ background: #064445;
 }
 
     #resultsHUD {
-    position: relative;       /* ya no absoluto, para adaptarse al flujo */
-    top: 0px;                /* eliminar desplazamiento desde arriba */
+    position: relative;     
+    top: 0px;    
     left: auto;
-    transform: none;          /* no necesitamos translateX */
-    width: 90%;               /* ocupa casi todo el ancho */
-    max-width: 5%;           /* límite máximo */
-    height: auto;             /* se ajusta al contenido */
-    max-height: none;         /* sin límite de altura */
-    padding: 2px;            /* reduce padding para móvil */
-    border-radius: 16px;      /* un poquito más compacto */
+    transform: none;   
+    width: 90%;             
+    max-width: 5%;         
+    height: auto;          
+    max-height: none;     
+    padding: 2px;           
+    border-radius: 16px;     
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1159,11 +1127,11 @@ background: #064445;
       gap: 0px;
       pointer-events: none;
       scale:1;
-      background-image: url('https://test.olibalife.site/fondo3.png'); /* tu imagen */
-      background-size: cover;      /* cubre todo el contenedor */
-      background-position: center; /* centrada */
+      background-image: url('https://test.olibalife.site/fondo3.png');
+      background-size: cover;    
+      background-position: center;
       background-repeat: no-repeat;
-      background-blend-mode: overlay;   /* mezcla con el color */
+      background-blend-mode: overlay;
       background-color: rgba(203, 203, 203, 0);
       backdrop-filter: blur(0px);
      
@@ -1261,9 +1229,7 @@ window.dataLayer = window.dataLayer || [];
     }
   };
 
-  // ===== Listeners de interacción =====
-
-  // 1️⃣ Dock principal (home / login)
+  
   document.querySelectorAll('.dock-item').forEach((item, index) => {
     item.addEventListener('click', () => {
       trackEvent('test_dock_click', {
@@ -1273,7 +1239,6 @@ window.dataLayer = window.dataLayer || [];
     });
   });
 
-  // 2️⃣ Botón mini registro
   document.getElementById('openMiniLogin')?.addEventListener('click', () => {
     trackEvent('test_register_click', {
       origin: 'habits_test',
@@ -1282,7 +1247,7 @@ window.dataLayer = window.dataLayer || [];
     });
   });
 
-  // 3️⃣ Botón "Ver Resultado" del quiz
+
   document.querySelector('button.cta[onclick*="updateScore"]')?.addEventListener('click', () => {
     trackEvent('test_result_view', {
       origin: 'habits_test',
@@ -1294,7 +1259,7 @@ window.dataLayer = window.dataLayer || [];
     });
   });
 
-  // 4️⃣ Botón "Descargar mi ficha"
+
   document.querySelector('button.cta[onclick*="downloadPatientFile"]')?.addEventListener('click', () => {
     trackEvent('test_pdf_download', {
       origin: 'habits_test',
@@ -1318,28 +1283,18 @@ function initThree() {
   const container = document.getElementById('threeCanvas-container');
 
   scene = new THREE.Scene();
-
-  // Cámara
   camera = new THREE.PerspectiveCamera(65, container.clientWidth / container.clientHeight, 0.01, 1000);
   camera.position.set(0, 0, 5.4);
-
-  // Renderer
   renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio); // para pantallas retina
   renderer.setSize(container.clientWidth, container.clientHeight);
-
-  // Luces
   const light = new THREE.DirectionalLight(0xffffff, 1.2);
   light.position.set(1, 6, 5);
   scene.add(light);
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-
-  // Resize dinámico
   window.addEventListener('resize', () => {
     const width = container.clientWidth;
-    const height = container.clientHeight;
-
- 
+    const height = container.clientHeight; 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   });
@@ -1432,7 +1387,7 @@ function updateScore() {
   latestScore = totalScore;
   latestCategories = categories.map(cat => ({ name: cat.name, score: Math.round(cat.score / cat.max * 100) }));
 
- const maxScore = 240; // 12 preguntas x 20 puntos
+ const maxScore = 240;
 const percent = Math.round((totalScore / maxScore) * 100);
 
   const progressCircle = document.getElementById('progressCircleHUD');
@@ -1543,13 +1498,10 @@ async function downloadPDF() {
   tmpCtx.globalAlpha = 0.3; 
   tmpCtx.drawImage(canvas, 0, 0);
   const canvasDataURL = tmpCanvas.toDataURL("image/png");
-
-  // ----- AÑADIR IMAGEN DE FONDO REDUCIDA -----
   const imgHeight = pdfHeight * 0.9;
   const imgY = (pdfHeight - imgHeight) / 2;
   doc.addImage(canvasDataURL, 'PNG', 0, imgY, pdfWidth, imgHeight, undefined, 'FAST');
 
-  // ===== CABECERA =====
   doc.setFillColor(210, 222, 175);
   doc.rect(0, 0, pdfWidth, 80, 'F');
   doc.setFontSize(22);
@@ -1557,15 +1509,14 @@ async function downloadPDF() {
   doc.setTextColor(0, 0, 0);
   doc.text("Resultados de tu test de hábitos Olibalife", pdfWidth / 2, 50, { align: "center" });
 
-  // ===== PUNTUACIÓN TOTAL (HUD) CON MÁS MARGEN =====
-  y += 10; // margen superior extra
+
+  y += 10; 
   doc.setFontSize(14);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(0, 70, 0);
   doc.text(`Porcentaje de autocuidado: ${hudPercent}%`, margin, y);
-  y += 35; // margen inferior extra
+  y += 35; 
 
-  // ===== CATEGORÍAS Y CONSEJOS =====
   const contentWidth = pdfWidth - 2 * margin;
 
   latestCategories.forEach(cat => {
@@ -1602,48 +1553,41 @@ async function downloadPDF() {
     y += 15;
   });
 
-  // ===== CTA FIJO AL FINAL =====
+
 const ctaText = "Te recomendamos ver nuestros test epigenéticos avanzados:";
 const ctaLink = "https://test.olibalife.site";
-
-// definimos un padding interno
 const paddingX = 12; // horizontal
 const paddingY = 20; // vertical
-
-// dividimos el texto según el ancho disponible menos el padding
 const ctaLines = doc.splitTextToSize(ctaText, contentWidth - 2 * paddingX);
-
-// calculamos la altura total del bloque con padding
 const ctaBlockHeight = paddingY * 2 + ctaLines.length * 14 + 14; // +14 para el link
 
-// si estamos cerca del final de la página, añadir nueva
 if (y + ctaBlockHeight > 700) {
   doc.addPage();
   y = 60;
 }
 
-// dibujamos el fondo con la misma anchura y altura ajustada
-doc.setFillColor(255, 235, 205); // fondo suave
+
+doc.setFillColor(255, 235, 205);
 doc.roundedRect(margin - 4, y - 4, contentWidth, ctaBlockHeight, 6, 6, 'F');
 
-// escribimos el texto con padding
+
 doc.setFontSize(12);
 doc.setFont("helvetica", "bold");
-doc.setTextColor(80, 0, 80); // púrpura destacado
+doc.setTextColor(80, 0, 80); 
 let textY = y + paddingY;
 ctaLines.forEach(line => {
   doc.text(line, margin + paddingX, textY);
   textY += 14;
 });
 
-// link con padding
+
 doc.setTextColor(0, 0, 255);
 doc.setFont("helvetica", "normal");
 doc.textWithLink("Hacer el test aquí", margin + paddingX, textY, { url: ctaLink });
 
-y += ctaBlockHeight + 10; // dejamos margen tras el bloque
+y += ctaBlockHeight + 10; 
 
-  // ===== FOOTER =====
+
   const footerText = "www.olibalife.com | Todos los derechos reservados | Registrate gratis y obtén tu guía";
   const footerLines = doc.splitTextToSize(footerText, pdfWidth - 2 * margin);
   let footerY = 780 - (footerLines.length - 1) * 14;
