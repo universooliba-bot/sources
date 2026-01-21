@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test de hábitos Olibalife</title>
-   <link
+ <link
       rel="icon"
          href="https://test.olibalife.site/logoolibalife.png"
       type="image/x-icon"
     />
+<title>Test de Hábitos Olibalife</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -784,20 +784,18 @@ background: transparent;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
     background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(40px); /* menos blur para mejor performance en móvil */
+    backdrop-filter: blur(40px); 
   }
 }
-/* ================= MOBILE SMALL 458 CORREGIDO ================= */
+
 @media (max-width: 480px) {
 
-  /* ===== BODY ===== */
   body {
     flex-direction: column;
-    padding-bottom: 190px; /* espacio para results2 */
+    padding-bottom: 190px; 
     overflow-y: auto;
   }
 
-  /* ===== HEADER ===== */
   .floating-header {
     top: 0px;
     padding: 8px;
@@ -813,9 +811,9 @@ background: transparent;
     font-size: 1rem;
   }
 
-  /* ===== MAIN STRUCTURE ===== */
+
   .main {
-    margin-top: 0px; /* deja respirar al header */
+    margin-top: 0px; 
     height: auto;
     border-radius: 0;
     overflow: visible;
@@ -825,7 +823,7 @@ background: transparent;
     align-items: center;
   }
 
-  /* ===== INFO (QUIZ) — PRIORIDAD ===== */
+ 
   .info {
    
     margin: 3px auto;
@@ -846,13 +844,13 @@ background: transparent;
     padding: 14px;
   }
 
-  /* ===== PROGRESS ===== */
+ 
   .progress-circle {
     width: 80px;
     height: 80px;
   }
 
-  /* ===== THREE CANVAS ===== */
+
   #threeCanvas-container {
  
     position: relative;
@@ -875,11 +873,10 @@ background: transparent;
      scale: 1;
   }
 
-  /* ===== CATEGORY RESULTS (CENTRADO Y ESCALADO) ===== */
+
   .category-cards-container {
     position: relative;
-    margin: 16px auto; /* centrado horizontal */
-    width: 95%;
+    margin: 16px auto; 
     max-width: 100%;
     height: auto;
     padding: 14px;
@@ -888,11 +885,10 @@ background: transparent;
 
   .category-card {
     width: 100%;
-    margin: 0 0 12px 0; /* sin margen lateral */
+    margin: 0 0 12px 0; 
     padding: 22px;
   }
 
-  /* ===== RESULTS2 — FIXED ESCALADO ===== */
   .results2 {
     position: fixed;
     bottom: 0;
@@ -911,7 +907,6 @@ background: transparent;
     z-index: 99999;
   }
 
-  /* ===== HEALTH HUD ===== */
   .health-hud-container {
     font-size: 0.95rem;
     padding: 12px 12px;
@@ -920,19 +915,17 @@ background: transparent;
     margin: 12px;
   }
 
-  /* ===== AVATAR ===== */
   .avatar-img {
     width: 30px;
     bottom: 100px;
     right: 38px;
   }
 
-  /* ===== LEGACY RESULTS (OFF) ===== */
   .results {
     display: none;
   }
 
-  /* ===== MINI MODAL ===== */
+ 
   .mini-modal-content {
     width: 95%;
     height: 95%;
@@ -944,7 +937,7 @@ background: transparent;
     min-height: 0;
   }
 
-  /* ===== CTA BUTTON ===== */
+
   .cta {
     width: 100%;
     font-size: 0.95rem;
@@ -959,16 +952,16 @@ background: transparent;
   }
    
        #resultsHUD {
-    position: relative;       /* ya no absoluto, para adaptarse al flujo */
-    top: 0px;                /* eliminar desplazamiento desde arriba */
+    position: relative;     
+    top: 0px;              
     left: auto;
-    transform: none;          /* no necesitamos translateX */
-    width: 90%;               /* ocupa casi todo el ancho */
-    max-width: 100%;           /* límite máximo */
-    height: 90%;             /* se ajusta al contenido */
-    max-height: none;         /* sin límite de altura */
-    padding: 2px;            /* reduce padding para móvil */
-    border-radius: 16px;      /* un poquito más compacto */
+    transform: none;         
+    width: 90%;              
+    max-width: 100%;   
+    height: 90%;            
+    max-height: none;       
+    padding: 2px;         
+    border-radius: 16px;    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -981,10 +974,9 @@ background: transparent;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
     background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(40px); /* menos blur para mejor performance en móvil */
+    backdrop-filter: blur(40px); 
   }
 }
-
 
 
 </style>
@@ -1163,10 +1155,7 @@ background: transparent;
       backdrop-filter: blur(0px);
      
       
-    ">  
-
-
-      
+    ">      
  <div id="threeCanvas-container">
   <canvas id="threeCanvas"></canvas>
 </div>      
@@ -1174,17 +1163,12 @@ background: transparent;
       </div>     
           </div>
     
-
 <div class="category-cards-container"> 
-    <h3>Prueba a mejorar tus hábitos con estos pequeños cambios</h3>  
-      
-
+    <h3>Prueba a mejorar tus hábitos con estos pequeños cambios</h3>   
      
   <div class="category-cards" id="categoriesContainerHUD"></div>
 </div>
 
-
-  <!-- Mini Modal -->
   <div id="miniLoginModal" class="mini-modal">
     <div class="mini-modal-content">
       <button class="mini-modal-close" id="closeMiniLogin">✕</button>
@@ -1198,14 +1182,8 @@ background: transparent;
   </div>
 <div class="results2">
 
-
-
    <h2>¿Sientes que necesitas un estudio avanzado?</h2>
-
-  <!-- Botón para abrir mini-login -->
-  <button id="openMiniLogin" class="cta">Regístrate y obtén una guía de menú drenante gratis.</button>
-
-
+  <button id="openMiniLogin" class="cta">Regístrate y obtén una guía de alimentación drenante gratis.</button>
   <p>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
 
@@ -1445,9 +1423,6 @@ function updateScore() {
     gltfScene.userData = { totalScore, categories: latestCategories, percent, tips: latestTips };
   }
 
-  // ===============================
-  // TRACKING: Quiz enviado / puntuación calculada
-  // ===============================
   trackEvent('quiz_submitted', {
     totalScore: latestScore,
     categories: latestCategories.map(cat => ({ name: cat.name, score: cat.score })),
@@ -1470,8 +1445,24 @@ async function downloadGLB() {
   }, { binary: true });
 }
 
-function downloadPDF() {
-  trackEvent('download_pdf_clicked', { totalScore: latestScore });
+
+function getHUDScore() {
+  const progressCircle = document.getElementById('progressCircleHUD');
+  if (!progressCircle) return 0;
+
+  const span = progressCircle.querySelector('span');
+  if (!span) return 0;
+
+  const text = span.textContent || '0%';
+  const percent = parseInt(text.replace('%',''), 10);
+  return isNaN(percent) ? 0 : percent;
+}
+
+
+async function downloadPDF() {
+  const hudPercent = getHUDScore();
+
+  trackEvent('download_pdf_clicked', { hudPercent });
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({
@@ -1480,34 +1471,55 @@ function downloadPDF() {
     format: "a4"
   });
 
+  const pdfWidth = 595;   
+  const pdfHeight = 842;  
   const margin = 40;
-  let y = 100; // margen inicial para no chocar con banner
+  let y = 100;
 
-  // ===== CABECERA SUPERIOR =====
-  doc.setFillColor(0, 100, 0);
-  doc.rect(0, 0, 595, 80, 'F');
+  renderer.render(scene, camera);
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
+  const canvas = renderer.domElement;
+  const tmpCanvas = document.createElement("canvas");
+  tmpCanvas.width = canvas.width;
+  tmpCanvas.height = canvas.height;
+  const tmpCtx = tmpCanvas.getContext("2d");
+  tmpCtx.globalAlpha = 0.3; 
+  tmpCtx.drawImage(canvas, 0, 0);
+  const canvasDataURL = tmpCanvas.toDataURL("image/png");
+
+  // ----- AÑADIR IMAGEN DE FONDO REDUCIDA -----
+  const imgHeight = pdfHeight * 0.9;
+  const imgY = (pdfHeight - imgHeight) / 2;
+  doc.addImage(canvasDataURL, 'PNG', 0, imgY, pdfWidth, imgHeight, undefined, 'FAST');
+
+  // ===== CABECERA =====
+  doc.setFillColor(210, 222, 175);
+  doc.rect(0, 0, pdfWidth, 80, 'F');
   doc.setFontSize(22);
-  doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
-  doc.text("Resultados Test de Hábitos Olibalife", 297.5, 50, { align: "center" });
-
-  // ===== Puntuación total =====
-  doc.setFontSize(14);
-  doc.setFont("helvetica", "normal");
   doc.setTextColor(0, 0, 0);
-  doc.text(`Puntuación total: ${latestScore}`, margin, y);
-  y += 30;
+  doc.text("Resultados de tu test de hábitos Olibalife", pdfWidth / 2, 50, { align: "center" });
 
-  // ===== Categorías =====
+  // ===== PUNTUACIÓN TOTAL (HUD) CON MÁS MARGEN =====
+  y += 10; // margen superior extra
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(0, 70, 0);
+  doc.text(`Porcentaje de autocuidado: ${hudPercent}%`, margin, y);
+  y += 35; // margen inferior extra
+
+  // ===== CATEGORÍAS Y CONSEJOS =====
+  const contentWidth = pdfWidth - 2 * margin;
+
   latestCategories.forEach(cat => {
     doc.setFillColor(200, 230, 201);
-    doc.roundedRect(margin - 4, y - 14, 515, 24, 6, 6, 'F');
+    doc.roundedRect(margin - 4, y - 14, contentWidth, 24, 6, 6, 'F');
 
     doc.setFontSize(13);
     doc.setFont("helvetica", "bold");
     doc.setTextColor(0, 70, 0);
     doc.text(`${cat.name}: ${cat.score}%`, margin, y);
-
     y += 28;
 
     const tips = latestTips[cat.name] || [];
@@ -1516,40 +1528,78 @@ function downloadPDF() {
     doc.setTextColor(50, 50, 50);
 
     tips.forEach(tip => {
-      doc.text(`• ${tip}`, margin + 10, y);
-      y += 16;
-
-      if (y > 700) { // salto de página si se pasa
-        doc.addPage();
-        y = 60;
-      }
+      const tipLines = doc.splitTextToSize(tip, contentWidth - 10); // sangría 10
+      tipLines.forEach(tl => {
+        if (y > 700) {
+          doc.addPage();
+          y = 60;
+        }
+        doc.text(`• ${tl}`, margin + 10, y);
+        y += 14;
+      });
     });
 
     y += 10;
     doc.setDrawColor(200, 200, 200);
     doc.setLineWidth(0.5);
-    doc.line(margin, y, 555, y);
+    doc.line(margin, y, pdfWidth - margin, y);
     y += 15;
   });
 
-  // ===== CABECERA INFERIOR AJUSTADA =====
-  const footerText = 
-    "www.olibalife.com | Todos los derechos reservados | Registrate gratis y obtén tu guía";
+  // ===== CTA FIJO AL FINAL =====
+const ctaText = "Te recomendamos ver nuestros test epigenéticos avanzados:";
+const ctaLink = "https://test.olibalife.site";
 
+// definimos un padding interno
+const paddingX = 12; // horizontal
+const paddingY = 20; // vertical
+
+// dividimos el texto según el ancho disponible menos el padding
+const ctaLines = doc.splitTextToSize(ctaText, contentWidth - 2 * paddingX);
+
+// calculamos la altura total del bloque con padding
+const ctaBlockHeight = paddingY * 2 + ctaLines.length * 14 + 14; // +14 para el link
+
+// si estamos cerca del final de la página, añadir nueva
+if (y + ctaBlockHeight > 700) {
+  doc.addPage();
+  y = 60;
+}
+
+// dibujamos el fondo con la misma anchura y altura ajustada
+doc.setFillColor(255, 235, 205); // fondo suave
+doc.roundedRect(margin - 4, y - 4, contentWidth, ctaBlockHeight, 6, 6, 'F');
+
+// escribimos el texto con padding
+doc.setFontSize(12);
+doc.setFont("helvetica", "bold");
+doc.setTextColor(80, 0, 80); // púrpura destacado
+let textY = y + paddingY;
+ctaLines.forEach(line => {
+  doc.text(line, margin + paddingX, textY);
+  textY += 14;
+});
+
+// link con padding
+doc.setTextColor(0, 0, 255);
+doc.setFont("helvetica", "normal");
+doc.textWithLink("Hacer el test aquí", margin + paddingX, textY, { url: ctaLink });
+
+y += ctaBlockHeight + 10; // dejamos margen tras el bloque
+
+  // ===== FOOTER =====
+  const footerText = "www.olibalife.com | Todos los derechos reservados | Registrate gratis y obtén tu guía";
+  const footerLines = doc.splitTextToSize(footerText, pdfWidth - 2 * margin);
+  let footerY = 780 - (footerLines.length - 1) * 14;
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(0, 100, 0);
-
-  // Ajustar texto al ancho
-  const footerLines = doc.splitTextToSize(footerText, 515);
-  let footerY = 780 - (footerLines.length - 1) * 14; // evitar que se pase del borde
   footerLines.forEach(line => {
-    doc.text(line, 297.5, footerY, { align: "center" });
+    doc.text(line, pdfWidth / 2, footerY, { align: "center" });
     footerY += 14;
   });
 
-  // Guardar PDF
-  doc.save('resultado_habitos.pdf');
+  doc.save('resultados_test_habitos_Olibalife.pdf');
 }
 
 
@@ -1575,11 +1625,6 @@ function downloadPatientFile() {
     });
   }
 
-function subscribeEmail() {
-  const email = document.getElementById('email').value;
-  alert(`Gracias! Te enviaremos información a ${email}`);
-}
-
 window.addEventListener('DOMContentLoaded', async () => {
   initThree();
   await loadBaseModel();
@@ -1590,12 +1635,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Abrir mini-modal
 document.getElementById("openMiniLogin").addEventListener("click", () => {
   document.getElementById("miniLoginModal").style.display = "flex";
 });
 
-// Cerrar mini-modal
 document.getElementById("closeMiniLogin").addEventListener("click", () => {
   document.getElementById("miniLoginModal").style.display = "none";
 });
