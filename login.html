@@ -296,14 +296,30 @@
     window.location.href = PRODUCTS_URL;
   }
 
-  document.getElementById("downloadGuideBtn").addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "https://test.olibalife.site/olibalifemenudrenante.pdf";
-    link.download = "https://test.olibalife.site/olibalifemenudrenante.pdf";
-    link.click();
+document.getElementById("downloadGuideBtn").addEventListener("click", () => {
+  const fileUrl = "https://test.olibalife.site/olibalifemenudrenante.pdf";
+  const fileName = "olibalifemenudrenante.pdf";
 
-    setTimeout(redirectToProducts, 1500);
-  });
+  // Detectar si es móvil (iOS o Android)
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // En móviles abrimos en otra pestaña
+    window.open(fileUrl, '_blank');
+  } else {
+    // En desktop usamos download
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Redirigir después de 2.5s
+  setTimeout(redirectToProducts, 2500);
+});
+
 
   document.getElementById("closeModal").addEventListener("click", redirectToProducts);
 </script>
