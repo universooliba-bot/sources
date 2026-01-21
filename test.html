@@ -1215,39 +1215,78 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
 
 
 <script>
-
 window.dataLayer = window.dataLayer || [];
-function gtag(){ dataLayer.push(arguments); }
+  function gtag(){ dataLayer.push(arguments); }
 
-gtag('js', new Date());
+  gtag('js', new Date());
 
-const GA_DEFAULT = 'G-W9G2DWC51B';
-if (GA_DEFAULT) {
-  gtag('config', GA_DEFAULT, {
-    anonymize_ip: true
-  });
-}
+  const GA_DEFAULT = 'G-W9G2DWC51B';
+  if (GA_DEFAULT) {
+    gtag('config', GA_DEFAULT, { anonymize_ip: true });
+  }
 
-const sessionId =
-  sessionStorage.getItem('vhSessionId') || crypto.randomUUID();
-sessionStorage.setItem('vhSessionId', sessionId);
+  const sessionId = sessionStorage.getItem('vhSessionId') || crypto.randomUUID();
+  sessionStorage.setItem('vhSessionId', sessionId);
 
+  // ===== Función genérica de tracking =====
+  window.trackEvent = function(eventName, payload = {}) {
+    if (!eventName) return;
 
-window.trackEvent = function(eventName, payload = {}) {
-  if (!eventName) return;
+    const eventData = {
+      session_id: sessionId,
+      timestamp: Date.now(),
+      ...payload
+    };
 
-  const eventData = {
-    session_id: sessionId,
-    timestamp: Date.now(),
-    ...payload
+    console.log('[TRACK]', eventName, eventData);
+
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, eventData);
+    }
   };
 
-  console.log('[TRACK]', eventName, eventData);
+  // ===== Listeners de interacción =====
 
-  if (typeof gtag === 'function') {
-    gtag('event', eventName, eventData);
-  }
-};
+  // 1️⃣ Dock principal (home / login)
+  document.querySelectorAll('.dock-item').forEach((item, index) => {
+    item.addEventListener('click', () => {
+      trackEvent('test_dock_click', {
+        origin: 'habits_test',
+        position: index === 0 ? 'home' : 'login'
+      });
+    });
+  });
+
+  // 2️⃣ Botón mini registro
+  document.getElementById('openMiniLogin')?.addEventListener('click', () => {
+    trackEvent('test_register_click', {
+      origin: 'habits_test',
+      percent: getHUDScore(),
+      placement: 'post_results'
+    });
+  });
+
+  // 3️⃣ Botón "Ver Resultado" del quiz
+  document.querySelector('button.cta[onclick*="updateScore"]')?.addEventListener('click', () => {
+    trackEvent('test_result_view', {
+      origin: 'habits_test',
+      percent: getHUDScore(),
+      answered: (() => {
+        const form = document.getElementById('quizForm');
+        return form ? new FormData(form).size : 0;
+      })()
+    });
+  });
+
+  // 4️⃣ Botón "Descargar mi ficha"
+  document.querySelector('button.cta[onclick*="downloadPatientFile"]')?.addEventListener('click', () => {
+    trackEvent('test_pdf_download', {
+      origin: 'habits_test',
+      percent: getHUDScore(),
+      has_results: getHUDScore() > 0
+    });
+  });
+
 
 
 let baseModelURL = 'https://viewer.3dtwins.tech/adnOlivalife.glb';
