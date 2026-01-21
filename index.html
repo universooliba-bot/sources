@@ -1124,35 +1124,33 @@ color: rgb(7, 0, 133);
   .nutrition-btn { align-self: center; }
 }
 
-/* Móviles muy pequeños (≤ 480px) */
 @media (max-width: 480px) {
   header {
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 10px;
-    height: 40px;
+    padding: 6px 10px;
+    min-height: 40px;
+    height: auto;
     align-items: center;
   }
 
   .logo-img {
-    height: 12px;
+    height: 14px;
   }
-  header .logo { font-size: 1.6rem; }
-  header .contact-test { font-size: 0.85rem; padding: 6px 12px; }
 
-  .hero { padding: 10px 5px; }
-  .hero h1 { font-size: 1.6rem; }
-  .hero h2 { font-size: 1.2rem; }
-  .hero h3 { font-size: 1rem; }
-  .hero p { font-size: 0.95rem; line-height: 1.4; }
+  header .logo span { display: none; }
 
-  .feature { padding: 12px; }
-  .price-card { padding: 15px; }
-  .social-card { padding: 12px; }
-  footer { font-size: 0.8rem; }
+  header .contact-test {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
 
-  .products-carousel { gap: 8px; }
-  .product-card { flex: 0 0 180px; padding: 10px; }
+  .hero {
+    padding-top: 56px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+  }
 }
 
 
