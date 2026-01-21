@@ -203,25 +203,21 @@
   }
 
   const auth = firebase.auth();
-
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const consentCheckbox = document.getElementById("consent");
   const loginBtn = document.getElementById("login");
   const errorMsg = document.getElementById("errorMsg");
-
   const ruleEmail = document.getElementById("ruleEmail");
   const rulePassword = document.getElementById("rulePassword");
   const ruleConsent = document.getElementById("ruleConsent");
-
-  // Validación de contraseña según reglas de Firebase
   function isPasswordValid(pwd) {
     return (
       pwd.length >= 12 &&
-      /[A-Z]/.test(pwd) && // al menos una mayúscula
-      /[a-z]/.test(pwd) && // al menos una minúscula
-      /[0-9]/.test(pwd) && // al menos un número
-      /[^A-Za-z0-9]/.test(pwd) // al menos un símbolo
+      /[A-Z]/.test(pwd) && 
+      /[a-z]/.test(pwd) && 
+      /[0-9]/.test(pwd) && 
+      /[^A-Za-z0-9]/.test(pwd) 
     );
   }
 
@@ -230,10 +226,8 @@
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const passwordValid = isPasswordValid(passwordInput.value);
     const consentValid = consentCheckbox.checked;
-
     ruleEmail.className = emailValid ? "rule ok" : "rule";
     ruleEmail.textContent = emailValid ? "✅ Correo electrónico válido" : "❌ Correo electrónico válido";
-
     rulePassword.className = passwordValid ? "rule ok" : "rule";
     rulePassword.textContent = passwordValid
       ? "✅ Contraseña segura"
@@ -300,14 +294,11 @@ document.getElementById("downloadGuideBtn").addEventListener("click", () => {
   const fileUrl = "https://test.olibalife.site/olibalifemenudrenante.pdf";
   const fileName = "olibalifemenudrenante.pdf";
 
-  // Detectar si es móvil (iOS o Android)
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // En móviles abrimos en otra pestaña
     window.open(fileUrl, '_blank');
   } else {
-    // En desktop usamos download
     const link = document.createElement("a");
     link.href = fileUrl;
     link.download = fileName;
