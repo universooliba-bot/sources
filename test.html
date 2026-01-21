@@ -1377,9 +1377,8 @@ function updateScore() {
   latestScore = totalScore;
   latestCategories = categories.map(cat => ({ name: cat.name, score: Math.round(cat.score / cat.max * 100) }));
 
-  const minScore = 120;
-  const maxScore = 240;
-  const percent = Math.max(10, Math.round(((totalScore - minScore) / (maxScore - minScore)) * 100));
+ const maxScore = 240; // 12 preguntas x 20 puntos
+const percent = Math.round((totalScore / maxScore) * 100);
 
   const progressCircle = document.getElementById('progressCircleHUD');
   const angle = percent * 3.6;
