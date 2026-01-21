@@ -19,6 +19,23 @@ body {
   height: 100vh;
   margin: 0;
 }
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.brand img {
+  width: 36px;
+  height: auto;
+}
+
+.brand span {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
 
 .login-box {
   background: #d0d0d0a9;
@@ -209,7 +226,9 @@ button.enabled:hover {
 </head>
 <body>
 <div class="login-box">
-  <h1>OlibaLife</h1>
+   <div class="brand">
+  <img src="https://test.olibalife.site/logoolibalife.png" alt="OlibaLife">
+</div>
   <h2>Acceso a tu guía gratuita</h2>
   <input type="email" id="email" placeholder="Correo electrónico">
   <input type="password" id="password" placeholder="Contraseña segura">
