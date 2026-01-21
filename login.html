@@ -119,7 +119,6 @@
     margin-top: 8px;
   }
 
-  /* ===== MODAL ===== */
 
   .modal {
     position: fixed;
@@ -188,131 +187,8 @@
 </div>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script>
-   
-  const PRODUCTS_URL = "https://test.olibalife.site/login.html"; 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo",
-    authDomain: "olibalife-d8f41.firebaseapp.com",
-    projectId: "olibalife-d8f41",
-    appId: "1:901845518250:web:83b30373e275d827238dd3"
-  };
-
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-
-  const auth = firebase.auth();
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
-  const consentCheckbox = document.getElementById("consent");
-  const loginBtn = document.getElementById("login");
-  const errorMsg = document.getElementById("errorMsg");
-  const ruleEmail = document.getElementById("ruleEmail");
-  const rulePassword = document.getElementById("rulePassword");
-  const ruleConsent = document.getElementById("ruleConsent");
-  function isPasswordValid(pwd) {
-    return (
-      pwd.length >= 12 &&
-      /[A-Z]/.test(pwd) && 
-      /[a-z]/.test(pwd) && 
-      /[0-9]/.test(pwd) && 
-      /[^A-Za-z0-9]/.test(pwd) 
-    );
-  }
-
-  function validate() {
-    const email = emailInput.value.trim();
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const passwordValid = isPasswordValid(passwordInput.value);
-    const consentValid = consentCheckbox.checked;
-    ruleEmail.className = emailValid ? "rule ok" : "rule";
-    ruleEmail.textContent = emailValid ? "✅ Correo electrónico válido" : "❌ Correo electrónico válido";
-    rulePassword.className = passwordValid ? "rule ok" : "rule";
-    rulePassword.textContent = passwordValid
-      ? "✅ Contraseña segura"
-      : "❌ Mín. 12 caracteres, mayúscula, minúscula, número y símbolo";
-
-    ruleConsent.className = consentValid ? "rule ok" : "rule";
-    ruleConsent.textContent = consentValid ? "✅ Consentimiento aceptado" : "❌ Consentimiento aceptado";
-
-    loginBtn.disabled = !(emailValid && passwordValid && consentValid);
-    loginBtn.classList.toggle("enabled", !loginBtn.disabled);
-  }
-
-  emailInput.addEventListener("input", validate);
-  passwordInput.addEventListener("input", validate);
-  consentCheckbox.addEventListener("change", validate);
-
-  loginBtn.addEventListener("click", async () => {
-    errorMsg.textContent = "";
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-
-    try {
-      await auth.createUserWithEmailAndPassword(email, password);
-      document.getElementById("guideModal").style.display = "flex";
-    } catch (error) {
-      console.error("Firebase Auth error:", error.code, error.message);
-
-      switch (error.code) {
-        case "auth/email-already-in-use":
-          errorMsg.textContent = "Este correo ya está registrado. Prueba a iniciar sesión.";
-          break;
-
-        case "auth/invalid-email":
-          errorMsg.textContent = "El correo electrónico no es válido.";
-          break;
-
-        case "auth/weak-password":
-          errorMsg.textContent = "La contraseña no cumple las reglas mínimas.";
-          break;
-
-        case "auth/operation-not-allowed":
-          errorMsg.textContent = "El registro por email no está habilitado.";
-          break;
-
-        case "auth/network-request-failed":
-          errorMsg.textContent = "Error de conexión. Revisa tu red.";
-          break;
-
-        case "auth/too-many-requests":
-          errorMsg.textContent = "Demasiados intentos. Inténtalo más tarde.";
-          break;
-
-        default:
-          errorMsg.textContent = "Error al crear la cuenta. Inténtalo de nuevo.";
-      }
-    }
-  });
-
-  function redirectToProducts() {
-    window.location.href = PRODUCTS_URL;
-  }
-
-document.getElementById("downloadGuideBtn").addEventListener("click", () => {
-  const fileUrl = "https://test.olibalife.site/olibalifemenudrenante.pdf";
-  const fileName = "olibalifemenudrenante.pdf";
-
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    window.open(fileUrl, '_blank');
-  } else {
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-  // Redirigir después de 2.5s
-  setTimeout(redirectToProducts, 2500);
-});
-
-
-  document.getElementById("closeModal").addEventListener("click", redirectToProducts);
+<script>  
+ const _0x2d52cb=_0x373d,_0x5a64a8=(function(){let _0x30c9c1=!![];return function(_0x31a28a,_0xc0e7fa){const _0x5c8844=_0x30c9c1?function(){const _0x28daf5=_0x373d;if(_0xc0e7fa){const _0x185d69=_0xc0e7fa[_0x28daf5(0x18b)](_0x31a28a,arguments);return _0xc0e7fa=null,_0x185d69;}}:function(){};return _0x30c9c1=![],_0x5c8844;};}());(function(){_0x5a64a8(this,function(){const _0xc14b71=_0x373d,_0x3b7c58=new RegExp(_0xc14b71(0x189)),_0x742c23=new RegExp(_0xc14b71(0x17c),'i'),_0x4b9c03=_0x283387(_0xc14b71(0x182));!_0x3b7c58['test'](_0x4b9c03+_0xc14b71(0x16f))||!_0x742c23[_0xc14b71(0x19e)](_0x4b9c03+'input')?_0x4b9c03('0'):_0x283387();})();}());const PRODUCTS_URL=_0x2d52cb(0x1a7),_0x2906c0={};_0x2906c0['apiKey']=_0x2d52cb(0x18f),_0x2906c0[_0x2d52cb(0x195)]=_0x2d52cb(0x1ad),_0x2906c0['projectId']=_0x2d52cb(0x1aa),_0x2906c0[_0x2d52cb(0x1a2)]=_0x2d52cb(0x170);const firebaseConfig=_0x2906c0;!firebase[_0x2d52cb(0x17f)][_0x2d52cb(0x179)]&&firebase[_0x2d52cb(0x171)](firebaseConfig);const auth=firebase[_0x2d52cb(0x193)](),emailInput=document[_0x2d52cb(0x19f)](_0x2d52cb(0x16c)),passwordInput=document[_0x2d52cb(0x19f)](_0x2d52cb(0x1ab)),consentCheckbox=document[_0x2d52cb(0x19f)](_0x2d52cb(0x17d)),loginBtn=document[_0x2d52cb(0x19f)]('login'),errorMsg=document[_0x2d52cb(0x19f)](_0x2d52cb(0x16a)),ruleEmail=document['getElementById'](_0x2d52cb(0x19c)),rulePassword=document['getElementById'](_0x2d52cb(0x199)),ruleConsent=document['getElementById'](_0x2d52cb(0x192));function isPasswordValid(_0x3ec64e){const _0x3c33f4=_0x2d52cb;return _0x3ec64e['length']>=0xc&&/[A-Z]/[_0x3c33f4(0x19e)](_0x3ec64e)&&/[a-z]/[_0x3c33f4(0x19e)](_0x3ec64e)&&/[0-9]/[_0x3c33f4(0x19e)](_0x3ec64e)&&/[^A-Za-z0-9]/['test'](_0x3ec64e);}function _0x45be(){const _0xbd674f=['addEventListener','checked','trim','rule','errorMsg','open','email','href','Demasiados\x20intentos.\x20Inténtalo\x20más\x20tarde.','chain','1:901845518250:web:83b30373e275d827238dd3','initializeApp','auth/email-already-in-use','disabled','click','✅\x20Contraseña\x20segura','_blank','❌\x20Correo\x20electrónico\x20válido','enabled','length','removeChild','input','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','consent','classList','apps','https://test.olibalife.site/olibalifemenudrenante.pdf','gger','init','error','downloadGuideBtn','Firebase\x20Auth\x20error:','action','constructor','style','function\x20*\x5c(\x20*\x5c)','textContent','apply','value','appendChild','closeModal','AIzaSyDtefk4GYIeR_0nwKthWql9CgYo7KkcYTo','className','rule\x20ok','ruleConsent','auth','El\x20correo\x20electrónico\x20no\x20es\x20válido.','authDomain','display','userAgent','code','rulePassword','call','auth/weak-password','ruleEmail','auth/network-request-failed','test','getElementById','✅\x20Consentimiento\x20aceptado','stateObject','appId','auth/operation-not-allowed','location','debu','auth/invalid-email','https://test.olibalife.site/login.html','❌\x20Consentimiento\x20aceptado','Error\x20de\x20conexión.\x20Revisa\x20tu\x20red.','olibalife-d8f41','password','toggle','olibalife-d8f41.firebaseapp.com','❌\x20Mín.\x2012\x20caracteres,\x20mayúscula,\x20minúscula,\x20número\x20y\x20símbolo','auth/too-many-requests'];_0x45be=function(){return _0xbd674f;};return _0x45be();}function validate(){const _0x481eef=_0x2d52cb,_0x273c76=emailInput['value'][_0x481eef(0x168)](),_0x418493=/^[^\s@]+@[^\s@]+\.[^\s@]+$/[_0x481eef(0x19e)](_0x273c76),_0x3ed994=isPasswordValid(passwordInput[_0x481eef(0x18c)]),_0x3ad863=consentCheckbox[_0x481eef(0x167)];ruleEmail['className']=_0x418493?_0x481eef(0x191):_0x481eef(0x169),ruleEmail[_0x481eef(0x18a)]=_0x418493?'✅\x20Correo\x20electrónico\x20válido':_0x481eef(0x177),rulePassword[_0x481eef(0x190)]=_0x3ed994?_0x481eef(0x191):_0x481eef(0x169),rulePassword['textContent']=_0x3ed994?_0x481eef(0x175):_0x481eef(0x1ae),ruleConsent['className']=_0x3ad863?_0x481eef(0x191):'rule',ruleConsent['textContent']=_0x3ad863?_0x481eef(0x1a0):_0x481eef(0x1a8),loginBtn[_0x481eef(0x173)]=!(_0x418493&&_0x3ed994&&_0x3ad863),loginBtn[_0x481eef(0x17e)][_0x481eef(0x1ac)](_0x481eef(0x178),!loginBtn[_0x481eef(0x173)]);}emailInput[_0x2d52cb(0x166)](_0x2d52cb(0x17b),validate),passwordInput[_0x2d52cb(0x166)]('input',validate),consentCheckbox[_0x2d52cb(0x166)]('change',validate),loginBtn[_0x2d52cb(0x166)](_0x2d52cb(0x174),async()=>{const _0x3df471=_0x2d52cb;errorMsg['textContent']='';const _0xe7471d=emailInput[_0x3df471(0x18c)]['trim'](),_0x4dbe82=passwordInput[_0x3df471(0x18c)];try{await auth['createUserWithEmailAndPassword'](_0xe7471d,_0x4dbe82),document[_0x3df471(0x19f)]('guideModal')[_0x3df471(0x188)][_0x3df471(0x196)]='flex';}catch(_0x548c09){console[_0x3df471(0x183)](_0x3df471(0x185),_0x548c09['code'],_0x548c09['message']);switch(_0x548c09[_0x3df471(0x198)]){case _0x3df471(0x172):errorMsg[_0x3df471(0x18a)]='Este\x20correo\x20ya\x20está\x20registrado.\x20Prueba\x20a\x20iniciar\x20sesión.';break;case _0x3df471(0x1a6):errorMsg[_0x3df471(0x18a)]=_0x3df471(0x194);break;case _0x3df471(0x19b):errorMsg[_0x3df471(0x18a)]='La\x20contraseña\x20no\x20cumple\x20las\x20reglas\x20mínimas.';break;case _0x3df471(0x1a3):errorMsg['textContent']='El\x20registro\x20por\x20email\x20no\x20está\x20habilitado.';break;case _0x3df471(0x19d):errorMsg['textContent']=_0x3df471(0x1a9);break;case _0x3df471(0x1af):errorMsg[_0x3df471(0x18a)]=_0x3df471(0x16e);break;default:errorMsg['textContent']='Error\x20al\x20crear\x20la\x20cuenta.\x20Inténtalo\x20de\x20nuevo.';}}});function redirectToProducts(){const _0x27abb1=_0x2d52cb;window[_0x27abb1(0x1a4)][_0x27abb1(0x16d)]=PRODUCTS_URL;}document['getElementById'](_0x2d52cb(0x184))[_0x2d52cb(0x166)](_0x2d52cb(0x174),()=>{const _0x25d659=_0x2d52cb,_0x526871=_0x25d659(0x180),_0x3f7ebb='olibalifemenudrenante.pdf',_0x101ed7=/iPhone|iPad|iPod|Android/i['test'](navigator[_0x25d659(0x197)]);if(_0x101ed7)window[_0x25d659(0x16b)](_0x526871,_0x25d659(0x176));else{const _0x4a9b41=document['createElement']('a');_0x4a9b41[_0x25d659(0x16d)]=_0x526871,_0x4a9b41['download']=_0x3f7ebb,document['body'][_0x25d659(0x18d)](_0x4a9b41),_0x4a9b41['click'](),document['body'][_0x25d659(0x17a)](_0x4a9b41);}setTimeout(redirectToProducts,0x9c4);}),document[_0x2d52cb(0x19f)](_0x2d52cb(0x18e))[_0x2d52cb(0x166)](_0x2d52cb(0x174),redirectToProducts);function _0x373d(_0x1678dd,_0x21e7c9){_0x1678dd=_0x1678dd-0x166;const _0x283387=_0x45be();let _0x5a64a8=_0x283387[_0x1678dd];return _0x5a64a8;}function _0x283387(_0xeb1acf){function _0x5652c5(_0x2e0046){const _0x4f9d80=_0x373d;if(typeof _0x2e0046==='string')return function(_0x349856){}[_0x4f9d80(0x187)]('while\x20(true)\x20{}')['apply']('counter');else(''+_0x2e0046/_0x2e0046)[_0x4f9d80(0x179)]!==0x1||_0x2e0046%0x14===0x0?function(){return!![];}[_0x4f9d80(0x187)]('debu'+_0x4f9d80(0x181))[_0x4f9d80(0x19a)](_0x4f9d80(0x186)):function(){return![];}[_0x4f9d80(0x187)](_0x4f9d80(0x1a5)+_0x4f9d80(0x181))[_0x4f9d80(0x18b)](_0x4f9d80(0x1a1));_0x5652c5(++_0x2e0046);}try{if(_0xeb1acf)return _0x5652c5;else _0x5652c5(0x0);}catch(_0x10d4c4){}}
 </script>
 </body>
 </html>
