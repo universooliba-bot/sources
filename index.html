@@ -66,9 +66,17 @@
   display: block;
 }
 .logo span {
-  font-weight: 700;
-  font-size: 18px;
-  color: #1f3d1f; /* o el color que uses */
+  display: flex;      
+  align-items: center;   
+  gap: 10px;           
+  font-family: 'Tsukimi Rounded', sans-serif; 
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #b1b1b3, #025500);
+  background-size: 100% auto;
+  color: transparent; 
+  background-clip: text; 
+  -webkit-background-clip: text;
+  animation: shine 3s linear infinite;
 }
   @media (max-width: 480px) {
   .logo span {
@@ -213,19 +221,7 @@
 
 
 
-.logo {
-  display: flex;      
-  align-items: center;   
-  gap: 10px;           
-  font-family: 'Tsukimi Rounded', sans-serif; 
-  font-size: 2.5rem;
-  background: linear-gradient(135deg, #b1b1b3, #025500);
-  background-size: 100% auto;
-  color: transparent; 
-  background-clip: text; 
-  -webkit-background-clip: text;
-  animation: shine 3s linear infinite;
-}
+
   .logo-hero {
     width: 250px;
     margin-top: 0px;
