@@ -29,9 +29,131 @@
   body {
    font-family: 'Poppins', sans-serif;
     background: #D2DEAF; 
-    color: #333;
+    color: #191919;
     line-height: 1.5;
   }
+
+
+#ct-municipal-product {
+  width: 100%;
+  padding: 80px 30px;
+  background: #fff;
+}
+
+.ct-product-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+ 
+}
+
+
+.ct-product-media {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+ aspect-ratio: 5 / 6;
+   background: #D2DEAF; 
+}
+
+.ct-product-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+  min-width: 250px;
+}
+
+.ct-img-hover { opacity: 0; }
+
+.ct-product-media:hover .ct-img-hover { opacity: 1; }
+.ct-product-media:hover .ct-img-main { opacity: 0; }
+
+
+
+.ct-product-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+    background: #D2DEAF; 
+    border-radius: 18px;
+    margin: 0;
+}
+
+.ct-product-title {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 22px;
+}
+
+.ct-product-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #101010;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+
+
+.ct-product-subtitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.ct-product-list {
+  padding-left: 18px;
+  margin-bottom: 36px;
+}
+
+.ct-product-list li {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.ct-product-cta {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 14px 30px;
+  background:#013732; 
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: background 0.25s ease;
+}
+
+.ct-product-cta:hover {
+  background: #333;
+}
+
+
+@media (max-width: 900px) {
+  .ct-product-wrapper {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ct-product-media {
+    aspect-ratio: 3 / 4;
+  }
+
+  .ct-product-cta {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
 
 
   a { text-decoration: none; color: inherit; }
@@ -185,15 +307,15 @@
   box-shadow: 0 8px 20px rgba(79, 175, 59, 0.4);
 }
 
-
 .nutrition-section {
   max-width: 1100px;
-  margin: 10 auto;
-   margin-bottom: 20px;
-  padding: 3.5rem 1.5rem;
+  margin: 10px auto 20px;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+  padding-block: 3.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  box-sizing: border-box;
 }
 
 .nutrition-section.compact {
@@ -210,7 +332,7 @@
   font-size: 1.8rem;
   font-weight: 600;
   color: #1f2937;
-  margin: 0 0 0.4rem 0;
+  margin: 10px;
 }
 
 .nutrition-header p {
@@ -223,8 +345,9 @@
 
 .nutrition-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
   gap: 1.5rem;
+   font-size: 1rem;
 }
 
 .nutrition-card {
@@ -236,6 +359,7 @@
   padding: 1.25rem 1.4rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 450px;
 }
 
 .nutrition-card:hover {
@@ -270,7 +394,7 @@
   padding: 0.45rem 1.15rem;
   font-size: 0.85rem;
   font-weight: 500;
-  border-radius: 999px;
+  border-radius: 12px;
   text-decoration: none;
   background: #013732;
   color: #ffffff;
@@ -595,6 +719,7 @@ background: #ffffff;
     margin: 0 8px; }
 
   .price-container {
+
   display: grid;
   grid-template-columns: 1fr 1.5fr; 
   align-items: stretch;
@@ -606,7 +731,7 @@ background: #ffffff;
 .plan-image {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius:18px;
   overflow: hidden;
   padding: 0px;
@@ -662,7 +787,7 @@ background: #ffffff;
   background: linear-gradient(135deg, #d8d8d8, #ffffff); 
   color: #000000;
   padding: 30px 25px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 6px 25px rgba(0,0,0,0.15);
 }
 
@@ -1315,7 +1440,7 @@ color: rgb(7, 0, 133);
            alt="Menú drenante gratuito">
 
       <div class="nutrition-content">
-        <h2>Guía drenante gratuita</h2>
+        <h3>Guía drenante gratuita</h3>
         <p>Accede gratis a un menú drenante pensado para mejorar tu bienestar diario.</p>
           <h3 class="price">Gratis con tu registro.</h3>
         <a href="https://test.olibalife.site/login.html"
@@ -1330,7 +1455,7 @@ color: rgb(7, 0, 133);
       <img src="https://test.olibalife.site/menumenopausiaolibalife.jpg"
            alt="Menú Perimenopausia y Menopausia">
       <div class="nutrition-content">
-        <h2>Menú Perimenopausia y Menopausia</h2>
+        <h3>Menú Perimenopausia y Menopausia</h3>
         <p>Guía práctica con menú de 7 a 14 días para equilibrio y vitalidad femenina.</p>
         <h3 class="price">19€/euros</h3>
         <a href="https://buy.stripe.com/bJebJ0h1mbi96JTgKm3F60j"
@@ -1350,35 +1475,69 @@ color: rgb(7, 0, 133);
 <h2>Encuentra el test epigenético que más se adapta a tí</h2>
 <p>¿Notas cambios en un tema concreto de tu salud y no sabes cómo solucionarlo?</p>
 
+<section id="ct-municipal-product">
+  <div class="ct-product-wrapper">
 
-<section id= "pricing2" class="pricing">
-  <div class="price-container">
-
-    <div class="price-card">
-       <p>Wellness</p>
-      <h2>¿Qué factores están afectando a tu energía, tu metabolismo y tu bienestar?</h2>
-      <p>Descúbrelo con nuestro test avanzado Wellness</p>
-      <p class="price">170€/euros</p>
-       <h3>Incluye:</h3>
-      <ul>
-        <li>- Informe digital personalizado</li>
-        <li>- Análisis epigenético con muestra capilar</li>
-        <li>- Consulta de resultados</li>
-           </ul>
-   <a href="https://buy.stripe.com/fZe7vE9dDcsI62s3co" class="hospitales-btn">Empezar mi estudio.</a>
-
+    <div class="ct-product-media">
+      <img 
+        src="https://viewer.3dtwins.tech/test.jpg" 
+        alt="Test epigenético Wellness"
+        class="ct-img-main"
+      >
+      <img 
+        src="https://viewer.3dtwins.tech/consultoriaolibalife.jpg" 
+        alt="Test epigenético detalle"
+        class="ct-img-hover"
+      >
     </div>
 
-    <div class="plan-image">
-      <img src="https://viewer.3dtwins.tech/test.jpg" alt="Plan Básico" class="img-default">
-      <img src="https://viewer.3dtwins.tech/consultoriaolibalife.jpg" alt="Plan Básico Hover" class="img-hover">
+    <div class="ct-product-content">
+      <h3 class="ct-product-title">Test epigenético Wellness</h3>
+
+      <p class="ct-product-description">
+        ¿Qué factores están afectando a tu energía, tu metabolismo y tu bienestar?
+      </p>
+
+  <p 
+  class="ct-product-price"
+  style="
+    font-size: 30px;
+    font-weight: 700;
+    color: #013732; 
+    margin: 0 0 32px 0;
+    line-height: 1.1;
+  "
+>
+  170 €
+</p>
+
+
+      <h4 class="ct-product-subtitle">Incluye</h4>
+
+      <ul class="ct-product-list">
+        <li>Informe digital personalizado</li>
+        <li>Análisis epigenético con muestra capilar</li>
+        <li>Consulta de resultados</li>
+      </ul>
+
+      <a 
+        href="https://buy.stripe.com/fZe7vE9dDcsI62s3co"
+        class="ct-product-cta"
+      >
+        Empezar mi estudio
+      </a>
     </div>
+
   </div>
 </section>
 
+
+
   <div class="products-carousel">
+
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifewellness.jpg" alt="Menú Especial Perimenopausia y Menopausia">
+      
      <h3>Test epigenético avanzado WELLNESS</h3>
       <p hidden>¿Cansancio inexplicable?¿Hinchazón?¿Digestiones pesadas?¿Cambios de energía, defensas bajas, sensación de "no estar como antes"? Nuestro test epigenético analiza tus sistemas clave.</p>
 
@@ -1438,6 +1597,7 @@ color: rgb(7, 0, 133);
       <img src="https://viewer.3dtwins.tech/SIBO.jpg" alt="Estudio de SIBO">
       
      <h3>Estudio de SIBO</h3>
+     
       <p  hidden>Cuando tu digestión nunca termina de ir bien.</p>
 
       <a href="https://buy.stripe.com/6oUfZgaCY2LD5FP0Lo3F60r"
@@ -1452,6 +1612,7 @@ color: rgb(7, 0, 133);
     <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifeSobrecargaHepática.jpg" alt="Estudio de Sobrecarga Hepática">
      <h3>Estudio de Sobrecarga Hepática</h3>
+     
       <p hidden>Test de síntomas funcionales y un análisis personalizado para sobrecarga hepática.</p>
 
       <a href="https://buy.stripe.com/eVqcN47qM1Hzc4dalY3F60n"
@@ -1465,6 +1626,7 @@ color: rgb(7, 0, 133);
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifeDesordenInflamatorio.jpg" alt="Estudio Antiinflamatorio">
      <h3>Estudio Antiinflamatorio</h3>
+    
       <p  hidden>Estudio 100 % online para identificar signos de inflamación persistente.</p>
 
       <a href="https://buy.stripe.com/8x200idPa3PHb098dQ3F60o"
@@ -1478,6 +1640,7 @@ color: rgb(7, 0, 133);
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifeEstudioMicroorganismosPatógenos.jpg" alt="Estudio de Microorganismos Patógenos">
      <h3>Estudio de Microorganismos Patógenos.</h3>
+  
       <p  hidden>Para detectar posibles desequilibrios por microorganismos patógenos</p>
 
       <a href="https://buy.stripe.com/cNi6oG8uQ9a1ecl65I3F60p"
@@ -1490,7 +1653,8 @@ color: rgb(7, 0, 133);
 
         <div class="product-card">
       <img src="https://test.olibalife.site/olibalifeEquilibrioÁcidoBase.AcisosisTisular.jpg" alt="Estudio de Acidosis Tisular">
-     <h3>Estudio de Acidosis Tisular. </h3>
+     <h3>Equilibrio Ácido-base. </h3>
+   
       <p hidden>Entiende por qué te sientes cansada, cargada o con dolores.</p>
 
       <a href="https://buy.stripe.com/7sY4gyfXi71T0lv2Tw3F60q"
@@ -1504,6 +1668,7 @@ color: rgb(7, 0, 133);
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifeEstudioDesordenMetabólico.jpg" alt="Estudio Síndrome Metabólico">
      <h3>Estudio Síndrome Metabólico.</h3>
+
       <p hidden>Cuando el cuerpo acumula, se ralentiza y pierde energía.</p>
 
       <a href="https://buy.stripe.com/6oUaEW8uQdqh6JT3XA3F60s"
@@ -1532,6 +1697,7 @@ color: rgb(7, 0, 133);
         <div class="product-card">
       <img src="https://viewer.3dtwins.tech/olibalifegastritis.jpg" alt="Estudio de Gastritis">
      <h3>Estudio de Gastritis. </h3>
+  
       <p hidden>Cuando el estómago está irritado y lo notas cada día.</p>
 
       <a href="https://buy.stripe.com/7sY9AScL60Dv5FPalY3F60u"
