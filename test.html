@@ -17,15 +17,19 @@
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bottom-fixed-height: 230px;
+}
 body {
   background: #c7d3a550; 
   font-family: 'Intel', sans-serif;
   display: flex;
-  min-height: 100vh;                
-  
+  min-height: 100svh;      
+    min-height: calc(100svh - 250px);          
   overflow-x: hidden;               
   overflow-y: auto;   
-  padding-bottom: 100px;               
+  padding-bottom: 100px;    
+    padding-bottom: var(--bottom-fixed-height);           
 }
 
 .floating-header {
@@ -56,7 +60,7 @@ margin: 10px;
   to { transform: translateY(0); opacity: 1; }
 }
 .cta {
-  background: #013732;
+  background: #064445;
   color: #f5f5f5;
   font-weight: 800;
   font-size: 1rem;
@@ -89,7 +93,7 @@ margin: 10px;
 .dock-menu {
   display: flex;
   gap: 18px;
-background: #013732;
+background: #064445;
   padding: 18px 20px;
   border-radius: 22px;
   backdrop-filter: blur(15px);
@@ -132,7 +136,7 @@ background: #013732;
   align-items: center;
   overflow: hidden;
   border-radius: 18px ;
-  background: #dbe0e750;
+  background: #dbe0e740;
   
 
 }
@@ -282,7 +286,7 @@ background: linear-gradient(135deg, #d8d8d8, #ffffff);
   width: 99%;               
   max-width: 480px;                 
   height: 800px;           
-background:#013732;
+background: #064445;
   backdrop-filter: blur(15px);      
   border-radius: 20px;    
   padding: 10px;
@@ -353,7 +357,7 @@ background: transparent;
   left: 0;            
   width: 100%;         
   max-width: 100%;
-  height: 250px;       
+   height: var(--bottom-fixed-height);    
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
@@ -371,7 +375,7 @@ background: transparent;
   max-width: 90%;
   max-height: 200px;
   padding: 10px 20px;
-background: #013732;
+background: #064445;
   backdrop-filter: blur(12px);
   border-radius: 8px;
   text-align: center;
@@ -431,7 +435,8 @@ background: #013732;
 
  
   footer {
-    text-align: center; padding: 30px 20px;
+    text-align: center; 
+    padding: 30px 20px;
  background: #ffffff;
      color: #000000; font-size: 0.9rem;
   }
@@ -1092,7 +1097,7 @@ background: #013732;
     </div>
 
     <button type="button" class="cta" onclick="updateScore()">Ver Resultado</button>
-    <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
+
   </form>
   
 </div>
@@ -1161,7 +1166,9 @@ background: #013732;
       </iframe>
     </div>
   </div>
+ 
 <div class="results2">
+ <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
  <button id="openMiniLogin" class="cta">Regístrate y obtén una guía de alimentación drenante gratis.</button>
    <h2>¿Sientes que necesitas un estudio avanzado?</h2>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
@@ -1189,7 +1196,6 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
   <a href="https://olibalife.com/compromiso-con-la-proteccion-de-datos-personales/">Política de cookies</a> 
 </footer>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
