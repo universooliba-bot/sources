@@ -1205,7 +1205,10 @@ background: #064445;
   </div>
 </div>
 
-    <button type="button" class="cta" onclick="updateScore()">Ver Resultado</button>
+    <button type="button" class="cta" onclick="updateScore()" hidden>Ver Resultado</button>
+   <button id="fakeViewResultsBtn" class="cta">
+  Ver resultados
+</button>
      <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
 
   </form>
@@ -1822,6 +1825,102 @@ document.getElementById("openMiniLogin").addEventListener("click", () => {
 document.getElementById("closeMiniLogin").addEventListener("click", () => {
   document.getElementById("miniLoginModal").style.display = "none";
 });
+
+
+
+
+
+// ============================================================
+// REGISTRO ANTES DE MOSTRAR RESULTADOS
+// ============================================================
+
+function openResultsRegistration() {
+  const modal = document.getElementById('miniLoginModal');
+
+  if (!modal) {
+    console.error('[RESULTS] No se encontró miniLoginModal');
+    return;
+  }
+
+  trackEvent('results_registration_opened', {
+    origin: 'habits_test',
+    percent: getHUDScore()
+  });
+
+  modal.style.display = 'flex';
+}
+
+
+// ============================================================
+// BOTÓN FALSO "VER RESULTADOS"
+// ============================================================
+
+document.getElementById('fakeViewResultsBtn')?.addEventListener('click', function() {
+  openResultsRegistration();
+});
+
+
+// ============================================================
+// RECIBIR CONFIRMACIÓN DEL LOGIN / REGISTRO
+// ============================================================
+
+window.addEventListener('message', function(event) {
+
+  // Solo aceptamos mensajes procedentes de nuestro dominio
+  if (event.origin !== 'https://test.olibalife.site') {
+    return;
+  }
+
+  // Comprobamos que sea nuestro mensaje
+  if (!event.data || event.data.type !== 'olibalife_registration_success') {
+    return;
+  }
+
+  console.log('[RESULTS] Registro confirmado correctamente');
+
+  trackEvent('registration_success', {
+    origin: 'habits_test'
+  });
+
+  // ----------------------------------------------------------
+  // CERRAR MODAL
+  // ----------------------------------------------------------
+
+  const modal = document.getElementById('miniLoginModal');
+
+  if (modal) {
+    modal.style.display = 'none';
+  }
+
+  // ----------------------------------------------------------
+  // OCULTAR BOTÓN FALSO
+  // ----------------------------------------------------------
+
+  const fakeButton = document.getElementById('fakeViewResultsBtn');
+
+  if (fakeButton) {
+    fakeButton.style.display = 'none';
+  }
+
+  // ----------------------------------------------------------
+  // MOSTRAR RESULTADOS
+  // ----------------------------------------------------------
+
+  if (typeof updateScore === 'function') {
+
+    console.log('[RESULTS] Mostrando resultados');
+
+    updateScore();
+
+  } else {
+
+    console.error('[RESULTS] updateScore() no está disponible');
+
+  }
+
+});
+
+ 
 
 </script>
 
