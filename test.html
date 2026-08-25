@@ -1209,6 +1209,24 @@ background: #064445;
 <button id="fakeViewResultsBtn" class="cta" type="button">
   Ver resultados
 </button>
+
+   <button id="consultationBtn" class="cta consultation-btn" style="display:none;">
+  Agenda tu consultoría gratuita
+</button>
+
+   <div id="consultationModal" class="mini-modal">
+  <div class="mini-modal-content consultation-modal-content">
+    <button class="mini-modal-close" id="closeConsultation">✕</button>
+    <iframe
+      id="consultationIframe"
+      class="mini-login-iframe"
+      frameborder="0"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+   
      <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
 
   </form>
@@ -1879,11 +1897,19 @@ window.addEventListener('message', function(event) {
     origin: 'habits_test'
   });
 
+  // ============================================================
+  // CERRAR MODAL DE REGISTRO
+  // ============================================================
+
   const modal = document.getElementById('miniLoginModal');
 
   if (modal) {
     modal.style.display = 'none';
   }
+
+  // ============================================================
+  // OCULTAR BOTÓN FALSO
+  // ============================================================
 
   const fakeButton = document.getElementById('fakeViewResultsBtn');
 
@@ -1891,11 +1917,74 @@ window.addEventListener('message', function(event) {
     fakeButton.style.display = 'none';
   }
 
+  // ============================================================
+  // MOSTRAR RESULTADOS
+  // ============================================================
+
   if (typeof updateScore === 'function') {
+
+    console.log('[RESULTS] Ejecutando updateScore()');
+
     updateScore();
+
+    // ============================================================
+    // ACTIVAR BOTÓN DE CONSULTORÍA
+    // ============================================================
+
+    const consultationBtn = document.getElementById('consultationBtn');
+
+    if (consultationBtn) {
+      consultationBtn.style.display = 'block';
+
+      console.log('[RESULTS] Botón de consultoría activado');
+    }
+
+  } else {
+
+    console.error('[RESULTS] updateScore() no está disponible');
+
   }
+
 });
- 
+
+
+ // ============================================================
+// CONSULTORÍA
+// ============================================================
+
+const consultationBtn = document.getElementById('consultationBtn');
+const consultationModal = document.getElementById('consultationModal');
+const consultationIframe = document.getElementById('consultationIframe');
+const closeConsultation = document.getElementById('closeConsultation');
+
+const CONSULTATION_URL = 'https://tidycal.com/universooliba/sesion-gratuita';
+
+consultationBtn?.addEventListener('click', function() {
+
+  trackEvent('consultation_click', {
+    origin: 'habits_test',
+    percent: getHUDScore()
+  });
+
+  if (!consultationModal || !consultationIframe) {
+    console.error('[CONSULTATION] Modal o iframe no encontrado');
+    return;
+  }
+
+  consultationIframe.src = CONSULTATION_URL;
+  consultationModal.style.display = 'flex';
+
+});
+
+closeConsultation?.addEventListener('click', function() {
+
+  consultationModal.style.display = 'none';
+
+  setTimeout(() => {
+    consultationIframe.src = '';
+  }, 300);
+
+});
 
 </script>
 
