@@ -1829,34 +1829,33 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 
 
-
-// ============================================================
-// REGISTRO ANTES DE MOSTRAR RESULTADOS
-// ============================================================
-
-function openResultsRegistration() {
-  const modal = document.getElementById('miniLoginModal');
-
-  if (!modal) {
-    console.error('[RESULTS] No se encontró miniLoginModal');
-    return;
-  }
-
-  trackEvent('results_registration_opened', {
-    origin: 'habits_test',
-    percent: getHUDScore()
-  });
-
-  modal.style.display = 'flex';
-}
-
-
 // ============================================================
 // BOTÓN FALSO "VER RESULTADOS"
 // ============================================================
 
 document.getElementById('fakeViewResultsBtn')?.addEventListener('click', function() {
-  openResultsRegistration();
+
+  console.log('[RESULTS] Botón falso pulsado');
+
+  const loginButton = document.getElementById('openMiniLogin');
+
+  if (loginButton) {
+
+    console.log('[RESULTS] Abriendo login');
+
+    trackEvent('results_registration_opened', {
+      origin: 'habits_test',
+      percent: getHUDScore()
+    });
+
+    loginButton.click();
+
+  } else {
+
+    console.error('[RESULTS] No se encontró #openMiniLogin');
+
+  }
+
 });
 
 
@@ -1866,12 +1865,13 @@ document.getElementById('fakeViewResultsBtn')?.addEventListener('click', functio
 
 window.addEventListener('message', function(event) {
 
-  // Solo aceptamos mensajes procedentes de nuestro dominio
+  console.log('[RESULTS] Mensaje recibido:', event.origin, event.data);
+
   if (event.origin !== 'https://test.olibalife.site') {
+    console.log('[RESULTS] Mensaje rechazado por origin');
     return;
   }
 
-  // Comprobamos que sea nuestro mensaje
   if (!event.data || event.data.type !== 'olibalife_registration_success') {
     return;
   }
@@ -1882,19 +1882,11 @@ window.addEventListener('message', function(event) {
     origin: 'habits_test'
   });
 
-  // ----------------------------------------------------------
-  // CERRAR MODAL
-  // ----------------------------------------------------------
-
   const modal = document.getElementById('miniLoginModal');
 
   if (modal) {
     modal.style.display = 'none';
   }
-
-  // ----------------------------------------------------------
-  // OCULTAR BOTÓN FALSO
-  // ----------------------------------------------------------
 
   const fakeButton = document.getElementById('fakeViewResultsBtn');
 
@@ -1902,13 +1894,9 @@ window.addEventListener('message', function(event) {
     fakeButton.style.display = 'none';
   }
 
-  // ----------------------------------------------------------
-  // MOSTRAR RESULTADOS
-  // ----------------------------------------------------------
-
   if (typeof updateScore === 'function') {
 
-    console.log('[RESULTS] Mostrando resultados');
+    console.log('[RESULTS] Ejecutando updateScore()');
 
     updateScore();
 
@@ -1919,7 +1907,6 @@ window.addEventListener('message', function(event) {
   }
 
 });
-
  
 
 </script>
