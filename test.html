@@ -1206,7 +1206,7 @@ background: #064445;
 </div>
 
     <button type="button" class="cta" onclick="updateScore()" style="display:none;">Ver Resultado</button>
-   <button id="fakeViewResultsBtn" class="cta">
+<button id="fakeViewResultsBtn" class="cta" type="button">
   Ver resultados
 </button>
      <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
@@ -1832,31 +1832,36 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 // ============================================================
 // BOTÓN FALSO "VER RESULTADOS"
 // ============================================================
+document.getElementById('fakeViewResultsBtn')?.addEventListener('click', function(event) {
+  event.preventDefault();
+  event.stopPropagation();
 
-document.getElementById('fakeViewResultsBtn')?.addEventListener('click', function() {
+  const modal = document.getElementById('miniLoginModal');
 
-  console.log('[RESULTS] Botón falso pulsado');
-
-  const loginButton = document.getElementById('openMiniLogin');
-
-  if (loginButton) {
-
-    console.log('[RESULTS] Abriendo login');
-
-    trackEvent('results_registration_opened', {
-      origin: 'habits_test',
-      percent: getHUDScore()
-    });
-
-    loginButton.click();
-
-  } else {
-
-    console.error('[RESULTS] No se encontró #openMiniLogin');
-
+  if (!modal) {
+    console.error('[RESULTS] No existe miniLoginModal');
+    return;
   }
 
+  console.log('[RESULTS] Abriendo modal');
+
+  trackEvent('results_registration_opened', {
+    origin: 'habits_test',
+    percent: getHUDScore()
+  });
+
+  modal.style.display = 'flex';
+
+  console.log('[RESULTS] display después de abrir:', modal.style.display);
 });
+
+const modal = document.getElementById('miniLoginModal');
+
+if (modal) {
+  modal.addEventListener('click', function(event) {
+    console.log('[MODAL] Click dentro del modal', event.target);
+  });
+}
 
 
 // ============================================================
