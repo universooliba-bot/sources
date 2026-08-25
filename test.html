@@ -1831,49 +1831,41 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 // ============================================================
 // BOTÓN FALSO "VER RESULTADOS"
+// Utiliza exactamente el mismo flujo del botón de registro existente
 // ============================================================
+
 document.getElementById('fakeViewResultsBtn')?.addEventListener('click', function(event) {
   event.preventDefault();
   event.stopPropagation();
 
-  const modal = document.getElementById('miniLoginModal');
-
-  if (!modal) {
-    console.error('[RESULTS] No existe miniLoginModal');
-    return;
-  }
-
-  console.log('[RESULTS] Abriendo modal');
+  console.log('[RESULTS] Botón falso pulsado');
 
   trackEvent('results_registration_opened', {
     origin: 'habits_test',
     percent: getHUDScore()
   });
 
-  modal.style.display = 'flex';
+  const realLoginButton = document.getElementById('openMiniLogin');
 
-  console.log('[RESULTS] display después de abrir:', modal.style.display);
+  if (!realLoginButton) {
+    console.error('[RESULTS] No existe #openMiniLogin');
+    return;
+  }
+
+  console.log('[RESULTS] Activando botón real de registro');
+
+  realLoginButton.click();
 });
 
-const modal = document.getElementById('miniLoginModal');
-
-if (modal) {
-  modal.addEventListener('click', function(event) {
-    console.log('[MODAL] Click dentro del modal', event.target);
-  });
-}
 
 
 // ============================================================
-// RECIBIR CONFIRMACIÓN DEL LOGIN / REGISTRO
+// RECIBIR CONFIRMACIÓN DEL REGISTRO
 // ============================================================
 
 window.addEventListener('message', function(event) {
 
-  console.log('[RESULTS] Mensaje recibido:', event.origin, event.data);
-
   if (event.origin !== 'https://test.olibalife.site') {
-    console.log('[RESULTS] Mensaje rechazado por origin');
     return;
   }
 
@@ -1881,7 +1873,7 @@ window.addEventListener('message', function(event) {
     return;
   }
 
-  console.log('[RESULTS] Registro confirmado correctamente');
+  console.log('[RESULTS] Registro confirmado');
 
   trackEvent('registration_success', {
     origin: 'habits_test'
@@ -1900,17 +1892,8 @@ window.addEventListener('message', function(event) {
   }
 
   if (typeof updateScore === 'function') {
-
-    console.log('[RESULTS] Ejecutando updateScore()');
-
     updateScore();
-
-  } else {
-
-    console.error('[RESULTS] updateScore() no está disponible');
-
   }
-
 });
  
 
