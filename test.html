@@ -107,6 +107,164 @@ margin: 10px;
   transform: translateY(0px) scale(0.98);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
+
+ /* ============================================================
+   BOTÓN CONSULTORÍA
+   ============================================================ */
+
+#consultationBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:360px;
+  min-height:52px;
+  margin:14px auto 0;
+  padding:14px 26px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#1f8f70,#35b58f);
+  color:#fff;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.2;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(31,143,112,.22);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+
+#consultationBtn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(31,143,112,.32);
+  filter:brightness(1.05);
+}
+
+#consultationBtn:active{
+  transform:translateY(0);
+  box-shadow:0 5px 15px rgba(31,143,112,.22);
+}
+
+#consultationBtn:focus-visible{
+  outline:3px solid rgba(53,181,143,.35);
+  outline-offset:3px;
+}
+
+
+/* ============================================================
+   MODAL CONSULTORÍA
+   ============================================================ */
+
+#consultationFrameModal{
+  position:fixed;
+  inset:0;
+  z-index:100000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(4px);
+}
+
+
+/* ============================================================
+   CONTENEDOR DEL IFRAME
+   ============================================================ */
+
+#consultationFrameModal .consultation-frame-content{
+  position:relative;
+  width:min(900px,100%);
+  height:min(820px,92vh);
+  padding:0;
+  margin:0;
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+
+
+/* ============================================================
+   IFRAME
+   ============================================================ */
+
+#consultationIframe{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:600px;
+  border:0;
+  background:#fff;
+}
+
+
+/* ============================================================
+   BOTÓN CERRAR
+   ============================================================ */
+
+#closeConsultationModal{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:rgba(255,255,255,.96);
+  color:#222;
+  font-size:20px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+  transition:transform .2s ease,background .2s ease;
+}
+
+#closeConsultationModal:hover{
+  transform:scale(1.05);
+  background:#fff;
+}
+
+
+/* ============================================================
+   MÓVIL
+   ============================================================ */
+
+@media (max-width:600px){
+
+  #consultationBtn{
+    max-width:100%;
+    min-height:50px;
+    padding:13px 20px;
+    font-size:15px;
+  }
+
+  #consultationFrameModal{
+    padding:8px;
+  }
+
+  #consultationFrameModal .consultation-frame-content{
+    width:100%;
+    height:96vh;
+    border-radius:14px;
+  }
+
+  #consultationIframe{
+    min-height:0;
+  }
+
+  #closeConsultationModal{
+    top:8px;
+    right:8px;
+    width:36px;
+    height:36px;
+  }
+
+}
 .dock-menu {
   display: flex;
   gap: 18px;
