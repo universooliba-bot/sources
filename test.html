@@ -985,6 +985,19 @@ background: #064445;
 </head>
 <body>
 
+<div id="consultationFrameModal" class="modal" style="display:none;">
+  <div class="modal-content consultation-frame-content">
+    <div class="close-modal" id="closeConsultationModal">✕</div>
+    <iframe
+      id="consultationIframe"
+      class="consultation-iframe"
+      frameborder="0"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+ 
+
 <div class="info">
 
  <header class="main-header">
@@ -998,6 +1011,7 @@ background: #064445;
     <h2>Test de hábitos saludables</h2>
   
 </header>
+
  
 
   <form id="quizForm" class="quiz-form">
@@ -1235,6 +1249,10 @@ background: #064445;
      <div class="health-hud-container">
   <div id="healthMessageHUD"></div>
 </div>
+
+ <button id="consultationBtn" class="consultation-btn" style="display:none;">
+  Agendar mi primera consultoría gratis
+</button>
      
   <div id="hudContainer" style="position: relative; width: 99%; height: 600px; margin: 0px; z-index: 9900; ">  
 
@@ -1857,6 +1875,14 @@ document.getElementById("closeMiniLogin").addEventListener("click", () => {
 
 
 // ============================================================
+// CONFIGURACIÓN
+// ============================================================
+
+const CONSULTATION_URL = 'https://tidycal.com/universooliba/sesion-gratuita';
+
+
+
+// ============================================================
 // BOTÓN FALSO "VER RESULTADOS"
 // Utiliza exactamente el mismo flujo del botón de registro existente
 // ============================================================
@@ -1882,6 +1908,61 @@ document.getElementById('fakeViewResultsBtn')?.addEventListener('click', functio
   console.log('[RESULTS] Activando botón real de registro');
 
   realLoginButton.click();
+});
+
+
+
+// ============================================================
+// CONSULTORÍA
+// ============================================================
+
+const consultationBtn = document.getElementById('consultationBtn');
+const consultationFrameModal = document.getElementById('consultationFrameModal');
+const consultationIframe = document.getElementById('consultationIframe');
+const closeConsultationModal = document.getElementById('closeConsultationModal');
+
+
+// ------------------------------------------------------------
+// ABRIR CONSULTORÍA
+// ------------------------------------------------------------
+
+consultationBtn?.addEventListener('click', function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  if (!consultationFrameModal || !consultationIframe) {
+    console.error('[CONSULTATION] Modal o iframe no encontrado');
+    return;
+  }
+
+  console.log('[CONSULTATION] Abriendo consultoría');
+
+  consultationIframe.src = CONSULTATION_URL;
+  consultationFrameModal.style.display = 'flex';
+
+  trackEvent('consultation_opened', {
+    origin: 'habits_test'
+  });
+});
+
+
+// ------------------------------------------------------------
+// CERRAR CONSULTORÍA
+// ------------------------------------------------------------
+
+closeConsultationModal?.addEventListener('click', function() {
+
+  if (!consultationFrameModal) {
+    return;
+  }
+
+  consultationFrameModal.style.display = 'none';
+
+  if (consultationIframe) {
+    consultationIframe.src = '';
+  }
+
+  console.log('[CONSULTATION] Modal cerrado');
 });
 
 
@@ -1918,9 +1999,40 @@ window.addEventListener('message', function(event) {
     fakeButton.style.display = 'none';
   }
 
+  // ----------------------------------------------------------
+  // MOSTRAR RESULTADOS
+  // ----------------------------------------------------------
+
   if (typeof updateScore === 'function') {
+
+    console.log('[RESULTS] Mostrando resultados');
+
     updateScore();
+
+  } else {
+
+    console.error('[RESULTS] updateScore() no está disponible');
+
   }
+
+  // ----------------------------------------------------------
+  // MOSTRAR BOTÓN DE CONSULTORÍA
+  // ----------------------------------------------------------
+
+  const consultationBtn = document.getElementById('consultationBtn');
+
+  if (consultationBtn) {
+
+    consultationBtn.style.display = 'inline-flex';
+
+    console.log('[CONSULTATION] Botón de consultoría activado');
+
+  } else {
+
+    console.error('[CONSULTATION] No existe #consultationBtn');
+
+  }
+
 });
  
 
