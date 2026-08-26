@@ -1210,8 +1210,6 @@ background: #064445;
 
 <div class="info">
 
-  <div class="dock-title">OlibaLife</div>
-
 <nav class="dock-menu">
 
   <a href="https://test.olibalife.site/" class="dock-item">
@@ -1465,10 +1463,7 @@ background: #064445;
   <div id="healthMessageHUD"></div>
 </div>
 
- <button id="consultationBtn" class="consultation-btn" style="display:none;">
-  Agendar mi primera consultoría gratis
-</button>
-     
+ 
   <div id="hudContainer" style="position: relative; width: 99%; height: 600px; margin: 0px; z-index: 9900; ">  
 
     <div id="resultsHUD" style="
@@ -1510,7 +1505,7 @@ background: #064445;
  
 <div class="category-cards-container"> 
  
- <header class="main-header">
+ <header class="main-header" hidden>
   <a href="https://test.olibalife.site/" class="header-logo-link">
     <img 
       class="header-logo"
@@ -1541,12 +1536,16 @@ background: #064445;
  <button id="fakeViewResultsBtn" class="cta" type="button">
   Ver resultados
 </button>
-  <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
+ 
+ <button id="consultationBtn" class="consultation-btn" style="display:none;">
+¡Gracias por registrarte! Haz click aquí para obtener tu primera consultoría gratuíta.
+</button>
+     
+  <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha de resultados</button>
 
  <button id="openMiniLogin" class="cta" style="display:none;">Regístrate y obtén una guía de alimentación drenante gratis.</button>
  
    <h2>¿Necesitas un estudio avanzado personalizado?</h2>
- <a href="https://test.olibalife.site/#estudiosfuncionales" class="products-btn">
   Conoce nuestros estudios personalizados
 </a>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
@@ -1564,6 +1563,8 @@ Cómo esto implica en tu energía, metabolismo, descanso y hormonas
     <strong>Tiempo de resultados:</strong> Máximo 7 días
     <strong>¿Para qué sirve?:</strong> Para recibir un informe personalizado y saber qué hábitos, nutrientes o cambios necesitas aplicar para mejorar tu salud desde el origen.
   </p>
+  <a href="https://test.olibalife.site/#estudiosfuncionales" class="products-btn">
+   
 <footer>
   © 2026 www.olibalife.com - Todos los derechos reservados - desarrollado por www.3dtwins.es 
   <br>
