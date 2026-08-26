@@ -31,7 +31,24 @@ body {
   padding-bottom: 100px;    
     padding-bottom: var(--bottom-fixed-height);           
 }
-
+.products-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 24px;
+  border-radius:10px;
+  background:#00a86b;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.products-btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
 .floating-header {
   position: fixed;
   top: 0px;
@@ -1284,12 +1301,13 @@ background: #064445;
   Ver resultados
 </button>
   <button type="button" class="cta" onclick="downloadPatientFile()">Descargar mi ficha</button>
-<a href="https://test.olibalife.site/" class="products-btn">
-  Conoce nuestros estudios personalizados
-</a>
+
  <button id="openMiniLogin" class="cta" style="display:none;">Regístrate y obtén una guía de alimentación drenante gratis.</button>
  
    <h2>¿Sientes que necesitas un estudio avanzado?</h2>
+ <a href="https://test.olibalife.site/" class="products-btn">
+  Conoce nuestros estudios personalizados
+</a>
    Con una simple muestra capilar analizamos cómo están funcionando tus células y qué factores pueden estar afectando a tu energía, tu metabolismo y tu bienestar.
   </p>
   <p>
