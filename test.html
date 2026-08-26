@@ -1210,19 +1210,24 @@ background: #064445;
 
 <div class="info">
 
- <header class="main-header">
-  <a href="https://test.olibalife.site/" class="header-logo-link">
-    <img 
-      class="header-logo"
-      src="https://test.olibalife.site/logoolibalife.png"
-      alt="OlibaLife">
+  <div class="dock-title">OlibaLife</div>
+
+<nav class="dock-menu">
+
+  <a href="https://test.olibalife.site/" class="dock-item">
+    <i class="fa-solid fa-house"></i>
+    <span>Inicio</span>
   </a>
 
-    <h2>Test de hábitos saludables</h2>
-  
-</header>
+  <a href="https://test.olibalife.site/#estudiosfuncionales" class="dock-item">
+    <i class="fa-solid fa-dna"></i>
+    <span>Estudios personalizados</span>
+  </a>
 
- 
+</nav>
+
+
+     <h2>Test de hábitos saludables</h2>
 
   <form id="quizForm" class="quiz-form">
     
@@ -1504,24 +1509,15 @@ background: #064445;
 
  
 <div class="category-cards-container"> 
-
- <div class="dock-title">OlibaLife</div>
-
-<nav class="dock-menu">
-
-  <a href="https://test.olibalife.site/" class="dock-item">
-    <i class="fa-solid fa-house"></i>
-    <span>Inicio</span>
-  </a>
-
-  <a href="https://test.olibalife.site/#estudiosfuncionales" class="dock-item">
-    <i class="fa-solid fa-dna"></i>
-    <span>Estudios personalizados</span>
-  </a>
-
-</nav>
-
-
+ 
+ <header class="main-header">
+  <a href="https://test.olibalife.site/" class="header-logo-link">
+    <img 
+      class="header-logo"
+      src="https://test.olibalife.site/logoolibalife.png"
+      alt="OlibaLife">
+  </a> 
+</header>
  
     <h3>Resultados y recomendaciones</h3>   
      
@@ -1658,7 +1654,15 @@ window.dataLayer = window.dataLayer || [];
     });
   });
 
+const downloadFichaBtn = document.querySelector('button.cta[onclick*="downloadPatientFile"]');
 
+if (downloadFichaBtn) {
+  downloadFichaBtn.style.display = 'none';
+}
+
+
+
+ 
 
 let baseModelURL = 'https://viewer.3dtwins.tech/adnOlivalife.glb';
 let gltfScene = null;
@@ -2227,18 +2231,24 @@ window.addEventListener('message', function(event) {
   // MOSTRAR RESULTADOS
   // ----------------------------------------------------------
 
-  if (typeof updateScore === 'function') {
+if (typeof updateScore === 'function') {
 
-    console.log('[RESULTS] Mostrando resultados');
+  console.log('[RESULTS] Mostrando resultados');
 
-    updateScore();
+  updateScore();
 
-  } else {
+  const downloadFichaBtn = document.querySelector('button.cta[onclick*="downloadPatientFile"]');
 
-    console.error('[RESULTS] updateScore() no está disponible');
-
+  if (downloadFichaBtn) {
+    downloadFichaBtn.style.display = 'inline-flex';
+    console.log('[RESULTS] Botón de ficha activado');
   }
 
+} else {
+
+  console.error('[RESULTS] updateScore() no está disponible');
+
+}
   // ----------------------------------------------------------
   // MOSTRAR BOTÓN DE CONSULTORÍA
   // ----------------------------------------------------------
