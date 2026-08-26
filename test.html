@@ -265,32 +265,84 @@ margin: 10px;
   }
 
 }
-.dock-menu {
-  display: flex;
-  gap: 18px;
-background: #064445;
-  padding: 18px 20px;
-  border-radius: 22px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+.dock-title{
+  width:100%;
+  text-align:center;
+  margin:0 0 12px;
+  color:#013732;
+  font-size:1rem;
+  font-weight:800;
+  line-height:1.2;
 }
 
-.dock-item {
-  font-size: 1.1rem;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.25s ease, filter 0.25s ease, color 0.25s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.dock-menu{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
 }
 
-.dock-item:hover {
-  transform: scale(1.35);
-  color: #0f9b4d;
-  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+.dock-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 16px;
+  min-height:42px;
+  box-sizing:border-box;
+  border-radius:10px;
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(1,55,50,.12);
+  color:#013732;
+  text-decoration:none;
+  font-family:inherit;
+  font-size:.78rem;
+  font-weight:700;
+  white-space:nowrap;
+  transition:all .2s ease;
 }
 
+.dock-item i{
+  font-size:1rem;
+  line-height:1;
+}
+
+.dock-item span{
+  display:inline;
+  width:auto;
+  text-align:left;
+  font-size:inherit;
+  font-weight:inherit;
+  line-height:1.2;
+}
+
+.dock-item:hover{
+  background:#013732;
+  color:#fff;
+  border-color:#013732;
+  transform:translateY(-1px);
+  box-shadow:0 5px 14px rgba(1,55,50,.18);
+}
+
+.dock-item:active{
+  transform:translateY(0);
+}
+
+@media(max-width:600px){
+  .dock-menu{
+    gap:7px;
+  }
+
+  .dock-item{
+    padding:9px 12px;
+    font-size:.72rem;
+  }
+
+  .dock-item i{
+    font-size:.9rem;
+  }
+}
 .sidebar {
   width: 100%;
   backdrop-filter: blur(12px);
@@ -1453,10 +1505,10 @@ background: #064445;
  
 <div class="category-cards-container"> 
 
- 
- 
-<div class="dock-title">OlibaLife</div>
+ <div class="dock-title">OlibaLife</div>
+
 <nav class="dock-menu">
+
   <a href="https://test.olibalife.site/" class="dock-item">
     <i class="fa-solid fa-house"></i>
     <span>Inicio</span>
@@ -1466,6 +1518,7 @@ background: #064445;
     <i class="fa-solid fa-dna"></i>
     <span>Estudios personalizados</span>
   </a>
+
 </nav>
 
 
