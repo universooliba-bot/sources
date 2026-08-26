@@ -50,6 +50,53 @@
  
 }
 
+  #landingRegisterBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:360px;
+  min-height:54px;
+  padding:14px 28px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(135deg,#1f8f70,#35b58f);
+  color:#fff;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.2;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(31,143,112,.25);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+
+#landingRegisterBtn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(31,143,112,.35);
+  filter:brightness(1.05);
+}
+
+#landingRegisterBtn:active{
+  transform:translateY(0);
+  box-shadow:0 5px 16px rgba(31,143,112,.25);
+}
+
+#landingRegisterBtn:focus-visible{
+  outline:3px solid rgba(53,181,143,.35);
+  outline-offset:3px;
+}
+
+@media (max-width:600px){
+  #landingRegisterBtn{
+    max-width:100%;
+    min-height:52px;
+    padding:13px 22px;
+    font-size:15px;
+  }
+}
+
 
 .ct-product-media {
   position: relative;
